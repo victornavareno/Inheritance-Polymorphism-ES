@@ -1,33 +1,41 @@
 
 /**
- * Write a description of class Etapa here.
+ * La clase Etapa representa al recorrido donde competirán 
+ * cada jornada los Ciclistas con sus Bicicletas.
  * 
  * @author (your name) 
- * @version (a version number or a date)
+ * @version 05.10
  */
 public class Etapa
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // campos de la clase Etapa
+    private String nombre;
+    private int dificultad;
+    private int distancia;
 
     /**
-     * Constructor for objects of class Etapa
+     * Constructor parametrizado de la clase Etapa
      */
-    public Etapa()
+    public Etapa(String nombreEtapa, int dificultadEtapa, int distanciaEtapa)
     {
-        // initialise instance variables
-        x = 0;
+        this.nombre = nombreEtapa;
+        this.dificultad = dificultadEtapa;
+        this.distancia = distanciaEtapa;
+        
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * metodos get de la clase etapa:
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public String getNombreEtapa(){
+        return this.nombre;
+    }
+    
+    public int getDificultadEtapa(){
+        return this.dificultad;
+    }
+    
+    public int getDistanciaEtapa(){
+        return this.distancia;
     }
 }
