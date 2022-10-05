@@ -1,33 +1,58 @@
 
 /**
- * Write a description of class Bicicleta here.
+ * La clase Bicicleta representa a las distintas bicicletas 
+ * que los Ciclistas pueden usar en las Etapas. 
  * 
  * @author (your name) 
- * @version (a version number or a date)
+ * @version 05.10
  */
 public class Bicicleta
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // definicion de campos de la clase Bicicleta
+    private String nombreBicicleta;
+    private int peso;
+    
+    private int velocidad;
+    private int tiempo;
 
     /**
-     * Constructor for objects of class Bicicleta
+     * Constructor parametrizado de Bicicleta
      */
-    public Bicicleta()
+    public Bicicleta(String nombreBici, int pesoBici)
     {
-        // initialise instance variables
-        x = 0;
+        this. nombreBicicleta = nombreBici;
+        this.peso = pesoBici;
     }
+    
 
     /**
-     * An example of a method - replace this comment with your own
+     * calcular su velocidad cuando es usada por un Ciclista 
+     * en particular en una Etapa en concreto
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @param  habilidadCiclista, dificultadEtapa
+     * @return    velocidad
      */
-    public int sampleMethod(int y)
+    public int calcularVelocidadBicicleta(int habilidadCiclista, int dificultadEtapa)
     {
-        // put your code here
-        return x + y;
+        this.velocidad = (habilidadCiclista * 100) / (this.peso * dificultadEtapa);
+        return this.velocidad;
     }
+    
+    /**
+     *  proporcionar el tiempo necesario (medido en minutos) para terminar
+     *  la Etapa cuando es usada por un Ciclista en particular en una Etapa concreta
+     
+     * @param  habilidadCiclista, dificultadEtapa
+     * @return    velocidad
+     */
+    public int calcularTiempo(int distanciaEtapa, int velocidadBicicleta)
+    {
+        this.tiempo = (distanciaEtapa / velocidadBicicleta) * 60;
+        return this.tiempo;
+    }
+    
+    
+    
+    
+    
 }
