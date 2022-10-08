@@ -1,41 +1,78 @@
-
 /**
- * La clase Etapa representa al recorrido donde competirán 
- * cada jornada los Ciclistas con sus Bicicletas.
+ * Write a description of class Etapa here.
  * 
- * @author (your name) 
- * @version 05.10
+ * @author Elena Chacon Viniegra
+ * @author Victor 
+ * @author Andres Leo Santiago
+ * @version 1
  */
 public class Etapa
 {
-    // campos de la clase Etapa
     private String nombre;
-    private int dificultad;
-    private int distancia;
+    private double dificultad;
+    private double distancia;
 
     /**
-     * Constructor parametrizado de la clase Etapa
+     * Constructor de clase Etapa
+     * @param nombre String es el nombre de la etama
+     * @param dificultad Double mide la dureza del recorrido
+     * @param distancia Double son los kilometros a realizar en el recorrido de la Etapa
      */
-    public Etapa(String nombreEtapa, int dificultadEtapa, int distanciaEtapa)
+    public Etapa(String nombre, double dificultad, double distancia)
     {
-        this.nombre = nombreEtapa;
-        this.dificultad = dificultadEtapa;
-        this.distancia = distanciaEtapa;
-        
+        this.nombre= nombre;
+        this.dificultad = dificultad;
+        this.distancia = distancia;
     }
 
     /**
-     * metodos get de la clase etapa:
+     * Devuelve el nombre
+     * @return String con el nombre de la etapa
      */
-    public String getNombreEtapa(){
-        return this.nombre;
+    public String getNombre()
+    {
+        return nombre;
     }
     
-    public int getDificultadEtapa(){
-        return this.dificultad;
+    /**
+     * Devuelve la dificultad
+     * @return Double con la dificultad del recorrido
+     */
+    public double getDificultad (){
+        return dificultad;
     }
     
-    public int getDistanciaEtapa(){
-        return this.distancia;
+    /**
+     * Devuelve la distancia
+     * @return Double con la distancia recorrida en la etapa
+     */
+    public double getDistancia () {
+        return distancia;
     }
+    
+    /**
+     * Asigna el nombre
+     * @param nombre String que especifica el nombre de la etapa
+     */
+    public void setNombre (String nombre){
+        this.nombre = nombre;
+    }
+    
+    /**
+     * Asigna la dificultad
+     * @param dificultad Double que especifica la dificultad de la etapa
+     */
+    public void setDificultad (double dificultad){
+        this.dificultad = dificultad;
+    }
+    
+    /**
+     * Asigna la distancia
+     * @param distancia Double que especifica la distancia de la etapa
+     */
+    public void setDistancia (double distancia){
+        this.distancia = distancia;
+    }
+    
+    
 }
