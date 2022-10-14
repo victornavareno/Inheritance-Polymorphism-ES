@@ -35,12 +35,12 @@ public class Ciclista
         this.energia = energia;
         this.resultados = resultados;
         this.abandono = abandono;
+        
         this.equipo = equipo;
         this.bicicleta = bicicleta;
     }
     
     //MÉTODOS DE ACCESO (get)
-
     /**
      * Devuelve el nombre 
      * 
@@ -50,7 +50,7 @@ public class Ciclista
     {
         return this.nombre;
     }
-
+    
     /**
      * Devuelve la habilidad
      * 
@@ -110,7 +110,6 @@ public class Ciclista
     }
     
     //MÉTODOS MODIFICADORES (set)
-    
     /**
      * Asigna el nombre
      * 
@@ -175,9 +174,19 @@ public class Ciclista
     }
     
     // OTROS MÉTODOS DE LA CLASE CICLISTA:
+    /**
+     * muestra las características de un Ciclista
+     */
+    void mostrar(){
+        System.out.println("ciclista:" + this.nombre);
+        System.out.println("ciclista:" + this.nombre);
+        System.out.println("ciclista:" + this.nombre);
+        System.out.println("equipo:" + this.equipo);
+        System.out.println("ciclista:" + this.nombre);
+    }
 
     /**
-     * Actualiza el estado del ciclista, si no tiene energia abandona 
+     * Comprueba y actualiza el estado del ciclista, si no tiene energia abandona 
      * 
      */
     public void actualizarAbandono(){

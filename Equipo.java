@@ -1,13 +1,17 @@
 
 /**
- * Write a description of class Equipo here.
+ * Representa los Equipos que competirán tanto por ganar la clasificación por Equipos como que
+ * uno de sus Ciclistas gane el campeonato individual de Ciclistas.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Elena
+ * @author Victor
+ * @author Andres
+ * @version 09.10
  */
 public class Equipo
 {
-    // instance variables - replace the example below with your own
+    private String nombre;
+    private Ciclista[] ciclista;
     private int x;
 
     /**

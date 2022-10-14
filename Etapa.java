@@ -10,7 +10,7 @@ public class Etapa
 {
     private String nombre;
     private double dificultad;
-    private double distancia;
+    private int distancia;
 
     /**
      * Constructor de clase Etapa
@@ -18,13 +18,14 @@ public class Etapa
      * @param dificultad Double mide la dureza del recorrido
      * @param distancia Double son los kilometros a realizar en el recorrido de la Etapa
      */
-    public Etapa(String nombre, double dificultad, double distancia)
+    public Etapa(String nombre, double dificultad, int distancia)
     {
         this.nombre= nombre;
         this.dificultad = dificultad;
         this.distancia = distancia;
     }
-
+    
+    //MÉTODOS DE ACCESO (get)
     /**
      * Devuelve el nombre
      * @return String con el nombre de la etapa
@@ -44,12 +45,13 @@ public class Etapa
     
     /**
      * Devuelve la distancia
-     * @return Double con la distancia recorrida en la etapa
+     * @return Int con la distancia recorrida en la etapa
      */
-    public double getDistancia () {
+    public int getDistancia () {
         return distancia;
     }
     
+    //MÉTODOS MODIFICADORES (set)
     /**
      * Asigna el nombre
      * @param nombre String que especifica el nombre de la etapa
@@ -60,9 +62,9 @@ public class Etapa
     
     /**
      * Asigna la dificultad
-     * @param dificultad Double que especifica la dificultad de la etapa
+     * @param dificultad Int que especifica la dificultad de la etapa
      */
-    public void setDificultad (double dificultad){
+    public void setDificultad (int dificultad){
         this.dificultad = dificultad;
     }
     
@@ -70,9 +72,19 @@ public class Etapa
      * Asigna la distancia
      * @param distancia Double que especifica la distancia de la etapa
      */
-    public void setDistancia (double distancia){
+    public void setDistancia (int distancia){
         this.distancia = distancia;
     }
     
+    //OTROS MÉTODOS DE LA CLASE Etapa:
+    /**
+     * muestra las características de una Etapa
+     */
+    void mostrar(){
+        System.out.println("Etapa: " + this.nombre);
+        System.out.println("Dificultad: " + this.dificultad);
+        System.out.println("Distancia: " + this.distancia);
+        
+    }
     
 }
