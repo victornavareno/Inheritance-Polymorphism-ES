@@ -1,6 +1,6 @@
 import java.util.Comparator;
 /**
- * Compara la energia de 2 Ciclistas, 
+ * Compara y ordena la energia de 2 Ciclistas, por orden descendente
  * y en caso de empate ordena por el nombre.
  * 
  * @author Victor
