@@ -13,7 +13,6 @@ public class Bicicleta
     // definicion de campos de la clase Bicicleta
     private String nombre;
     private int peso;
-    
     private int velocidad;
     private int tiempo;
     
@@ -24,6 +23,8 @@ public class Bicicleta
     {
         this. nombre = nombreBici;
         this.peso = pesoBici;
+        this.velocidad = 0; // POR DEFECTO 0
+        this.tiempo = 0; // POR DEFECTO 0
     }
     
     //MÉTODOS MODIFICADORES (set)

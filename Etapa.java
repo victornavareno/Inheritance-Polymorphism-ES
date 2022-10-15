@@ -25,6 +25,31 @@ public class Etapa
         this.distancia = distancia;
     }
     
+    //MÉTODOS MODIFICADORES (set)
+    /**
+     * Asigna el nombre
+     * @param nombre String que especifica el nombre de la etapa
+     */
+    public void setNombre (String nombre){
+        this.nombre = nombre;
+    }
+    
+    /**
+     * Asigna la dificultad
+     * @param dificultad Int que especifica la dificultad de la etapa
+     */
+    public void setDificultad (int dificultad){
+        this.dificultad = dificultad;
+    }
+    
+    /**
+     * Asigna la distancia
+     * @param distancia Double que especifica la distancia de la etapa
+     */
+    public void setDistancia (int distancia){
+        this.distancia = distancia;
+    }
+    
     //MÉTODOS DE ACCESO (get)
     /**
      * Devuelve el nombre
@@ -49,31 +74,6 @@ public class Etapa
      */
     public int getDistancia () {
         return distancia;
-    }
-    
-    //MÉTODOS MODIFICADORES (set)
-    /**
-     * Asigna el nombre
-     * @param nombre String que especifica el nombre de la etapa
-     */
-    public void setNombre (String nombre){
-        this.nombre = nombre;
-    }
-    
-    /**
-     * Asigna la dificultad
-     * @param dificultad Int que especifica la dificultad de la etapa
-     */
-    public void setDificultad (int dificultad){
-        this.dificultad = dificultad;
-    }
-    
-    /**
-     * Asigna la distancia
-     * @param distancia Double que especifica la distancia de la etapa
-     */
-    public void setDistancia (int distancia){
-        this.distancia = distancia;
     }
     
     //OTROS MÉTODOS DE LA CLASE Etapa:

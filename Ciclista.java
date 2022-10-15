@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * La clase Ciclista representa a los ciclistas que competirán con sus Bicicletas cada Etapa. La
@@ -11,11 +12,13 @@ public class Ciclista
     private String nombre;
     private int habilidad;
     private int energia;
-    private int resultados;
     private boolean abandono;
 
-    private Equipo equipo; 
+    private Equipo equipo;
     private Bicicleta bicicleta;
+    
+    //Arraylist con los resultados obtenidos por el ciclista en cada etapa
+    static ArrayList<Resultado> resultados;
 
     /**
      * Constructor de la clase Ciclista
@@ -28,15 +31,71 @@ public class Ciclista
      * @param equipo     Equipo al que pertenece el ciclista
      * @param bicicleta  Bicicleta asignada al ciclista
      */
-    public Ciclista(String nombre, int habilidad, int energia, int resultados, boolean abandono, Bicicleta bicicleta, Equipo equipo)
+    public Ciclista(String nombre, int habilidad, int energia, boolean abandono, Bicicleta bicicleta, Equipo equipo)
     {
         this.nombre = nombre;
         this.habilidad = habilidad;
         this.energia = energia;
-        this.resultados = resultados;
         this.abandono = abandono;
         
         this.equipo = equipo;
+        this.bicicleta = bicicleta;
+        
+        resultados = new ArrayList<Resultado>();
+    }
+    
+    //MÉTODOS MODIFICADORES (set)
+    /**
+     * Asigna el nombre
+     * 
+     * @param nombre String con el nombre del Ciclista
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    /**
+     * Asigna el valor de la habilidad
+     * 
+     * @param Int valor de la habilidad del ciclista
+     */
+    public void setHabilidad(int habilidad) {
+        this.habilidad = habilidad;
+    }
+    
+    /**
+     * Asigna el valor de la energia
+     * 
+     * @param Int valor de la energia restante del ciclista
+     */
+    public void setEnergia(int energia) {
+        this.energia = energia;
+    }
+               
+    /**
+     * Asigna el estado de abandono 
+     * 
+     * @param Boolean estado de abandono del ciclista en la competicion
+     */
+    public void setAbandono(boolean abandono) {
+        this.abandono = abandono;
+    }
+    
+    /**
+     * Asigna el Equipo
+     * 
+     * @param Equipo asignado al ciclista
+     */
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
+    }
+        
+    /**
+     * Asigna la Bicicleta
+     * 
+     * @param Bicicleta bicleta asignada al ciclista
+     */
+    public void setBicicleta(Bicicleta bicicleta) {
         this.bicicleta = bicicleta;
     }
     
@@ -70,17 +129,7 @@ public class Ciclista
     {
         return this.energia;
     }
-    
-    /**
-     * Devuelve los resultados
-     * 
-     * @return Int con los resultados del ciclista
-     */
-    public int getResultados()
-    {
-        return this.resultados;
-    }
-    
+
     /**
      * Devuelve la energia 
      * 
@@ -109,69 +158,30 @@ public class Ciclista
         return this.bicicleta;
     }
     
-    //MÉTODOS MODIFICADORES (set)
+    //MÉTODOS CONTROL DEL ARRAYLIST de Resultados:
     /**
-     * Asigna el nombre
-     * 
-     * @param nombre String con el nombre del Ciclista
+     * Obtiene un resultado de la colección
+     * @param indice El indice del resultado que queremos obtener
      */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void getResultado(int indice)
+    {
+        if(indice >= 0 && indice < resultados.size()) {
+            Resultado resultado = resultados.get(indice);
+        }
+    }
+
+    /**
+     * Borra un resultado de la coleccion
+     * @param indice El índice del resultado a borrar
+     */
+    public void borrarResultado(int indice)
+    {
+        if(indice >= 0 && indice < resultados.size()) {
+            resultados.remove(indice);
+        }
     }
     
-    /**
-     * Asigna el valor de la habilidad
-     * 
-     * @param Int valor de la habilidad del ciclista
-     */
-    public void setHabilidad(int habilidad) {
-        this.habilidad = habilidad;
-    }
     
-    /**
-     * Asigna el valor de la energia
-     * 
-     * @param Int valor de la energia restante del ciclista
-     */
-    public void setEnergia(int energia) {
-        this.energia = energia;
-    }
-          
-    /**
-     * Asigna el valor de los resultados
-     * 
-     * @param Int valor de los resultados del ciclista
-     */
-    public void setResultados(int resultados) {
-        this.resultados = resultados;
-    }
-           
-    /**
-     * Asigna el estado de abandono 
-     * 
-     * @param Boolean estado de abandono del ciclista en la competicion
-     */
-    public void setAbandono(boolean abandono) {
-        this.abandono = abandono;
-    }
-    
-    /**
-     * Asigna el Equipo
-     * 
-     * @param Equipo asignado al ciclista
-     */
-    public void setEquipo(Equipo equipo) {
-        this.equipo = equipo;
-    }
-        
-    /**
-     * Asigna la Bicicleta
-     * 
-     * @param Bicicleta bicleta asignada al ciclista
-     */
-    public void setBicicleta(Bicicleta bicicleta) {
-        this.bicicleta = bicicleta;
-    }
     
     // OTROS MÉTODOS DE LA CLASE CICLISTA:
     /**
