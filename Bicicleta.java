@@ -13,16 +13,18 @@ public class Bicicleta
     // definicion de campos de la clase Bicicleta
     private String nombre;
     private int peso;
+    private double perdurabilidad;
     private int velocidad;
     private int tiempo;
     
     /**
      *  Constructor parametrizado de Bicicleta
      */
-    public Bicicleta(String nombreBici, int pesoBici)
+    public Bicicleta(String nombreBici, int pesoBici, double perBici)
     {
         this. nombre = nombreBici;
         this.peso = pesoBici;
+        this.perdurabilidad = perBici;
         this.velocidad = 0; // POR DEFECTO 0
         this.tiempo = 0; // POR DEFECTO 0
     }
@@ -43,6 +45,14 @@ public class Bicicleta
     void setPeso(int pesoBici){
         this.peso = pesoBici;
     }
+    
+    /**
+     * Asigna la perdurabilidad
+     * @param perdurabilidad double que especifica la perdurabilidad de la bicicleta
+     */
+    public void setPerdurabilidad(double perdurabilidad) {
+        this.perdurabilidad = perdurabilidad;
+    }
    
     //MÉTODOS DE ACCESO(get)
     /**
@@ -59,6 +69,14 @@ public class Bicicleta
      */
     int getPeso(){
         return this.peso;
+    }
+    
+     /**
+     * Devuelve la perdurabilidad
+     * @return double que especifica la perdurabilidad de la bicicleta
+     */
+    public double getPerdurabilidad() {
+        return this.perdurabilidad;
     }
     
     //OTROS METODOS DE LA CLASE Bicicleta:
