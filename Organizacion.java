@@ -1,23 +1,23 @@
 import java.util.*;
 /**
- * Representa a la clase capaz de gestionar el campeonato.
+ * Representa a la clase Organizacion, capaz de gestionar el campeonato.
  * 
  * @author Elena
  * @author Andrés  
  * @author Víctor e
  * @version 15.10
  */
-public class Organización
+public class Organizacion
 {
     // instance variables - replace the example below with your own
     private ArrayList<Etapa> etapas;
     private ArrayList<Equipo> equipos;
     private ArrayList<Ciclista> ciclistasCarrera;
-
+    
     /**
-     * Constructor de la clase Organización
+     * Constructor de la clase Organizacion
      */
-    public Organización()
+    public Organizacion()
     {
         etapas = new ArrayList<Etapa>();
         equipos = new ArrayList<Equipo>();
