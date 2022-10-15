@@ -36,7 +36,7 @@ public class Ciclista
         this.nombre = nombre;
         this.habilidad = habilidad;
         this.energia = energia;
-        this.abandono = abandono;
+        this.abandono = abandono; 
         
         this.equipo = equipo;
         this.bicicleta = bicicleta;
@@ -207,5 +207,4 @@ public class Ciclista
             setAbandono(true);
         }
     }
-
 }

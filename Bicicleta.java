@@ -95,6 +95,4 @@ public class Bicicleta
         this.tiempo = (distanciaEtapa / velocidadBicicleta) * 60;
         return this.tiempo;
     }
-    
-    
 }

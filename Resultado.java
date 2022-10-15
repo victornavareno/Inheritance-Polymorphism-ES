@@ -59,4 +59,5 @@ public class Resultado
     {
         return this.tiempo;
     }
+    
 }

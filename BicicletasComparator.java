@@ -13,7 +13,7 @@ abstract class BicicletasComparator implements Comparator<Bicicleta>{
         else if (bicicleta1.getPeso() < bicicleta2.getPeso())
             return -1;
             
-        //DESEMPATE: ORDENAMOS POR NOMBRE (función .compareTo() especial Strings)
+        //DESEMPATE: ORDENAMOS POR NOMBRE (función .compareTo() especial strings)
         else
             return bicicleta1.getNombre().compareTo(bicicleta2.getNombre()); 
     }
