@@ -75,29 +75,5 @@ public class Etapa
     public int getDistancia () {
         return distancia;
     }
-    
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    //OTROS MÉTODOS DE LA CLASE Etapa:
-    /**
-     * muestra las características de una Etapa
-     */
-    void mostrar(){
-        System.out.println("Etapa: " + this.nombre);
-        System.out.println("Dificultad: " + this.dificultad);
-        System.out.println("Distancia: " + this.distancia);
-=======
-    public String toString(){
-        return "Etapa (Nombre = " + nombre + ", dificultad = " + dificultad + ", distancia = "+ distancia + ")";
->>>>>>> a129160efb0e14765adc9f7d84fc6db05932f198
-=======
-    public String toString(){
-        return "Etapa (Nombre = " + nombre + ", dificultad = " + dificultad + ", distancia = "+ distancia + ")";
->>>>>>> a129160efb0e14765adc9f7d84fc6db05932f198
-=======
-    public String toString(){
-        return "Etapa (Nombre = " + nombre + ", dificultad = " + dificultad + ", distancia = "+ distancia + ")";
->>>>>>> a129160efb0e14765adc9f7d84fc6db05932f198
-    }
+
 }
