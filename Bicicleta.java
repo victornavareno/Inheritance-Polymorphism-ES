@@ -114,4 +114,12 @@ public class Bicicleta
         this.tiempo = (distanciaEtapa / velocidadBicicleta) * 60;
         return this.tiempo;
     }
+<<<<<<< HEAD
+=======
+    
+    public String toString(){
+        return "Bicicleta (Nombre = "+ nombre + ", Peso = " + peso + ", Perdurabilidad = " + perdurabilidad + ", Velocidad = " + velocidad + ", Tiempo = " + tiempo + ")";
+    }
+    
+>>>>>>> a129160efb0e14765adc9f7d84fc6db05932f198
 }
