@@ -87,6 +87,7 @@ public class Bicicleta
         System.out.println("Bicicleta: " + this.nombre);
         System.out.println("Peso: " + this.peso);
     }
+
     
     /**
      *  calcular y proporcionar su velocidad cuando es usada por un Ciclista 

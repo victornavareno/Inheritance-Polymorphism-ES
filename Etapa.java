@@ -84,7 +84,6 @@ public class Etapa
         System.out.println("Etapa: " + this.nombre);
         System.out.println("Dificultad: " + this.dificultad);
         System.out.println("Distancia: " + this.distancia);
-        
     }
     
 }

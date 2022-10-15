@@ -187,12 +187,8 @@ public class Ciclista
     /**
      * muestra las características de un Ciclista
      */
-    void mostrar(){
-        System.out.println("ciclista:" + this.nombre);
-        System.out.println("ciclista:" + this.nombre);
-        System.out.println("ciclista:" + this.nombre);
-        System.out.println("equipo:" + this.equipo);
-        System.out.println("ciclista:" + this.nombre);
+    public String toString(){
+        return "Ciclista (Nombre = " + this.nombre + ", Habilidad: " + this.habilidad + ", Energia: " + this.energia + ")";
     }
 
     /**
