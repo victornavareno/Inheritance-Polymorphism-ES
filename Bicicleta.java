@@ -114,5 +114,8 @@ public class Bicicleta
         return this.tiempo;
     }
     
+    public String toString(){
+        return "Bicicleta (Nombre = "+ nombre + ", Peso = " + peso + ", Perdurabilidad = " + perdurabilidad + ", Velocidad = " + velocidad + ", Tiempo = " + tiempo + ")";
+    }
     
 }
