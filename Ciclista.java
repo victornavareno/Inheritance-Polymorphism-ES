@@ -181,8 +181,6 @@ public class Ciclista
         }
     }
     
-    
-    
     // OTROS MÉTODOS DE LA CLASE CICLISTA:
     /**
      * muestra las características de un Ciclista

@@ -23,7 +23,7 @@ public class Organizacion
         equipos = new ArrayList<Equipo>();
         ciclistasCarrera = new ArrayList<Ciclista>();
     }
-
+    
     /**
      * An example of a method - replace this comment with your own
      * 

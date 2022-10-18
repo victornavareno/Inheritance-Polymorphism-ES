@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-
+import java.util.*;
 /**
  * Representa los Equipos que competirán tanto por ganar la clasificación por Equipos como que
  * uno de sus Ciclistas gane el campeonato individual de Ciclistas.
@@ -80,7 +79,7 @@ public class Equipo
      * @return ArrayList<Ciclista> con los ciclistas 
      */
     public ArrayList<Ciclista> getCiclistas() {
-        return ciclistas;
+        return this.ciclistas;
     }
     
     /**
@@ -89,7 +88,7 @@ public class Equipo
      * @return ArrayList<Ciclista> con los ciclistasAbandonado
      */
     public ArrayList<Ciclista> getCiclistasAbandonado() {
-        return ciclistasAbandonado;
+        return this.ciclistasAbandonado;
     }
     
     /**
@@ -98,9 +97,31 @@ public class Equipo
      * @return ArrayList<Bicicleta> con las bicicletas
      */
     public ArrayList<Bicicleta> getBicicletas() {
-        return bicicletas;
+        return this.bicicletas;
     }
     
-    //MÉTODOS DE LOS ARRAYLIST 
+    //MÉTODOS DE LOS ARRAYLIST:
+    //Ordenando los ArrayList de ciclistas y bicicletas
+    /**
+     * Ordena el ArrayList de ciclistas segun criterios del ComparatorCiclistas
+     * 
+     * @return ArrayList<Ciclista> con los ciclistas ordenados 
+     */
+    public void OrdenarCiclistas(){
+        System.out.println("Ordenando ciclistas por energia");  
+    Collections.sort(this.ciclistas, new CiclistasComparator());
+    }
+    
+    /**
+     * Ordena el ArrayList de bicicletas segun criterios del ComparatorBicicletas
+     * 
+     * @return ArrayList<Bicicleta> con las bicicletas
+     */
+    public void OrdenarBicicletas(){
+        System.out.println("Ordenando bicicletas por peso");  
+    Collections.sort(this.bicicletas, new BicicletasComparator());
+    }
+    
     //TODO
 }
+
