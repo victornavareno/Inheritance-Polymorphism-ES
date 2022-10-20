@@ -182,7 +182,7 @@ public class Ciclista
     }
     
     /**
-     * Encuentra el resultado obtenido en una etapa en concreto
+     * Encuentra y devuelve el resultado obtenido en una etapa en concreto
      * @param Etapa la etapa de la cual queremos conocer el tiempo resultado
      * @return Int tiempo obtenido en etapa
      */
@@ -201,6 +201,28 @@ public class Ciclista
         return tiempoEtapa;
     }
     
+    
+    //NO SÉ SI ESTOS MÉTODOS ESTÁN BIEN:
+    /**
+     * Devuelve el numero de etapas en las que ha participado el ciclista, incluye la etapa en la que abandona
+     * @return Int total de etapas
+     */
+    public int obtenerTotalEtapas(){
+        return this.resultados.size();
+    }
+    
+    /**
+     * Devuelve la etapa final del ciclista, en la que abandona
+     * @return Int total de etapas
+     */
+    public Etapa obtenerEtapaAbandono(){
+
+        if(this.abandono == true){
+            return this.resultados.get(resultados.size()).getEtapa();
+        }
+        else return null;
+    }
+    
     // OTROS MÉTODOS DE LA CLASE CICLISTA:
     /**
      * muestra las características de un Ciclista
@@ -213,12 +235,16 @@ public class Ciclista
      * Comprueba y actualiza el estado del ciclista, si no tiene energia abandona 
      * 
      */
-    public void actualizarAbandono(){
+    public boolean actualizarAbandono(){
+        boolean abandona;
         if(this.energia > 0){
+            abandona = false;
             setAbandono(false);
         }
         else{
+            abandona = true;
             setAbandono(true);
         }
+        return abandona;
     }
 }

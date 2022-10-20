@@ -24,6 +24,12 @@ public class Organizacion
         ciclistasCarrera = new ArrayList<Ciclista>();
     }
     
+    
+    //FUNCIONALIDAD CLASE ORGANIZACIÓN =
+    public void inscribirEquipos(){
+            
+    }
+    
     /**
      * An example of a method - replace this comment with your own
      * 
