@@ -181,6 +181,26 @@ public class Ciclista
         }
     }
     
+    /**
+     * Encuentra el resultado obtenido en una etapa en concreto
+     * @param Etapa la etapa de la cual queremos conocer el tiempo resultado
+     * @return Int tiempo obtenido en etapa
+     */
+    public int obtenerTiempoEtapa(Etapa etapa){
+        int tiempoEtapa = 0;
+        int indice = 0;
+        boolean etapaEncontrada = false; // bandera búsqueda en el ArrayList
+        
+        while((indice < resultados.size()) && (!etapaEncontrada)){
+            if(resultados.get(indice).getEtapa().equals(etapa)){ //USAMOS EL EQUALS PARA COMPARAR OBJETOS
+                tiempoEtapa = resultados.get(indice).getTiempo();
+                etapaEncontrada = true;
+            }
+            else indice++;
+        }
+        return tiempoEtapa;
+    }
+    
     // OTROS MÉTODOS DE LA CLASE CICLISTA:
     /**
      * muestra las características de un Ciclista
