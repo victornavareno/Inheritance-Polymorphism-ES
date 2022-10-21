@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * La clase Ciclista representa a los ciclistas que competirán con sus Bicicletas cada Etapa. La
@@ -200,7 +200,7 @@ public class Ciclista
         }
         return tiempoEtapa;
     }
-    
+
     
     //NO SÉ SI ESTOS MÉTODOS ESTÁN BIEN:
     /**

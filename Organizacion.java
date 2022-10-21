@@ -26,18 +26,27 @@ public class Organizacion
     
     
     //FUNCIONALIDAD CLASE ORGANIZACIÓN =
-    public void inscribirEquipos(){
-            
+    /**
+     * Añade un equipo al ArrayList de equipos
+     * 
+     * @param Objeto Equipo a añadir
+     */
+    public void inscribirEquipo(Equipo equipo)
+    {
+        equipos.add(equipo);
     }
     
     /**
-     * An example of a method - replace this comment with your own
+     * Empieza una carrera
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @param Objeto Equipo a añadir
      */
-    public void sampleMethod(int y)
+    public void empezarCarrera()
     {
-        //TODO IMPLEMENTAR MÉTODOS CLASE ORGANIZACION
+        //INICIALIZAR ARRAYLIST ETAPAS
+        
+        //INICIALIZAR ARRAYLIST EQUIPOS
     }
+    
+    
 }
