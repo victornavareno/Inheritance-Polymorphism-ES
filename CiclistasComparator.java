@@ -16,5 +16,5 @@ public class CiclistasComparator implements Comparator<Ciclista>{
         //DESEMPATE: ORDENAMOS POR NOMBRE (función .compareTo() especial Strings)
         else
             return ciclista1.getNombre().compareTo(ciclista2.getNombre());
-    }
+    } 
         }

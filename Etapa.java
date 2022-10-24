@@ -75,5 +75,13 @@ public class Etapa
     public int getDistancia () {
         return distancia;
     }
+    
+    /**
+     * Muestra las caracteristicas de etapa
+     * @return String que muestra las caracteristicas de la etapa
+     */
+    public String toString(){
+        return "Etapa (Nombre = " + this.nombre + ", Dificultad: " + this.dificultad + ", Distancia: " + this.distancia + ")";
+    }
 
 }

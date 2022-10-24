@@ -43,6 +43,22 @@ public class Bicicleta
     void setPeso(int pesoBici){
         this.peso = pesoBici;
     }
+    
+    /**
+     * Asigna la velocidad de la bicicleta
+     * @param int velocidad
+     */
+    void setVelocidad(int velocidad){
+        this.velocidad = velocidad;
+    }
+    
+    /**
+     * Asigna el tiempo que tarda una bicicleta en terminar la etapa
+     * @param int tiempo
+     */
+    void setTiempo(int tiempo){
+        this.tiempo = tiempo;
+    }
    
     //MÉTODOS DE ACCESO(get)
     /**
@@ -61,13 +77,29 @@ public class Bicicleta
         return this.peso;
     }
     
+    /**
+     * Devuelve la velocidad de la Bicicleta
+     * @return int velocidad
+     */
+    int getVelocidad(){
+        return this.velocidad;
+    }
+    
+    /**
+     * Devuelve el tiempo para terminar una etapa de la Bicicleta
+     * @return int tiempo
+     */
+    int getTiempo(){
+        return this.tiempo;
+    }
+    
     //OTROS METODOS DE LA CLASE Bicicleta:
     /**
-     * muestra las características de una Bicicleta
+     * Muestra las características de una Bicicleta
+     * @return devuelve las características de una Bicicleta
      */    
-    void mostrar(){
-        System.out.println("Bicicleta: " + this.nombre);
-        System.out.println("Peso: " + this.peso);
+    public String toString (){
+       return "Bicicleta (Nombre = " + this.nombre + ", Peso: " + this.peso + ", Velocidad: " + this.velocidad + ", Tiempo: " + this.tiempo +")";
     }
     
     /**
@@ -79,8 +111,8 @@ public class Bicicleta
      */
     public int calcularVelocidadBicicleta(int habilidadCiclista, int dificultadEtapa)
     {
-        this.velocidad = (habilidadCiclista * 100) / (this.peso * dificultadEtapa);
-        return this.velocidad;
+        velocidad = (habilidadCiclista * 100) / (peso * dificultadEtapa);
+        return velocidad;
     }
     
     /**
@@ -92,8 +124,8 @@ public class Bicicleta
      */
     public int calcularTiempo(int distanciaEtapa, int velocidadBicicleta)
     {
-        this.tiempo = (distanciaEtapa / velocidadBicicleta) * 60;
-        return this.tiempo;
+        tiempo = (distanciaEtapa / velocidadBicicleta) * 60;
+        return tiempo;
     }
     
     

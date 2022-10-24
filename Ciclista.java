@@ -233,7 +233,7 @@ public class Ciclista
 
     /**
      * Comprueba y actualiza el estado del ciclista, si no tiene energia abandona 
-     * 
+     * @return devuelve un booleano, indicando si ha abandonado
      */
     public boolean actualizarAbandono(){
         boolean abandona;
@@ -246,5 +246,14 @@ public class Ciclista
             setAbandono(true);
         }
         return abandona;
+    }
+    
+    /**
+     * Actualiza la energía del ciclista
+     * 
+     */
+    public void actualizarEnergia(){
+        energia = energia - bicicleta.getTiempo();
+        setEnergia(energia);
     }
 }
