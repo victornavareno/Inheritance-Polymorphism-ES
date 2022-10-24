@@ -122,6 +122,18 @@ public class Equipo
     Collections.sort(this.bicicletas, new BicicletasComparator());
     }
     
+    /**
+     * Calcula el total del tiempo obtenido en todas las etapas por un ciclista
+     * 
+     * @return Int tiempoTotal con la suma del tiempo de todas las etapas 
+     */
+    public int obtenerTiempoCiclista(Ciclista ciclista){
+        int tiempoTotal = 0;
+        for (int i = 0; i < ciclistas.size(); i++){
+            
+        }   
+        return tiempoTotal;
+    }
     //TODO
 }
 

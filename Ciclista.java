@@ -200,6 +200,19 @@ public class Ciclista
         }
         return tiempoEtapa;
     }
+    
+    /**
+     * Calcula el tiempo total empleado por un ciclista en todas sus etapas
+     * @return Int tiempo obtenido en todas las etapas en las que participa
+     */
+    public int calcularTiempoTotal(){
+        int tiempoTotal = 0;
+        for (int indice = 0; indice < resultados.size(); indice++){
+            tiempoTotal = tiempoTotal + resultados.get(indice).getTiempo();
+        }
+        return tiempoTotal;
+    }
+        
 
     
     //NO SÉ SI ESTOS MÉTODOS ESTÁN BIEN:
@@ -256,4 +269,10 @@ public class Ciclista
         energia = energia - bicicleta.getTiempo();
         setEnergia(energia);
     }
+    
+    public void usarBicicleta(){
+      //TODO  
+    }
+    
+    
 }
