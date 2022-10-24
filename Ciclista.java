@@ -137,6 +137,7 @@ public class Ciclista
      */
     public boolean getAbandono()
     {
+        actualizarAbandono();
         return this.abandono;
     }
     
@@ -202,21 +203,6 @@ public class Ciclista
     }
     
     /**
-     * Calcula el tiempo total empleado por un ciclista en todas sus etapas
-     * @return Int tiempo obtenido en todas las etapas en las que participa
-     */
-    public int calcularTiempoTotal(){
-        int tiempoTotal = 0;
-        for (Resultado resultado : resultados){ // FOR EACH QUE RECORRE EL VECTOR, SUMANDO TODOS LOS TIEMPOS DE CADA ETAPA
-            tiempoTotal = tiempoTotal + resultado.getTiempo();
-        }
-        return tiempoTotal;
-    }
-        
-
-    
-    //NO SÉ SI ESTOS MÉTODOS ESTÁN BIEN:
-    /**
      * Devuelve el numero de etapas en las que ha participado el ciclista, incluye la etapa en la que abandona
      * @return Int total de etapas
      */
@@ -225,12 +211,44 @@ public class Ciclista
     }
     
     /**
+     * Devuelve el numero de etapas que ha terminado el ciclista, no incluye la etapa en la que abandona
+     * @return Int total de etapas completadas
+     */
+    public int obtenerTotalEtapasTerminadas(){
+        int totalEtapasTerminadas = 0;
+        if(getAbandono() == true){
+            totalEtapasTerminadas = resultados.size() - 1;
+        }
+        else {
+            totalEtapasTerminadas = resultados.size();
+        }
+        return totalEtapasTerminadas;
+    }
+    
+    /**
+     * Calcula el tiempo total empleado por un ciclista en todas sus etapas completadas
+     * @return Int tiempo obtenido en todas las etapas que completa
+     */
+    public int calcularTiempoTotal(){
+        int tiempoTotal = 0;
+        if (getAbandono() == true){    // SI HA ABANDONADO RECORREMOS ARRAY HASTA SIZE -1        
+            for (int indice = 0; indice < resultados.size(); indice++)
+            tiempoTotal = tiempoTotal + resultados.get(indice).getTiempo(); // SUMANDO EL TIEMPO DE CADA POSICIÓN
+        }  
+        else
+            for (Resultado resultado : resultados){
+                tiempoTotal = tiempoTotal + resultado.getTiempo(); // FOR EACH QUE RECORRE EL VECTOR, SUMANDO TODOS LOS TIEMPOS DE CADA ETAPA
+        }     
+        return tiempoTotal;
+    }
+            
+ 
+    /**
      * Devuelve la etapa final del ciclista, en la que abandona
      * @return Int total de etapas
      */
     public Etapa obtenerEtapaAbandono(){
-
-        if(this.abandono == true){
+        if(getAbandono() == true){
             return this.resultados.get(resultados.size()).getEtapa();
         }
         else return null;

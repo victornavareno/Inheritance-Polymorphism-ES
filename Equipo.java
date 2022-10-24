@@ -129,11 +129,26 @@ public class Equipo
      */
     public int calcularTiempoTotal(){
         int tiempoTotalEquipo = 0;
-        for (Ciclista ciclista : ciclistas){ // BUCLE FOR EACH QUE RECORRE EL ARRAY
+        for (Ciclista ciclista : ciclistas){ // BUCLE FOR EACH QUE RECORRE EL ARRAY DE CICLISTAS DEL  EQUIPO
             tiempoTotalEquipo = tiempoTotalEquipo + ciclista.calcularTiempoTotal();
         }   
         return tiempoTotalEquipo;
     }
-    //TODO
+    
+    public void enviarCiclistas(){
+        for(int indice = 0; indice <= ciclistas.size(); indice ++){
+            if(ciclistas.get(indice).getAbandono() == true){
+                ciclistasAbandonado.add(ciclistas.get(indice)); // SI HA ABANDONADO, LO AÑADIMOS AL ARRAY ABANDONADOS
+                ciclistas.remove(indice);  // SI HA ABANDONADO, LO BORRAMOS DEL ARRAY CICLISTAS
+            }
+            else{
+                //TODO:          IMPLEMENTACIÓN DE 
+                //Debe ser capaz de enviar en cada Etapa a sus Ciclistas sin abandonar junto con las
+                //Bicicletas asignadas. Se considera que un equipo siempre tendrá al menos tantas
+                //Bicicletas como Ciclistas tenga el Equipo..
+            }
+            
+        }
+    }
 }
 
