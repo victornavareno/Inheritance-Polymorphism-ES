@@ -207,8 +207,8 @@ public class Ciclista
      */
     public int calcularTiempoTotal(){
         int tiempoTotal = 0;
-        for (int indice = 0; indice < resultados.size(); indice++){
-            tiempoTotal = tiempoTotal + resultados.get(indice).getTiempo();
+        for (Resultado resultado : resultados){ // FOR EACH QUE RECORRE EL VECTOR, SUMANDO TODOS LOS TIEMPOS DE CADA ETAPA
+            tiempoTotal = tiempoTotal + resultado.getTiempo();
         }
         return tiempoTotal;
     }

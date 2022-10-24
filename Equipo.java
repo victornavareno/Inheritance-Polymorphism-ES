@@ -123,16 +123,16 @@ public class Equipo
     }
     
     /**
-     * Calcula el total del tiempo obtenido en todas las etapas por un ciclista
+     * Calcula el total del tiempo obtenido en todas las etapas por todos los ciclistas del equipo
      * 
-     * @return Int tiempoTotal con la suma del tiempo de todas las etapas 
+     * @return Int tiempoTotalEquipo con la suma del tiempo de todos los ciclistas en todas las etapas
      */
-    public int obtenerTiempoCiclista(Ciclista ciclista){
-        int tiempoTotal = 0;
-        for (int i = 0; i < ciclistas.size(); i++){
-            
+    public int calcularTiempoTotal(){
+        int tiempoTotalEquipo = 0;
+        for (Ciclista ciclista : ciclistas){ // BUCLE FOR EACH QUE RECORRE EL ARRAY
+            tiempoTotalEquipo = tiempoTotalEquipo + ciclista.calcularTiempoTotal();
         }   
-        return tiempoTotal;
+        return tiempoTotalEquipo;
     }
     //TODO
 }
