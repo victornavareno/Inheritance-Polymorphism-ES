@@ -85,11 +85,40 @@ public class Organizacion
         this.ciclistasCarrera = ciclistasCarrera;
     }
     
+    //MÉTODOS DE ORDENACION DE ARRAYLIST CON COMPARATOR:
+    /**
+     * Ordena el ArrayList de etapas segun criterios del EtapasComparator
+     * 
+     * @return ArrayList<Etapa> con las etapas ordenadas 
+     */
+    public void OrdenarEtapas(){
+        Collections.sort(this.etapas, new EtapasComparator());
+    }
+    
+    /**
+     * Ordena el ArrayList de equipos segun criterios del EquiposComparator
+     * 
+     * @return ArrayList<Equipo> con los equipos ordenados
+     */
+    public void OrdenarEquipos(){
+        Collections.sort(this.equipos, new EquiposComparator());
+    }
+    
+    /**
+     * Ordena el ArrayList de ciclistas segun criterios del CiclistasComparator
+     * 
+     * @return ArrayList<Ciclista> con los ciclistas ordenados
+     */
+    public void OrdenarCiclistasCarrera(){
+        Collections.sort(this.ciclistasCarrera, new CiclistasComparator());
+    }
+    
     //MÉTODOS DE MUESTRA POR TERMINAL:
     /**
-     * Muestra todos los equipos inscritos
+     * Ordena y muestra todos los equipos inscritos
      */
     private void mostrarEquipos() {
+        OrdenarEquipos();
         System.out.println("***** Listado de equipos: ");
 
         for (Equipo equipo : equipos) { // for each que muestra todos los equipos del ArrayList
@@ -98,9 +127,10 @@ public class Organizacion
     }
 
     /**
-     * Muestra todas las etapas
+     * Ordena y muestra todas las etapas
      */
     private void mostrarEtapas() {
+        OrdenarEtapas();
         System.out.println("***** Listado de etapas: ");
 
         for (Etapa etapa : etapas) { // for each que muestra todos las etapas del ArrayList
@@ -109,9 +139,10 @@ public class Organizacion
     }
     
     /**
-     * Muestra todos los ciclistas inscritos
+     * Ordena y muestra todos los ciclistas inscritos
      */
     private void mostrarCiclistasCarrera() {
+        OrdenarCiclistasCarrera();
         System.out.println("***** Listado de ciclistas: ");
 
         for (Ciclista ciclista : ciclistasCarrera) { // for each que muestra todos los ciclistas del ArrayList
