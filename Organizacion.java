@@ -26,6 +26,8 @@ public class Organizacion
     
     
     //FUNCIONALIDAD CLASE ORGANIZACIÓN =
+    
+    //CARGA EQUIPOS
     /**
      * Añade un equipo al ArrayList de equipos
      * 
@@ -37,6 +39,16 @@ public class Organizacion
     }
     
     /**
+     * Asigna el ArrayList de equipos
+     * 
+     * @param equipos ArrayList<Equipo> con los equipos que participan
+     */
+    public void setEquipos(ArrayList<Equipo> equipos) {
+        this.equipos = equipos;
+    }
+    
+    //CARGA ETAPAS
+    /**
      * Añade una etapa al ArrayList de etapas
      * 
      * @param Objeto Etapa a añadir
@@ -46,12 +58,31 @@ public class Organizacion
     }
     
     /**
+     * Asigna el ArrayList de etapas
+     * 
+     * @param etapas ArrayList<Etapa> con las etapas de la competición
+     */
+    public void setEtapas(ArrayList<Etapa> etapas) {
+        this.etapas = etapas;
+    }
+    
+    //CARGA CICLISTAS
+    /**
      * Añade un ciclista al ArrayList de ciclistas
      * 
      * @param Objeto Ciclista a añadir
      */
-    public void añadirCiclista(Ciclista ciclista){
+    public void añadirCiclistaCarrera(Ciclista ciclista){
         ciclistasCarrera.add(ciclista);
+    }
+    
+    /**
+     * Asigna el ArrayList de ciclistas
+     * 
+     * @param ciclistasCarrera ArrayList<Ciclista> con los ciclistas que participarán en la carrera
+     */
+    public void setCiclistasCarrera(ArrayList<Ciclista> ciclistasCarrera) {
+        this.ciclistasCarrera = ciclistasCarrera;
     }
     
     /**
