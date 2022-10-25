@@ -101,7 +101,26 @@ public class Equipo
     }
     
     //MÉTODOS DE LOS ARRAYLIST:
+    /**
+     * Añade una bicicleta al arraylist
+     * 
+     * @param Objeto Bicicleta con la bicicleta a introducir
+     */
+    public void añadirBicicleta(Bicicleta bicicleta){
+        this.bicicletas.add(bicicleta);
+    }
+    
+    /**
+     * Añade un ciclista al ArrayList de ciclistas
+     * 
+     * @param Objeto Ciclista con el ciclista a introducir
+     */
+    public void añadirCiclista(Ciclista ciclista){
+        this.ciclistas.add(ciclista);
+    }
+
     //Ordenando los ArrayList de ciclistas y bicicletas
+
     /**
      * Ordena el ArrayList de ciclistas segun criterios del ComparatorCiclistas
      * 
@@ -134,6 +153,8 @@ public class Equipo
         }   
         return tiempoTotalEquipo;
     }
+    
+    
     
     public void enviarCiclistas(){
         for(int indice = 0; indice <= ciclistas.size(); indice ++){
