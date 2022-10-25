@@ -3,8 +3,9 @@ import java.util.*;
 /**
  * La clase Ciclista representa a los ciclistas que competirán con sus Bicicletas cada Etapa. La
  * diferencia entre cada Ciclista viene marcada por la diferente habilidad y energía del Ciclista.
- * 
  * @author Victor
+ * @author Andres
+ * @author Elena
  * @version 10.08
  */
 public class Ciclista
@@ -13,7 +14,8 @@ public class Ciclista
     private int habilidad;
     private int energia;
     private boolean abandono;
-
+    
+    private Etapa etapa;
     private Equipo equipo;
     private Bicicleta bicicleta;
     
@@ -288,8 +290,21 @@ public class Ciclista
         setEnergia(energia);
     }
     
-    public void usarBicicleta(){
-      //TODO  
+    public void usarBicicleta(Bicicleta bicicleta, Etapa etapa){
+      int velocidad;
+      int tiempo;
+      velocidad=bicicleta.calcularVelocidadBicicleta (habilidad, etapa.getDificultad());
+      tiempo= bicicleta.calcularTiempo(etapa.getDistancia(), velocidad);
+      if (energia-tiempo>0){
+          //resultados.add(tiempo);
+          energia=energia-tiempo;
+          setEnergia(energia);
+      }
+      
+      else {
+          //resultad.add(energia-tiempo)
+      }
+      
     }
     
     

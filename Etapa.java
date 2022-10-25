@@ -9,7 +9,7 @@
 public class Etapa
 {
     private String nombre;
-    private double dificultad;
+    private int dificultad;
     private int distancia;
 
     /**
@@ -18,7 +18,7 @@ public class Etapa
      * @param dificultad Double mide la dureza del recorrido
      * @param distancia Double son los kilometros a realizar en el recorrido de la Etapa
      */
-    public Etapa(String nombre, double dificultad, int distancia)
+    public Etapa(String nombre, int dificultad, int distancia)
     {
         this.nombre= nombre;
         this.dificultad = dificultad;
@@ -64,7 +64,7 @@ public class Etapa
      * Devuelve la dificultad
      * @return Double con la dificultad del recorrido
      */
-    public double getDificultad (){
+    public int getDificultad (){
         return dificultad;
     }
     
