@@ -85,6 +85,40 @@ public class Organizacion
         this.ciclistasCarrera = ciclistasCarrera;
     }
     
+    //MÉTODOS DE MUESTRA POR TERMINAL:
+    /**
+     * Muestra todos los equipos inscritos
+     */
+    private void mostrarEquipos() {
+        System.out.println("***** Listado de equipos: ");
+
+        for (Equipo equipo : equipos) { // for each que muestra todos los equipos del ArrayList
+            System.out.println(equipo + "\n");
+        }
+    }
+
+    /**
+     * Muestra todas las etapas
+     */
+    private void mostrarEtapas() {
+        System.out.println("***** Listado de etapas: ");
+
+        for (Etapa etapa : etapas) { // for each que muestra todos las etapas del ArrayList
+            System.out.println(etapa + "\n");
+        }
+    }
+    
+    /**
+     * Muestra todos los ciclistas inscritos
+     */
+    private void mostrarCiclistasCarrera() {
+        System.out.println("***** Listado de ciclistas: ");
+
+        for (Ciclista ciclista : ciclistasCarrera) { // for each que muestra todos los ciclistas del ArrayList
+            System.out.println(ciclista + "\n");
+        }
+    }
+    
     /**
      * Empieza una carrera
      * 
