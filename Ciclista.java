@@ -290,22 +290,19 @@ public class Ciclista
         setEnergia(energia);
     }
 
-    public void usarBicicleta(Bicicleta bicicleta, Etapa etapa){
-      int velocidad;
-      int tiempo;
-      velocidad=bicicleta.calcularVelocidadBicicleta (habilidad, etapa.getDificultad());
-      tiempo= bicicleta.calcularTiempo(etapa.getDistancia(), velocidad);
-      if (energia-tiempo>0){
-          //resultados.add(tiempo);
-          energia=energia-tiempo;
-          setEnergia(energia);
-      }
+    // public void usarBicicleta(Bicicleta bicicleta, Etapa etapa){
+      // int velocidad;
+      // int tiempo;
+      // velocidad=bicicleta.calcularVelocidadBicicleta (habilidad, etapa.getDificultad());
+      // tiempo= bicicleta.calcularTiempo(etapa.getDistancia(), velocidad);
+      // if (energia-tiempo>0){
+          // //resultados.add(tiempo);
+          // energia=energia-tiempo;
+          // setEnergia(energia);
+      // }
       
-      else {
-          //resultad.add(energia-tiempo)
-      }
-      
-    }
-    
-    
+      // else {
+          // //resultad.add(energia-tiempo)
+      // }
+    // }
 }

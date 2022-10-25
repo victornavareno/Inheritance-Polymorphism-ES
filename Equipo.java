@@ -171,35 +171,38 @@ public class Equipo
         return tiempoTotalEquipo;
     }
     
-        
     //ENVIAR CICLISTAS
-    // public void enviarCiclista(){
-      // OrdenarCiclistas();
-      // OrdenarBicicletas();
-      
-      
-    // }
-    
-    // public void devolverCiclista(Ciclista ciclista){
-        // this.ciclistas
-    // }
-    
-    
-    
-    public void enviarCiclistas(){
-        for(int indice = 0; indice <= ciclistas.size(); indice ++){
-            if(ciclistas.get(indice).getAbandono() == true){
-                ciclistasAbandonado.add(ciclistas.get(indice)); // SI HA ABANDONADO, LO AÑADIMOS AL ARRAY ABANDONADOS
-                ciclistas.remove(indice);  // SI HA ABANDONADO, LO BORRAMOS DEL ARRAY CICLISTAS
-            }
-            else{
-                //TODO:          IMPLEMENTACIÓN DE 
-                //Debe ser capaz de enviar en cada Etapa a sus Ciclistas sin abandonar junto con las
-                //Bicicletas asignadas. Se considera que un equipo siempre tendrá al menos tantas
-                //Bicicletas como Ciclistas tenga el Equipo..
-            }
-            
+    /**
+     * Envia el primer Ciclista de la lista, asignandole la primera bicicleta de la lista de bicicletas. Después borra ambos para dejar prioridad al siguiente
+     * 
+     * @return Ciclista ciclista con el primer ciclista de la lista, y su bicicleta asignada
+     */
+    public Ciclista enviarCiclista(){
+        OrdenarCiclistas();
+        OrdenarBicicletas();
+        
+        Ciclista ciclista;
+        Bicicleta bicicleta;
+        if (this.ciclistas.isEmpty()){ // COMPRUEBO QUE EL ARRAY ESTÉ VACIO
+            return null;
         }
+        else{
+            this.ciclistas.get(0).setBicicleta(this.bicicletas.get(0)); // ASIGNO UNA BICICLETA AL CICLISTA
+            ciclista = this.ciclistas.get(0);
+            this.bicicletas.remove(0); //ELIMINO EL CICLISTA DE LA LISTA
+            this.ciclistas.remove(0); //ELIMINO LA BICICLETA DE LA LISTA
+        }  
+        return ciclista;
+    }
+    
+    /**
+     * Vuelve a insertar un ciclista y su bicicleta en las listas, después de la carrera
+     * 
+     * @param Ciclista ciclista que ha terminado la carrera
+     */
+    public void devolverCiclista(Ciclista ciclista){
+        this.bicicletas.add(ciclista.getBicicleta());
+        this.ciclistas.add(ciclista);
     }
 }
 
