@@ -287,10 +287,5 @@ public class Ciclista
         energia = energia - bicicleta.getTiempo();
         setEnergia(energia);
     }
-    
-    public void usarBicicleta(){
-      //TODO  
-    }
-    
-    
+
 }

@@ -11,19 +11,31 @@ import java.util.*;
 public class Equipo
 {
     private String nombre;
-    private ArrayList<Ciclista> ciclistas;
-    private ArrayList<Ciclista> ciclistasAbandonado;
-    private ArrayList<Bicicleta> bicicletas;
+    private List<Ciclista> ciclistas;
+    private List<Ciclista> ciclistasAbandonado;
+    private List<Bicicleta> bicicletas;
+    
+    
+    // CAMPOS COMPARATOR
+    Comparator<Bicicleta> comparadorBicicleta;
+    Comparator<Ciclista> comparadorCiclista;
+    private boolean ordenarOrdenInversoBicicleta;
+    private boolean ordenarOrdenInversoCiclista; 
 
     /**
      * Constructor de la clase Equipo
      */
-    public Equipo(String nombre)
+    public Equipo(String nombre, Comparator<Bicicleta> comparadorBicicleta, Comparator<Ciclista> comparatorCiclista, boolean ordenarOrdenInversoBicicleta, boolean ordenarOrdenInversoCiclista)
     {
         this.nombre = nombre;
         ciclistas = new ArrayList<Ciclista>();
         ciclistasAbandonado = new ArrayList<Ciclista>();
         bicicletas = new ArrayList<Bicicleta>();   
+    
+        this.comparadorBicicleta = comparadorBicicleta;
+        this.comparadorCiclista = comparatorCiclista;
+        this.ordenarOrdenInversoBicicleta = ordenarOrdenInversoBicicleta;
+        this.ordenarOrdenInversoCiclista = ordenarOrdenInversoCiclista;
     }
     
     //MÉTODOS MODIFICADORES (set)
@@ -78,7 +90,7 @@ public class Equipo
      * 
      * @return ArrayList<Ciclista> con los ciclistas 
      */
-    public ArrayList<Ciclista> getCiclistas() {
+    public List<Ciclista> getCiclistas() {
         return this.ciclistas;
     }
     
@@ -87,7 +99,7 @@ public class Equipo
      * 
      * @return ArrayList<Ciclista> con los ciclistasAbandonado
      */
-    public ArrayList<Ciclista> getCiclistasAbandonado() {
+    public List<Ciclista> getCiclistasAbandonado() {
         return this.ciclistasAbandonado;
     }
     
@@ -96,7 +108,7 @@ public class Equipo
      * 
      * @return ArrayList<Bicicleta> con las bicicletas
      */
-    public ArrayList<Bicicleta> getBicicletas() {
+    public List<Bicicleta> getBicicletas() {
         return this.bicicletas;
     }
     
@@ -120,25 +132,30 @@ public class Equipo
     }
 
     //Ordenando los ArrayList de ciclistas y bicicletas
-
     /**
-     * Ordena el ArrayList de ciclistas segun criterios del ComparatorCiclistas
+     * Ordena el ArrayList de ciclistas segun criterios del comparadorCiclista
      * 
      * @return ArrayList<Ciclista> con los ciclistas ordenados 
      */
     public void OrdenarCiclistas(){
-        System.out.println("Ordenando ciclistas por energia");  
-    Collections.sort(this.ciclistas, new CiclistasComparator());
+        System.out.println("Ordenando ciclistas");  
+        if(this.ordenarOrdenInversoCiclista == true){      
+            Collections.sort(this.ciclistas, Collections.reverseOrder(comparadorCiclista)); // ORDENO EN ORDEN INVERSO
+        }
+        else Collections.sort(this.ciclistas, comparadorCiclista); // ORDEN NORMAL
     }
     
     /**
-     * Ordena el ArrayList de bicicletas segun criterios del ComparatorBicicletas
+     * Ordena el ArrayList de bicicletas segun criterios del comparadorBicicleta
      * 
      * @return ArrayList<Bicicleta> con las bicicletas
      */
     public void OrdenarBicicletas(){
-        System.out.println("Ordenando bicicletas por peso");  
-    Collections.sort(this.bicicletas, new BicicletasComparator());
+        System.out.println("Ordenando bicicletas");
+        if(this.ordenarOrdenInversoBicicleta == true){      
+            Collections.sort(this.bicicletas, Collections.reverseOrder(comparadorBicicleta)); // ORDENO EN ORDEN INVERSO
+        }
+        else Collections.sort(this.bicicletas, comparadorBicicleta); // ORDEN NORMAL
     }
     
     /**
@@ -153,6 +170,19 @@ public class Equipo
         }   
         return tiempoTotalEquipo;
     }
+    
+        
+    //ENVIAR CICLISTAS
+    // public void enviarCiclista(){
+      // OrdenarCiclistas();
+      // OrdenarBicicletas();
+      
+      
+    // }
+    
+    // public void devolverCiclista(Ciclista ciclista){
+        // this.ciclistas
+    // }
     
     
     
