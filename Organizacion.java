@@ -37,6 +37,24 @@ public class Organizacion
     }
     
     /**
+     * Añade una etapa al ArrayList de etapas
+     * 
+     * @param Objeto Etapa a añadir
+     */
+    public void añadirEtapa(Etapa etapa){
+        etapas.add(etapa);
+    }
+    
+    /**
+     * Añade un ciclista al ArrayList de ciclistas
+     * 
+     * @param Objeto Ciclista a añadir
+     */
+    public void añadirCiclista(Ciclista ciclista){
+        ciclistasCarrera.add(ciclista);
+    }
+    
+    /**
      * Empieza una carrera
      * 
      * @param Objeto Equipo a añadir
