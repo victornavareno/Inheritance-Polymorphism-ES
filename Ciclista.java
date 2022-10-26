@@ -242,7 +242,6 @@ public class Ciclista
         }     
         return tiempoTotal;
     }
-            
  
     /**
      * Devuelve la etapa final del ciclista, en la que abandona
@@ -284,20 +283,18 @@ public class Ciclista
         energia = energia - bicicleta.getTiempo();
         setEnergia(energia);
     }
-
-    // public void usarBicicleta(Bicicleta bicicleta, Etapa etapa){
-      // int velocidad;
-      // int tiempo;
-      // velocidad=bicicleta.calcularVelocidadBicicleta (habilidad, etapa.getDificultad());
-      // tiempo= bicicleta.calcularTiempo(etapa.getDistancia(), velocidad);
-      // if (energia-tiempo>0){
-          // //resultados.add(tiempo);
-          // energia=energia-tiempo;
-          // setEnergia(energia);
-      // }
-      
-      // else {
-          // //resultados.add(energia-tiempo)
-      // }
-    // }
+    
+    /*
+     * NO CREO QUE ESTÉ BIEN, REPASAR ESTA TARDE
+     */
+    public void usarBicicletaEtapa(Etapa etapa){
+        actualizarEnergia();
+        if (this.energia > 0){ //SI NO HA ABANDONADO
+            this.resultados.add(new Resultado(bicicleta.getTiempo(), etapa)); // AÑADO UN NUEVO RESULTADO AL ARRAY
+        }
+        else{
+            this.resultados.add(new Resultado(energia, etapa));
+        }
+    }   
 }
+

@@ -15,10 +15,10 @@ public class Resultado
     /**
      * Constructor de la clase Resultado
      */
-    public Resultado(int tiempo)
+    public Resultado(int tiempo, Etapa etapa)
     {
-        this.etapa = etapa;
         this.tiempo = tiempo;
+        this.etapa = etapa;
     }
      
     //MÉTODOS MODIFICADORES (set)

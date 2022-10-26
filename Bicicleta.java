@@ -19,12 +19,12 @@ public class Bicicleta
     /**
      *  Constructor parametrizado de Bicicleta
      */
-    public Bicicleta(String nombreBici, int pesoBici)
+    public Bicicleta(String nombre, int peso, int velocidad, int tiempo)
     {
-        this. nombre = nombreBici;
-        this.peso = pesoBici;
-        this.velocidad = 0; // POR DEFECTO 0
-        this.tiempo = 0; // POR DEFECTO 0
+        this. nombre = nombre;
+        this.peso = peso;
+        this.velocidad = velocidad; 
+        this.tiempo = tiempo; 
     }
     
     //MÉTODOS MODIFICADORES (set)
