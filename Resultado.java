@@ -10,12 +10,12 @@
 public class Resultado
 {
     private Etapa etapa;
-    private int tiempo;
+    private double tiempo;
 
     /**
      * Constructor de la clase Resultado
      */
-    public Resultado(int tiempo, Etapa etapa)
+    public Resultado(double tiempo, Etapa etapa)
     {
         this.tiempo = tiempo;
         this.etapa = etapa;
@@ -34,9 +34,9 @@ public class Resultado
       /**
      * Asigna el tiempo
      * 
-     * @param nombre String con el nombre del Ciclista
+     * @param tiempo double con el tiempo conseguido en la etapa
      */
-    public void setTiempo(int tiempo) {
+    public void setTiempo(double tiempo) {
         this.tiempo = tiempo;
     }
     
@@ -54,9 +54,9 @@ public class Resultado
     /**
      * Devuelve el tiempo obtenido en una etapa
      * 
-     * @return int Tiempo
+     * @return double Tiempo
      */
-    public int getTiempo()
+    public double getTiempo()
     {
         return this.tiempo;
     }

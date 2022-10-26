@@ -11,9 +11,9 @@ import java.util.*;
 public class Ciclista
 {
     private String nombre;
-    private int habilidad;
-    private int energia;
-    private boolean abandono;
+    private double habilidad;
+    private double energia;
+    private boolean abandonado;
     
     private Etapa etapa;
     private Equipo equipo;
@@ -26,19 +26,19 @@ public class Ciclista
      * Constructor de la clase Ciclista
      * 
      * @param nombre     String con el nombre del ciclista
-     * @param habilidad  Int con el nivel de habilidad del ciclista
-     * @param energia    Int con la energia restante del ciclista durante la competición
+     * @param habilidad  double con el nivel de habilidad del ciclista
+     * @param energia    Double con la energia restante del ciclista durante la competición
      * @param resultados Int con los resultados en cada etapa
-     * @param abandono   Boolean para indicar si el ciclista ha abandonado o no
+     * @param abandonado   Boolean para indicar si el ciclista ha abandonado o no
      * @param equipo     Equipo al que pertenece el ciclista
      * @param bicicleta  Bicicleta asignada al ciclista
      */
-    public Ciclista(String nombre, int habilidad, int energia, boolean abandono, Bicicleta bicicleta, Equipo equipo)
+    public Ciclista(String nombre, double habilidad, double energia, boolean abandonado, Bicicleta bicicleta, Equipo equipo)
     {
         this.nombre = nombre;
         this.habilidad = habilidad;
         this.energia = energia;
-        this.abandono = abandono; 
+        this.abandonado = abandonado; 
         
         this.equipo = equipo;
         this.bicicleta = bicicleta;
@@ -59,28 +59,28 @@ public class Ciclista
     /**
      * Asigna el valor de la habilidad
      * 
-     * @param Int valor de la habilidad del ciclista
+     * @param Double valor de la habilidad del ciclista
      */
-    public void setHabilidad(int habilidad) {
+    public void setHabilidad(double habilidad) {
         this.habilidad = habilidad;
     }
     
     /**
      * Asigna el valor de la energia
      * 
-     * @param Int valor de la energia restante del ciclista
+     * @param Double valor de la energia restante del ciclista
      */
-    public void setEnergia(int energia) {
+    public void setEnergia(double energia) {
         this.energia = energia;
     }
                
     /**
-     * Asigna el estado de abandono 
+     * Asigna el estado de abandonado 
      * 
-     * @param Boolean estado de abandono del ciclista en la competicion
+     * @param Boolean estado de abandonado del ciclista en la competicion
      */
-    public void setAbandono(boolean abandono) {
-        this.abandono = abandono;
+    public void setabandonado(boolean abandonado) {
+        this.abandonado = abandonado;
     }
     
     /**
@@ -115,9 +115,9 @@ public class Ciclista
     /**
      * Devuelve la habilidad
      * 
-     * @return Int con la habilidad del ciclista
+     * @return Double con la habilidad del ciclista
      */
-    public int getHabilidad()
+    public double getHabilidad()
     {
         return this.habilidad;
     }
@@ -125,21 +125,21 @@ public class Ciclista
     /**
      * Devuelve la energia 
      * 
-     * @return Int con la energia restante del ciclista
+     * @return double con la energia restante del ciclista
      */
-    public int getEnergia()
+    public double getEnergia()
     {
         return this.energia;
     }
 
     /**
-     * Devuelve el estado de abandono del ciclista 1 abandonado 0 no abandonado
+     * Devuelve el estado de abandonado del ciclista 1 abandonado 0 no abandonado
      * 
      * @return Boolean true si el ciclista ha abandonado
      */
-    public boolean getAbandono()
+    public boolean getAbandonado()
     {
-        return this.abandono;
+        return this.abandonado;
     }
     
     /**
@@ -188,8 +188,8 @@ public class Ciclista
      * @param Etapa la etapa de la cual queremos conocer el tiempo resultado
      * @return Int tiempo obtenido en etapa
      */
-    public int obtenerTiempoEtapa(Etapa etapa){
-        int tiempoEtapa = 0;
+    public double obtenerTiempoEtapa(Etapa etapa){
+        double tiempoEtapa = 0;
         int indice = 0;
         boolean etapaEncontrada = false; // bandera búsqueda en el ArrayList
         
@@ -217,7 +217,7 @@ public class Ciclista
      */
     public int obtenerTotalEtapasTerminadas(){
         int totalEtapasTerminadas = 0;
-        if(getAbandono() == true){
+        if(getAbandonado() == true){
             totalEtapasTerminadas = resultados.size() - 1;
         }
         else {
@@ -228,11 +228,11 @@ public class Ciclista
     
     /**
      * Calcula el tiempo total empleado por un ciclista en todas sus etapas completadas
-     * @return Int tiempo obtenido en todas las etapas que completa
+     * @return double tiempo obtenido en todas las etapas que completa
      */
-    public int calcularTiempoTotal(){
-        int tiempoTotal = 0;
-        if (getAbandono() == true){    // SI HA ABANDONADO RECORREMOS ARRAY HASTA SIZE -1        
+    public double calcularTiempoTotal(){
+        double tiempoTotal = 0;
+        if (getAbandonado() == true){    // SI HA ABANDONADO RECORREMOS ARRAY HASTA SIZE -1        
             for (int indice = 0; indice < resultados.size(); indice++)
             tiempoTotal = tiempoTotal + resultados.get(indice).getTiempo(); // SUMANDO EL TIEMPO DE CADA POSICIÓN
         }  
@@ -247,8 +247,8 @@ public class Ciclista
      * Devuelve la etapa final del ciclista, en la que abandona
      * @return Etapa etapa en la que el ciclista abandona
      */
-    public Etapa obtenerEtapaAbandono(){
-        if(getAbandono() == true){
+    public Etapa obtenerEtapaabandonado(){
+        if(getAbandonado() == true){
             return this.resultados.get(resultados.size()).getEtapa();
         }
         else return null;
@@ -268,19 +268,19 @@ public class Ciclista
      */
     public void actualizarAbandono(){
         if(this.energia > 0){
-            setAbandono(false);
+            setabandonado(false);
         }
         else{
-            setAbandono(true);
+            setabandonado(true);
         }
     }
     
     /**
-     * Actualiza la energía del ciclista
+     * Calcula y actualiza la energía del ciclista
      * 
      */
-    public void actualizarEnergia(){
-        energia = energia - bicicleta.getTiempo();
+    public void actualizarEnergia(Etapa etapa){
+        energia = energia - bicicleta.calcularTiempo(etapa.getDistancia(),bicicleta.calcularVelocidad(this.habilidad, etapa.getDificultad()));
         setEnergia(energia);
     }
     
@@ -288,12 +288,15 @@ public class Ciclista
      * NO CREO QUE ESTÉ BIEN, REPASAR ESTA TARDE
      */
     public void usarBicicletaEtapa(Etapa etapa){
-        actualizarEnergia();
-        if (this.energia > 0){ //SI NO HA ABANDONADO
-            this.resultados.add(new Resultado(bicicleta.getTiempo(), etapa)); // AÑADO UN NUEVO RESULTADO AL ARRAY
+        double velocidadBicicleta = bicicleta.calcularVelocidad(this.habilidad, etapa.getDificultad());
+        double tiempoBicicleta = bicicleta.calcularTiempo(etapa.getDistancia(), velocidadBicicleta);
+        actualizarEnergia(etapa); //CON EL TIEMPO DE LA ETAPA, CALCULO Y ACTUALIZO LA ENERGIA DEL CICLISTA
+        
+        if (this.energia > 0){ // NO HA ABANDONADO
+            resultados.add(new Resultado(tiempoBicicleta, etapa)); // AÑADO UN NUEVO RESULTADO AL ARRAY
         }
         else{
-            this.resultados.add(new Resultado(energia, etapa));
+            resultados.add(new Resultado(energia, etapa));
         }
     }   
 }

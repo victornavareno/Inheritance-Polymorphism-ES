@@ -161,10 +161,10 @@ public class Equipo
     /**
      * Calcula el total del tiempo obtenido en todas las etapas por todos los ciclistas del equipo
      * 
-     * @return Int tiempoTotalEquipo con la suma del tiempo de todos los ciclistas en todas las etapas
+     * @return double tiempoTotalEquipo con la suma del tiempo de todos los ciclistas en todas las etapas
      */
-    public int calcularTiempoTotal(){
-        int tiempoTotalEquipo = 0;
+    public double calcularTiempoTotal(){
+        double tiempoTotalEquipo = 0;
         for (Ciclista ciclista : ciclistas){ // BUCLE FOR EACH QUE RECORRE EL ARRAY DE CICLISTAS DEL  EQUIPO
             tiempoTotalEquipo = tiempoTotalEquipo + ciclista.calcularTiempoTotal();
         }   
@@ -204,7 +204,7 @@ public class Equipo
         this.bicicletas.add(ciclista.getBicicleta());
         ciclista.actualizarAbandono();
         
-        if(ciclista.getAbandono() == false){
+        if(ciclista.getAbandonado() == false){
             this.ciclistas.add(ciclista); //LO AÑADO A LA LISTA DE CICLISTAS SI AÚN TIENE ENERGIA
         }
         else {
