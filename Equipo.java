@@ -184,25 +184,32 @@ public class Equipo
         Ciclista ciclista;
         Bicicleta bicicleta;
         if (this.ciclistas.isEmpty()){ // COMPRUEBO QUE EL ARRAY ESTÉ VACIO
-            return null;
+            ciclista = null;
         }
         else{
             this.ciclistas.get(0).setBicicleta(this.bicicletas.get(0)); // ASIGNO UNA BICICLETA AL CICLISTA
             ciclista = this.ciclistas.get(0);
-            this.bicicletas.remove(0); //ELIMINO EL CICLISTA DE LA LISTA
-            this.ciclistas.remove(0); //ELIMINO LA BICICLETA DE LA LISTA
-        }  
+            this.bicicletas.remove(0); //ELIMINO LA PRIMERA BICICLETA DE LA LISTA
+            this.ciclistas.remove(0); //ELIMINO EL PRIMER CICLISTA DE LA LISTA
+        } 
         return ciclista;
     }
     
     /**
-     * Vuelve a insertar un ciclista y su bicicleta en las listas, después de la carrera
+     * Vuelve a insertar un ciclista y su bicicleta en las listas, cuando termina la carrera
      * 
      * @param Ciclista ciclista que ha terminado la carrera
      */
     public void devolverCiclista(Ciclista ciclista){
         this.bicicletas.add(ciclista.getBicicleta());
-        this.ciclistas.add(ciclista);
+        ciclista.actualizarAbandono();
+        
+        if(ciclista.getAbandono() == false){
+            this.ciclistas.add(ciclista); //LO AÑADO A LA LISTA DE CICLISTAS SI AÚN TIENE ENERGIA
+        }
+        else {
+            this.ciclistasAbandonado.add(ciclista); //LO AÑADO A LA LISTA DE ABANDONADOS SI ABANDONA
+            }
     }
 }
 

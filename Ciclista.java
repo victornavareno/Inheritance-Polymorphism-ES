@@ -20,7 +20,7 @@ public class Ciclista
     private Bicicleta bicicleta;
     
     //Arraylist con los resultados obtenidos por el ciclista en cada etapa
-    static ArrayList<Resultado> resultados;
+    static List<Resultado> resultados; //SERÁ INICIALIZADO COMO ARRAYLIST
 
     /**
      * Constructor de la clase Ciclista
@@ -133,13 +133,12 @@ public class Ciclista
     }
 
     /**
-     * Devuelve la energia 
+     * Devuelve el estado de abandono del ciclista 1 abandonado 0 no abandonado
      * 
-     * @return Int con la energia restante del ciclista
+     * @return Boolean true si el ciclista ha abandonado
      */
     public boolean getAbandono()
     {
-        actualizarAbandono();
         return this.abandono;
     }
     
@@ -247,7 +246,7 @@ public class Ciclista
  
     /**
      * Devuelve la etapa final del ciclista, en la que abandona
-     * @return Int total de etapas
+     * @return Etapa etapa en la que el ciclista abandona
      */
     public Etapa obtenerEtapaAbandono(){
         if(getAbandono() == true){
@@ -266,19 +265,15 @@ public class Ciclista
 
     /**
      * Comprueba y actualiza el estado del ciclista, si no tiene energia abandona 
-     * @return devuelve un booleano, indicando si ha abandonado
+     * 
      */
-    public boolean actualizarAbandono(){
-        boolean abandona;
+    public void actualizarAbandono(){
         if(this.energia > 0){
-            abandona = false;
             setAbandono(false);
         }
         else{
-            abandona = true;
             setAbandono(true);
         }
-        return abandona;
     }
     
     /**
@@ -302,7 +297,7 @@ public class Ciclista
       // }
       
       // else {
-          // //resultad.add(energia-tiempo)
+          // //resultados.add(energia-tiempo)
       // }
     // }
 }

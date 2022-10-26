@@ -10,9 +10,9 @@ import java.util.*;
 public class Organizacion
 {
     // instance variables - replace the example below with your own
-    private ArrayList<Etapa> etapas;
-    private ArrayList<Equipo> equipos;
-    private ArrayList<Ciclista> ciclistasCarrera;
+    private List<Etapa> etapas;
+    private List<Equipo> equipos;
+    private List<Ciclista> ciclistasCarrera;
     
     /**
      * Constructor de la clase Organizacion
