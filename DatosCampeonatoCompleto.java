@@ -29,18 +29,18 @@ public class DatosCampeonatoCompleto
 
         // //constructor de equipos pide (String nombre, comparador de ciclistas y si orden ascendente o descendente, comparador de bicicletas y si orden ascendente o descendente)
         // Equipo movistarWomen = new Equipo("Movistar Women", //ciclistas comparados ascendentemente por habilidad (si iguales por nombre), bicicletas comparadas ascendentemente por peso (si iguales por nombre));
-        // Equipo dSMWomen= new Equipo("DSM Women", //ciclistas comparados ascendentemente por energía (si iguales por nombre), bicicletas comparadas ascendentemente por peso (si iguales por nombre)););
+        // Equipo dSMWomen = new Equipo("DSM Women", //ciclistas comparados ascendentemente por energía (si iguales por nombre), bicicletas comparadas ascendentemente por peso (si iguales por nombre)););
         // Equipo trekSegafredoWomen = new Equipo("Trek Segafredo Women", //ciclistas comparados descendentemente por habilidad (si iguales por nombre), bicicletas comparadas descendentemente por peso (si iguales por nombre)););
         
         // organizacion.inscribirEquipo(movistarWomen);
         // organizacion.inscribirEquipo(trekSegafredoWomen);
         // organizacion.inscribirEquipo(dSMWomen);
         
-		// //constructor de bicicletas pide ( String nombre, double peso)
+        // //constructor de bicicletas pide ( String nombre, double peso)
         // dSMWomen.anadirBicicleta(new Bicicleta("SCOTT CONTESSA ADDICT eRIDE 15",7.4)); 
         // dSMWomen.anadirBicicleta(new Bicicleta("SCOTT CONTESSA ADDICT 15",7.6));
         // dSMWomen.anadirBicicleta(new Bicicleta("SCOTT CONTESSA ADDICT RC 15",7.8));
-		// //constructor de ciclistas pide (String nombre , double habilidad , double energia, Equipo equipo)
+        // //constructor de ciclistas pide (String nombre , double habilidad , double energia, Equipo equipo)
         // dSMWomen.anadirCiclista(new Ciclista("WIEBES",  4.97, 1190,dSMWomen));
         // dSMWomen.anadirCiclista(new Ciclista("LIPPERT", 5.0, 1160,dSMWomen));
         // dSMWomen.anadirCiclista(new Ciclista("LABOUS", 5.01, 1150,dSMWomen));
@@ -62,7 +62,6 @@ public class DatosCampeonatoCompleto
         // movistarWomen.anadirCiclista(new Ciclista("VAN VLEUTEN", 4.96,1200,movistarWomen));
         // movistarWomen.anadirCiclista(new Ciclista("NORSGAARD", 5.02,1145,movistarWomen));
         // movistarWomen.anadirCiclista(new Ciclista("SIERRA", 5.03, 1130,movistarWomen));    
-
     }
 
 }

@@ -113,31 +113,6 @@ public class Organizacion
         Collections.sort(this.ciclistasCarrera, new CiclistasComparator());
     }
     
-    //MÉTODOS DE MUESTRA POR TERMINAL:
-    /**
-     * Ordena y muestra todos los equipos inscritos
-     */
-    private void mostrarEquipos() {
-        OrdenarEquipos();
-        System.out.println("***** Listado de equipos: ");
-
-        for (Equipo equipo : equipos) { // for each que muestra todos los equipos del ArrayList
-            System.out.println(equipo + "\n");
-        }
-    }
-
-    /**
-     * Ordena y muestra todos los ciclistas inscritos
-     */
-    private void mostrarCiclistasCarrera() {
-        OrdenarCiclistasCarrera();
-        System.out.println("***** Listado de ciclistas: ");
-        
-        for (Ciclista ciclista : ciclistasCarrera) { // for each que muestra todos los ciclistas del ArrayList
-            System.out.println(ciclista + "\n");
-        }
-    }
-    
     void mostrarEtapas(){
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
         System.out.println("||||||||||||||||||| ETAPAS DEL CAMPEONATO |||||||||||||||||||");
@@ -146,6 +121,10 @@ public class Organizacion
             System.out.println("<etapa: " + etapa.getNombre() + "> <dificultad: " + etapa.getDificultad() + "> <distancia: " + etapa.getDistancia() + ")>");
         }
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+    }
+    
+    void mostrarEquipos(){
+        
     }
         
     void gestionarCampeonato(){
