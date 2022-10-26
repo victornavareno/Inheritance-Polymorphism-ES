@@ -36,7 +36,7 @@ public class Etapa
     
     /**
      * Asigna la dificultad
-     * @param dificultad Int que especifica la dificultad de la etapa
+     * @param dificultad Double que especifica la dificultad de la etapa
      */
     public void setDificultad (double dificultad){
         this.dificultad = dificultad;
@@ -44,7 +44,7 @@ public class Etapa
     
     /**
      * Asigna la distancia
-     * @param Int distancia Double que especifica la distancia de la etapa
+     * @param Int distancia Int que especifica la distancia de la etapa
      */
     public void setDistancia (int distancia){
         this.distancia = distancia;

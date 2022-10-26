@@ -79,7 +79,7 @@ public class Ciclista
      * 
      * @param Boolean estado de abandonado del ciclista en la competicion
      */
-    public void setabandonado(boolean abandonado) {
+    public void setAbandonado(boolean abandonado) {
         this.abandonado = abandonado;
     }
     
@@ -268,10 +268,10 @@ public class Ciclista
      */
     public void actualizarAbandono(){
         if(this.energia > 0){
-            setabandonado(false);
+            setAbandonado(false);
         }
         else{
-            setabandonado(true);
+            setAbandonado(true);
         }
     }
     
@@ -284,15 +284,20 @@ public class Ciclista
         setEnergia(energia);
     }
     
-    /*
-     * NO CREO QUE ESTÉ BIEN, REPASAR ESTA TARDE
+    
+    /**
+     * Calcula y actualiza los resultados (tiempo) de un ciclista en una etapa en concreto utilizando su bicicleta
+     * 
+     * @param Etapa en la que participa
      */
     public void usarBicicletaEtapa(Etapa etapa){
-        double velocidadBicicleta = bicicleta.calcularVelocidad(this.habilidad, etapa.getDificultad());
-        double tiempoBicicleta = bicicleta.calcularTiempo(etapa.getDistancia(), velocidadBicicleta);
-        actualizarEnergia(etapa); //CON EL TIEMPO DE LA ETAPA, CALCULO Y ACTUALIZO LA ENERGIA DEL CICLISTA
+        double velocidadBicicleta = bicicleta.calcularVelocidad(this.habilidad, etapa.getDificultad()); // CALCULO LA VELOCIDAD QUE ALCANZARÁ EL CICLISTA PARA ESTA ETAPA CON LA BICICLETA
+        double tiempoBicicleta = bicicleta.calcularTiempo(etapa.getDistancia(), velocidadBicicleta); // CALCULO EL TIEMPO QUE TARDARÁ EL CICLISTA CON LA BICICLETA PARA ESA ETAPA
         
-        if (this.energia > 0){ // NO HA ABANDONADO
+        actualizarEnergia(etapa); //CON EL TIEMPO DE LA ETAPA, CALCULO Y ACTUALIZO LA ENERGIA DEL CICLISTA
+        actualizarAbandono();
+        
+        if (!this.abandonado){ // NO HA ABANDONADO
             resultados.add(new Resultado(tiempoBicicleta, etapa)); // AÑADO UN NUEVO RESULTADO AL ARRAY
         }
         else{

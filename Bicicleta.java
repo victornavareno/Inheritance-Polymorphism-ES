@@ -13,7 +13,6 @@ public class Bicicleta
     // definicion de campos de la clase Bicicleta
     private String nombre;
     private double peso;
-    private double velocidad;
     
     /**
      *  Constructor parametrizado de Bicicleta
@@ -80,7 +79,7 @@ public class Bicicleta
      */
     public double calcularVelocidad(double habilidadCiclista, double dificultadEtapa)
     {
-        this.velocidad = (habilidadCiclista * 100) / (peso * dificultadEtapa);
+        double velocidad = (habilidadCiclista * 100) / (peso * dificultadEtapa);
         return velocidad;
     }
     
@@ -88,7 +87,7 @@ public class Bicicleta
      *  calcular y proporcionar el tiempo necesario (medido en minutos) para terminar
      *  la Etapa cuando es usada por un Ciclista en particular en una Etapa concreta
      
-     * @param  int distanciaEtapa double velocidadBicicleta
+     * @param  int distanciaEtapa double velocidad
      * @return    double tiempo
      */
     public double calcularTiempo(int distanciaEtapa, double velocidad)
