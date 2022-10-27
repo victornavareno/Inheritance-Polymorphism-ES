@@ -171,6 +171,15 @@ public class Equipo
         return tiempoTotalEquipo;
     }
     
+    /**
+     * Devuelve cadena con las caracteristicas del equipo en el formato indicado
+     * 
+     * @return String con atributos del equipo
+     */
+    public String toString(){
+        return "%%% " + nombre +" %%% Media Minutos de Ciclistas sin abandonar 0.0 %%%";
+    }
+    
     //ENVIAR CICLISTAS
     /**
      * Envia el primer Ciclista de la lista, asignandole la primera bicicleta de la lista de bicicletas. Después borra ambos para dejar prioridad al siguiente

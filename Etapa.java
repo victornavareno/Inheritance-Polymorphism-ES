@@ -81,7 +81,7 @@ public class Etapa
      * @return String que muestra las caracteristicas de la etapa
      */
     public String toString(){
-        return "Etapa (Nombre = " + this.nombre + ", Dificultad: " + this.dificultad + ", Distancia: " + this.distancia + ")";
+        return "<etapa: " + nombre + "> <dificultad:" + dificultad + "> <distancia: " + distancia + ")>";
     }
 
 }

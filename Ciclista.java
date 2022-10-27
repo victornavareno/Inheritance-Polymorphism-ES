@@ -162,31 +162,9 @@ public class Ciclista
     
     //MÉTODOS CONTROL DEL ARRAYLIST de Resultados:
     /**
-     * Obtiene un resultado de la colección
-     * @param indice El indice del resultado que queremos obtener
-     */
-    public void getResultado(int indice)
-    {
-        if(indice >= 0 && indice < resultados.size()) {
-            Resultado resultado = resultados.get(indice);
-        }
-    }
-
-    /**
-     * Borra un resultado de la coleccion
-     * @param indice El índice del resultado a borrar
-     */
-    public void borrarResultado(int indice)
-    {
-        if(indice >= 0 && indice < resultados.size()) {
-            resultados.remove(indice);
-        }
-    }
-    
-    /**
      * Encuentra y devuelve el resultado obtenido en una etapa en concreto
      * @param Etapa la etapa de la cual queremos conocer el tiempo resultado
-     * @return Int tiempo obtenido en etapa
+     * @return double tiempo obtenido en la etapa
      */
     public double obtenerTiempoEtapa(Etapa etapa){
         double tiempoEtapa = 0;
@@ -231,7 +209,9 @@ public class Ciclista
      * @return double tiempo obtenido en todas las etapas que completa
      */
     public double calcularTiempoTotal(){
+        actualizarAbandono();
         double tiempoTotal = 0;
+        
         if (getAbandonado() == true){    // SI HA ABANDONADO RECORREMOS ARRAY HASTA SIZE -1        
             for (int indice = 0; indice < resultados.size(); indice++)
             tiempoTotal = tiempoTotal + resultados.get(indice).getTiempo(); // SUMANDO EL TIEMPO DE CADA POSICIÓN
@@ -247,7 +227,7 @@ public class Ciclista
      * Devuelve la etapa final del ciclista, en la que abandona
      * @return Etapa etapa en la que el ciclista abandona
      */
-    public Etapa obtenerEtapaabandonado(){
+    public Etapa obtenerEtapaAbandonado(){
         if(getAbandonado() == true){
             return this.resultados.get(resultados.size()).getEtapa();
         }
@@ -257,9 +237,11 @@ public class Ciclista
     // OTROS MÉTODOS DE LA CLASE CICLISTA:
     /**
      * muestra las características de un Ciclista
+     * 
+     * @return String con los atributos del ciclista en formato de salida correcto
      */
     public String toString(){
-        return "Ciclista (Nombre = " + this.nombre + ", Habilidad: " + this.habilidad + ", Energia: " + this.energia + ")";
+        return "<ciclista: " + nombre + "> <energía: " + energia + "> <habilidad: " + habilidad + "> <tiempo acumulado sin abandonar: " + calcularTiempoTotal() + "> <abandonado: " + abandonado +">";
     }
 
     /**
@@ -286,22 +268,22 @@ public class Ciclista
     
     
     /**
-     * Calcula y actualiza los resultados (tiempo) de un ciclista en una etapa en concreto utilizando su bicicleta
+     * Calcula y actualiza los resultados (tiempo) de un ciclista en una etapa en concreto utilizando su bicicleta (participar en una carrera)
      * 
      * @param Etapa en la que participa
      */
-    public void usarBicicletaEtapa(Etapa etapa){
+    public void hacerCarrera(Etapa etapa){
         double velocidadBicicleta = bicicleta.calcularVelocidad(this.habilidad, etapa.getDificultad()); // CALCULO LA VELOCIDAD QUE ALCANZARÁ EL CICLISTA PARA ESTA ETAPA CON LA BICICLETA
-        double tiempoBicicleta = bicicleta.calcularTiempo(etapa.getDistancia(), velocidadBicicleta); // CALCULO EL TIEMPO QUE TARDARÁ EL CICLISTA CON LA BICICLETA PARA ESA ETAPA
+        double tiempoCarrera = bicicleta.calcularTiempo(etapa.getDistancia(), velocidadBicicleta); // CALCULO EL TIEMPO QUE TARDARÁ EL CICLISTA CON LA BICICLETA PARA ESA ETAPA
         
         actualizarEnergia(etapa); //CON EL TIEMPO DE LA ETAPA, CALCULO Y ACTUALIZO LA ENERGIA DEL CICLISTA
         actualizarAbandono();
         
         if (!this.abandonado){ // NO HA ABANDONADO
-            resultados.add(new Resultado(tiempoBicicleta, etapa)); // AÑADO UN NUEVO RESULTADO AL ARRAY
+            resultados.add(new Resultado(tiempoCarrera, etapa)); // AÑADO UN NUEVO RESULTADO AL ARRAY
         }
         else{
-            resultados.add(new Resultado(energia, etapa));
+            resultados.add(new Resultado(this.energia, etapa)); // SE HA QUEDADO SIN ENERGIA, INSERTAMOS EL TIEMPO NEGATIVO EN EL ARRAY RESULTADOS
         }
     }   
 }

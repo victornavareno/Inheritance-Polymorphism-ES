@@ -118,13 +118,23 @@ public class Organizacion
         System.out.println("||||||||||||||||||| ETAPAS DEL CAMPEONATO |||||||||||||||||||");
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
         for(Etapa etapa : etapas){
-            System.out.println("<etapa: " + etapa.getNombre() + "> <dificultad: " + etapa.getDificultad() + "> <distancia: " + etapa.getDistancia() + ")>");
+            System.out.println(etapa.toString());
         }
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
     }
     
     void mostrarEquipos(){
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println("%%%%%%%% EQUIPOS DEL CAMPEONATO %%%%%%%%");
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         
+        for(Equipo equipo : equipos){
+            System.out.println(equipo.toString());
+            System.out.println("\n");
+            
+            
+        }
     }
         
     void gestionarCampeonato(){

@@ -64,10 +64,7 @@ public class Bicicleta
      * @return devuelve las características de una Bicicleta
      */    
     public String toString (){
-        String cad;
-        cad = "<Bicicleta> :" + getNombre();
-        cad = cad + ", Peso: " + getPeso();
-        return cad;
+        return "<bicicleta: " + nombre + "> <peso: " + peso + ")>";
     }
     
     /**
