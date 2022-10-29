@@ -26,12 +26,25 @@ public class Organizacion
         equipos = new ArrayList<Equipo>();
         ciclistasCarrera = new ArrayList<Ciclista>();
         
-        
+        //INIT COMPARATOR:
         this.comparadorEtapa = comparadorEtapa;
     }
     
     
+    //MÉTODO DE CONTROL DEL CAMPEONATO:        
+    public void gestionarCampeonato(){
+        //TODO
+    }
+    
+    
     //FUNCIONALIDAD CLASE ORGANIZACIÓN =
+    
+    public void gestionarCarrera(){
+        ordenarEtapas();
+        mostrarEtapas();      
+        
+        mostrarEquipos();
+    }
     //CARGA EQUIPOS
     /**
      * Añade un equipo al ArrayList de equipos
@@ -91,14 +104,14 @@ public class Organizacion
     }
     
     //MÉTODOS DE ORDENACION DE ARRAYLIST CON COMPARATOR:
-    // /**
-     // * Ordena el ArrayList de etapas segun criterios del EtapasComparator
-     // * 
-     // * @return ArrayList<Etapa> con las etapas ordenadas 
-     // */
-    // public void OrdenarEtapas(){
-        // Collections.sort(this.etapas, new EtapasComparator());
-    // }
+    /**
+     * Ordena el ArrayList de etapas segun criterios del comparadorEtapa
+     * 
+     * @return ArrayList<Etapa> con las etapas ordenadas 
+     */
+    public void ordenarEtapas(){
+        Collections.sort(this.etapas, comparadorEtapa);
+    }
     
     // /**
      // * Ordena el ArrayList de equipos segun criterios del EquiposComparator
@@ -223,13 +236,5 @@ public class Organizacion
         }
     }
     
-        
-    public void gestionarCampeonato(){
-        //TODO CARGAR DATOS
-        System.out.println("*********************************************************************************************************");
-        System.out.println("*****************ESTA SIMULACIÓN CONCLUYE NORMALMENTE COMPLETÁNDOSE TODAS LAS CARRERAS*******************");
-        System.out.println("*********************************************************************************************************" + "\n");
-        
-        
-    }
+
 }
