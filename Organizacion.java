@@ -113,23 +113,36 @@ public class Organizacion
         Collections.sort(this.etapas, comparadorEtapa);
     }
     
-    // /**
-     // * Ordena el ArrayList de equipos segun criterios del EquiposComparator
-     // * 
-     // * @return ArrayList<Equipo> con los equipos ordenados
-     // */
-    // public void OrdenarEquipos(){
-        // Collections.sort(this.equipos, new EquiposComparator());
-    // }
+    //ENVIAR Y DEVOLVER CICLISTAS PARA CADA CARRERA:
+    /**
+     * Carga los ciclistas disponibles de cada equipo en el ArrayList ciclistasCarrera para disputar esa etapa
+     * 
+     * @param Etapa en la que competirán los ciclistas enviados
+     */
+    public void enviarCiclistasCarrera(Etapa etapa){
+        boolean finCiclistasEquipo = false;
+        for(int i = 0; i< equipos.size(); i++){
+            while (!finCiclistasEquipo) {
+                anadirCiclistaCarrera(equipos.get(i).enviarCiclista());
+                if(ciclistasCarrera.get(0).equals(null)){
+                    ciclistasCarrera.remove(0);
+                    finCiclistasEquipo = true;
+                }
+            }
+        }
+    }
     
-    // /**
-     // * Ordena el ArrayList de ciclistas segun criterios del CiclistasComparator
-     // * 
-     // * @return ArrayList<Ciclista> con los ciclistas ordenados
-     // */
-    // public void OrdenarCiclistasCarrera(){
-        // Collections.sort(this.ciclistasCarrera, new CiclistasComparator());
-    // }
+    /**
+     * Descarga los ciclistas del ArrayList ciclistasCarrera tras disputar esa etapa
+     * 
+     * @param Etapa en la que competirán los ciclistas enviados
+     */
+    public void devolverCiclistasCarrera(Ciclista ciclista){
+        for(int i = 0; i< equipos.size(); i++){
+            equipos.get(i).devolverCiclista(ciclistasCarrera.get(0));
+            ciclistasCarrera.remove(0);
+        }
+    }    
     
     public void mostrarEtapas(){
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
@@ -151,7 +164,7 @@ public class Organizacion
             System.out.println(equipo.toString().toUpperCase());
             System.out.println("\n");
             
-            //TODO MOSTRAR CICLISTAS DE CADA EQUIPO
+            equipo.mostrarCiclistas();
         }
     }
     
@@ -231,7 +244,7 @@ public class Organizacion
             System.out.println("%%% "+ equipos.get(k).getNombre().toUpperCase() + " %%% Media Minutos de Ciclistas sin abandonar " + Math.round(equipos.get(k).calcularTiempoTotal()/ etapas.size()*100.0)/100 + " %%%");
             System.out.println("\n");
             
-            //TODO IMPRIMIR CICLISTAS DE CADA EQUIPO
+            equipos.get(k).mostrarCiclistas();
             System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         }
     }

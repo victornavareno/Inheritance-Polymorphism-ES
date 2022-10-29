@@ -180,6 +180,15 @@ public class Equipo
         return "%%% " + nombre +" %%% Media Minutos de Ciclistas sin abandonar 0.0 %%%";
     }
     
+    /**
+     * Imprime por pantalla cadenas con los Ciclistas que forman parte del Equipo
+     * 
+     */
+    public void mostrarCiclistas(){
+        for(int i = 0; i < ciclistas.size(); i++){
+            System.out.println("<ciclista:" + ciclistas.get(i).getNombre() + "> <energía: " + Math.round(ciclistas.get(i).getEnergia()*100.0)/100 +"> <habilidad: "+ Math.round(ciclistas.get(i).getHabilidad()*100.0)/100 +"> <tiempo acumulado sin abandonar: "+ Math.round(ciclistas.get(i).calcularTiempoTotal()*100.0)/100 +"> <abandonado:"+ ciclistas.get(i).getAbandonado() +">");            
+        }
+    }
     //ENVIAR CICLISTAS
     /**
      * Envia el primer Ciclista de la lista, asignandole la primera bicicleta de la lista de bicicletas. Después borra ambos para dejar prioridad al siguiente
