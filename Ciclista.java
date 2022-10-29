@@ -33,16 +33,13 @@ public class Ciclista
      * @param equipo     Equipo al que pertenece el ciclista
      * @param bicicleta  Bicicleta asignada al ciclista
      */
-    public Ciclista(String nombre, double habilidad, double energia, boolean abandonado, Bicicleta bicicleta, Equipo equipo)
+    public Ciclista(String nombre, double habilidad, double energia, Equipo equipo)
     {
         this.nombre = nombre;
         this.habilidad = habilidad;
         this.energia = energia;
-        this.abandonado = abandonado; 
         
-        this.equipo = equipo;
-        this.bicicleta = bicicleta;
-        
+        this.equipo = equipo;        
         resultados = new ArrayList<Resultado>();
     }
     

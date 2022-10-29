@@ -118,7 +118,7 @@ public class Equipo
      * 
      * @param Objeto Bicicleta con la bicicleta a introducir
      */
-    public void añadirBicicleta(Bicicleta bicicleta){
+    public void anadirBicicleta(Bicicleta bicicleta){
         this.bicicletas.add(bicicleta);
     }
     
@@ -127,7 +127,7 @@ public class Equipo
      * 
      * @param Objeto Ciclista con el ciclista a introducir
      */
-    public void añadirCiclista(Ciclista ciclista){
+    public void anadirCiclista(Ciclista ciclista){
         this.ciclistas.add(ciclista);
     }
 

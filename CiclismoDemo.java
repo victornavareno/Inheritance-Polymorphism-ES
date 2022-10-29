@@ -13,12 +13,12 @@ public class CiclismoDemo
 {
     
     public static void main(String[] args)  throws java.io.IOException{
-        //Organizacion organizacion=new Organizacion(new ComparadorDificultadEtapa());
+        Organizacion organizacion= new Organizacion(new ComparadorDificultadEtapa());
         //Descomentar de las dos líneas siguientes, la prueba que se quiera ejecutar
         //DatosCampeonatoCompleto initdata = new DatosCampeonatoCompleto(organizacion); 
         //DatosCampeonatoAbandonos initdata = new DatosCampeonatoAbandonos(organizacion); 
             
-        //organizacion.gestionarCampeonato();
+        organizacion.gestionarCampeonato();
 
     }    
 

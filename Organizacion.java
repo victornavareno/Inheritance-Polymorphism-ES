@@ -5,28 +5,33 @@ import java.util.*;
  * @author Víctor
  * @author Andrés  
  * @author Elena
- * @version 15.10
+ * @version 1
  */
 public class Organizacion
 {
-    // instance variables - replace the example below with your own
+    //ESTRUCTURAS DE DATOS IMPLEMENTADAS:
     private List<Etapa> etapas;
     private List<Equipo> equipos;
     private List<Ciclista> ciclistasCarrera;
     
+    //ATRIBUTOS COMPARATOR
+    Comparator<Etapa> comparadorEtapa;
+    
     /**
      * Constructor de la clase Organizacion
      */
-    public Organizacion()
+    public Organizacion(Comparator<Etapa> comparadorEtapa)
     {
         etapas = new ArrayList<Etapa>();
         equipos = new ArrayList<Equipo>();
         ciclistasCarrera = new ArrayList<Ciclista>();
+        
+        
+        this.comparadorEtapa = comparadorEtapa;
     }
     
     
     //FUNCIONALIDAD CLASE ORGANIZACIÓN =
-    
     //CARGA EQUIPOS
     /**
      * Añade un equipo al ArrayList de equipos
@@ -39,7 +44,7 @@ public class Organizacion
     }
     
     /**
-     * Asigna el ArrayList de equipos
+     * Asigna un ArrayList completo de equipos
      * 
      * @param equipos ArrayList<Equipo> con los equipos que participan
      */
@@ -53,12 +58,12 @@ public class Organizacion
      * 
      * @param Objeto Etapa a añadir
      */
-    public void añadirEtapa(Etapa etapa){
+    public void anadirEtapa(Etapa etapa){
         etapas.add(etapa);
     }
     
     /**
-     * Asigna el ArrayList de etapas
+     * Asigna un ArrayList completo de etapas
      * 
      * @param etapas ArrayList<Etapa> con las etapas de la competición
      */
@@ -72,12 +77,12 @@ public class Organizacion
      * 
      * @param Objeto Ciclista a añadir
      */
-    public void añadirCiclistaCarrera(Ciclista ciclista){
+    public void anadirCiclistaCarrera(Ciclista ciclista){
         ciclistasCarrera.add(ciclista);
     }
     
     /**
-     * Asigna el ArrayList de ciclistas
+     * Asigna un ArrayList completo de ciclistas
      * 
      * @param ciclistasCarrera ArrayList<Ciclista> con los ciclistas que participarán en la carrera
      */
@@ -86,32 +91,32 @@ public class Organizacion
     }
     
     //MÉTODOS DE ORDENACION DE ARRAYLIST CON COMPARATOR:
-    /**
-     * Ordena el ArrayList de etapas segun criterios del EtapasComparator
-     * 
-     * @return ArrayList<Etapa> con las etapas ordenadas 
-     */
-    public void OrdenarEtapas(){
-        Collections.sort(this.etapas, new EtapasComparator());
-    }
+    // /**
+     // * Ordena el ArrayList de etapas segun criterios del EtapasComparator
+     // * 
+     // * @return ArrayList<Etapa> con las etapas ordenadas 
+     // */
+    // public void OrdenarEtapas(){
+        // Collections.sort(this.etapas, new EtapasComparator());
+    // }
     
-    /**
-     * Ordena el ArrayList de equipos segun criterios del EquiposComparator
-     * 
-     * @return ArrayList<Equipo> con los equipos ordenados
-     */
-    public void OrdenarEquipos(){
-        Collections.sort(this.equipos, new EquiposComparator());
-    }
+    // /**
+     // * Ordena el ArrayList de equipos segun criterios del EquiposComparator
+     // * 
+     // * @return ArrayList<Equipo> con los equipos ordenados
+     // */
+    // public void OrdenarEquipos(){
+        // Collections.sort(this.equipos, new EquiposComparator());
+    // }
     
-    /**
-     * Ordena el ArrayList de ciclistas segun criterios del CiclistasComparator
-     * 
-     * @return ArrayList<Ciclista> con los ciclistas ordenados
-     */
-    public void OrdenarCiclistasCarrera(){
-        Collections.sort(this.ciclistasCarrera, new CiclistasComparator());
-    }
+    // /**
+     // * Ordena el ArrayList de ciclistas segun criterios del CiclistasComparator
+     // * 
+     // * @return ArrayList<Ciclista> con los ciclistas ordenados
+     // */
+    // public void OrdenarCiclistasCarrera(){
+        // Collections.sort(this.ciclistasCarrera, new CiclistasComparator());
+    // }
     
     public void mostrarEtapas(){
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
@@ -220,6 +225,7 @@ public class Organizacion
     
         
     public void gestionarCampeonato(){
+        //TODO CARGAR DATOS
         System.out.println("*********************************************************************************************************");
         System.out.println("*****************ESTA SIMULACIÓN CONCLUYE NORMALMENTE COMPLETÁNDOSE TODAS LAS CARRERAS*******************");
         System.out.println("*********************************************************************************************************" + "\n");

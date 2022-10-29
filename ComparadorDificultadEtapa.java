@@ -6,7 +6,7 @@ import java.util.Comparator;
  * @author Victor
  * @version 15.10
  */
-class EtapasComparator implements Comparator<Etapa>{
+class ComparadorDificultadEtapa implements Comparator<Etapa>{
     public int compare(Etapa etapa1, Etapa etapa2){
             if (etapa1.getDificultad() > etapa2.getDificultad())
             return 1;
