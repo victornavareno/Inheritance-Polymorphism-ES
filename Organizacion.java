@@ -130,7 +130,7 @@ public class Organizacion
         System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         
         for(Equipo equipo : equipos){
-            System.out.println(equipo.toString());
+            System.out.println(equipo.toString().toUpperCase());
             System.out.println("\n");
             
             //TODO MOSTRAR CICLISTAS DE CADA EQUIPO
@@ -208,7 +208,13 @@ public class Organizacion
         System.out.println("********** CLASIFICACIÓN FINAL DE EQUIPOS **********");
         System.out.println("****************************************************");
         for(int k = 0; k < equipos.size(); k++){
-            System.out.println("@@@ Posición( +" + (k+1) + "+) " + equipos.get(k).getNombre() + " con " + equipos.get(k).calcularTiempoTotal()/ etapas.size() + " minutos de media @@@");
+            System.out.println("@@@ Posición( +" + (k+1) + "+) " + equipos.get(k).getNombre() + " con " + Math.round(equipos.get(k).calcularTiempoTotal()/ etapas.size()*100.0)/100 + " minutos de media @@@");
+            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            System.out.println("%%% "+ equipos.get(k).getNombre().toUpperCase() + " %%% Media Minutos de Ciclistas sin abandonar " + Math.round(equipos.get(k).calcularTiempoTotal()/ etapas.size()*100.0)/100 + " %%%");
+            System.out.println("\n");
+            
+            //TODO IMPRIMIR CICLISTAS DE CADA EQUIPO
+            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         }
     }
     
