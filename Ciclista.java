@@ -235,6 +235,23 @@ public class Ciclista
     }
     
     // OTROS MÉTODOS DE LA CLASE CICLISTA:
+    
+    /**
+     * Indica si el ciclista posee una bicicleta asignada o no
+     * 
+     * @return boolean estado de asignación de la Bicicleta (true: tiene bicicleta asignada, false: no tiene)
+     */
+    public boolean tieneBicicleta(){
+        boolean tiene;
+        if(this.bicicleta.equals(null)){
+            tiene = false;
+        }
+        else {
+            tiene = true;
+        }
+        return tiene;
+    }
+    
     /**
      * muestra las características de un Ciclista
      * 
