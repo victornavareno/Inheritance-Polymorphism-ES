@@ -2,9 +2,9 @@ import java.util.*;
 /**
  * Representa a la clase Organizacion, capaz de gestionar el campeonato.
  * 
- * @author Elena
+ * @author Víctor
  * @author Andrés  
- * @author Víctor e
+ * @author Elena
  * @version 15.10
  */
 public class Organizacion
@@ -133,7 +133,7 @@ public class Organizacion
             System.out.println(equipo.toString());
             System.out.println("\n");
             
-            //TODO
+            //TODO MOSTRAR CICLISTAS DE CADA EQUIPO
         }
     }
     
@@ -179,10 +179,36 @@ public class Organizacion
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             System.out.println("+++++++++++++++++ Clasificación final de la carrera en "+ etapas.get(i).getNombre() +" ++++++++++++++++++");
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-            for(int k = 0; k<ciclistasCarrera.size(); k++) {
+            for(int k = 0; k<ciclistasCarrera.size(); k++) { //BUCLE FOR, NECESITO EL INDICE
                 // TODO: ORDENAR ciclistasCarrera POR TIEMPO CON COMPARATOR
                 System.out.println("@@@ Posición(" + (k+1) + "): "+ ciclistasCarrera.get(k).getNombre() + " - Tiempo: " + Math.round(ciclistasCarrera.get(k).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 +" minutos @@@");
             }
+        }
+    }
+    
+    
+    public void mostrarFinCampeonato(){
+        System.out.println("****************************************************");
+        System.out.println("**************** FIN DEL CAMPEONATO ****************");
+        System.out.println("****************************************************");
+        System.out.println("********** CLASIFICACIÓN FINAL DE CICLISTAS **********");
+        System.out.println("****************************************************");
+        
+        //TODO: ORDENAR ciclistasCarrera POR TIEMPO TOTAL COMPARATOR
+        for(int i = 0; i < ciclistasCarrera.size(); i++){
+            System.out.println("@@@ Posición(" + (i+1) + "): " + ciclistasCarrera.get(i).getNombre() + " - Tiempo Total: " + Math.round(ciclistasCarrera.get(i).calcularTiempoTotal()*100.0)/100.0 + " @@@");
+            for (int j = 0; j< etapas.size(); j++){
+                System.out.println("Carrera(" + etapas.get(j).getNombre() + ") - Tiempo: " + Math.round(ciclistasCarrera.get(i).obtenerTiempoEtapa(etapas.get(j)) * 100.0)/100 + " minutos");
+            }
+        }
+        System.out.println("\n");
+        
+        //TODO: ORDENAR EQUIPOS POR MEDIA MINUTOS EN ORDEN ASCENDENTE
+        System.out.println("****************************************************");
+        System.out.println("********** CLASIFICACIÓN FINAL DE EQUIPOS **********");
+        System.out.println("****************************************************");
+        for(int k = 0; k < equipos.size(); k++){
+            System.out.println("@@@ Posición( +" + (k+1) + "+) " + equipos.get(k).getNombre() + " con " + equipos.get(k).calcularTiempoTotal()/ etapas.size() + " minutos de media @@@");
         }
     }
     

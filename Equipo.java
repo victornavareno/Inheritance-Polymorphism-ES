@@ -3,9 +3,9 @@ import java.util.*;
  * Representa los Equipos que competirán tanto por ganar la clasificación por Equipos como que
  * uno de sus Ciclistas gane el campeonato individual de Ciclistas.
  * 
+ * @author Víctor
+ * @author Andrés
  * @author Elena
- * @author Victor
- * @author Andres
  * @version 09.10
  */
 public class Equipo

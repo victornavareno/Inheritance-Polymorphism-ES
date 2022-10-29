@@ -2,10 +2,10 @@
 /**
  * clase Resultado, almacena los resultados obtenidos (tiempo)
  * en cada Etapa que haya disputado y que vaya disputando de la competición.
- * @author Andres
- * @author Victor
+ * @author Víctor
+ * @author Andrés
  * @author Elena
- * @version 14.10
+ * @version 1
  */
 public class Resultado
 {

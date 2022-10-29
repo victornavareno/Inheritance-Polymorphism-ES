@@ -3,9 +3,9 @@
  * La clase Bicicleta representa a las distintas bicicletas 
  * que los Ciclistas pueden usar en las Etapas. 
  * 
+ * @author Víctor
+ * @author Andrés
  * @author Elena
- * @author Andres
- * @author Victor
  * @version 14.10
  */
 public class Bicicleta

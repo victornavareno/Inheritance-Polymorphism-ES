@@ -1,9 +1,9 @@
 /**
  * Write a description of class Etapa here.
  * 
- * @author Elena Chacon Viniegra
- * @author Victor 
- * @author Andres Leo Santiago
+ * @author Víctor
+ * @author Andrés
+ * @author Elena
  * @version 1
  */
 public class Etapa
