@@ -56,40 +56,38 @@ public class Organizacion
         //MUESTRA EQUIPOS:
         mostrarEquipos();
         
-        if(!(ciclistasCarrera.size()<=1)){
-                for(Etapa etapa : etapas){
-                    gestionarCarrera(etapa);
-                    mostrarCarrera();
-                }
-            }
+        for(Etapa etapa : etapas){
+            gestionarCarrera(etapa);
+            mostrarCarrera();
+        }
         mostrarFinCampeonato();
     }
     
     //FUNCIONALIDAD CLASE ORGANIZACIÓN =
     public void gestionarCarrera(Etapa etapa){
-        for(Equipo equipo : equipos){     // CARGO LOS CICLISTAS DE CADA EQUIPO EN ciclistasCarrera
-            enviarCiclistasCarrera(equipo);
+        for(int i=0 ; i <equipos.size(); i++){     // CARGO LOS CICLISTAS DE CADA EQUIPO EN ciclistasCarrera
+            enviarCiclistasCarrera(equipos.get(i));
         } 
         
-        for(int i = 0; i<ciclistasCarrera.size(); i++){
-            ciclistasCarrera.get(i).hacerCarrera(etapa); // HAGO LA CARRERA CON CADA CICLISTA DEL ARRAY
+        for(int j = 0; j<ciclistasCarrera.size(); j++){
+            ciclistasCarrera.get(j).hacerCarrera(etapa); // HAGO LA CARRERA CON CADA CICLISTA DEL ARRAY
         }
         
-        for(Ciclista ciclista : ciclistasCarrera){
-            devolverCiclistasCarrera(ciclista); // DEVUELVO CADA CICLISTA A SU EQUIPO
+        for(int k = 0; k < ciclistasCarrera.size(); k++){
+            devolverCiclistasCarrera(ciclistasCarrera.get(k)); // DEVUELVO CADA CICLISTA A SU EQUIPO
         }
     }
     
     //CARGA CICLISTAS DE LOS EQUIPOS PARA CARRERA:
     public void enviarCiclistasCarrera(Equipo equipo){
         boolean finalCiclistas = false;
-        while(!finalCiclistas){
+        //while(!finalCiclistas){
             ciclistasCarrera.add(equipo.enviarCiclista());
             if (ciclistasCarrera.get(0).equals(null)){
                 ciclistasCarrera.remove(0);
                 finalCiclistas = true; // ROMPO WHILE 
             }
-        }
+        
     }
     
     //DEVOLVER CICLISTAS A LOS EQUIPOS TRAS CARRERA:
@@ -100,7 +98,6 @@ public class Organizacion
                 ciclistasCarrera.remove(ciclista);
             }
         }
-       
     }
     
     
@@ -172,10 +169,6 @@ public class Organizacion
         Collections.sort(this.etapas, comparadorEtapa);
     }
     
-    //ENVIAR Y DEVOLVER CICLISTAS PARA CADA CARRERA, Y CELEBRAR LA ETAPA:
-    
-    
-    
     //SALIDA POR PANTALLA:
     public void mostrarEtapas(){
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
@@ -184,7 +177,7 @@ public class Organizacion
         for(Etapa etapa : etapas){
             System.out.println(etapa.toString());
         }
-        System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+        System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" + "\n");
     }
     
     public void mostrarEquipos(){
@@ -193,11 +186,14 @@ public class Organizacion
         System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         
+        Collections.sort(this.equipos, new ComparadorNombreEquipo());
         for(Equipo equipo : equipos){
-            System.out.println(equipo.toString().toUpperCase());
-            System.out.println("\n");
+            System.out.println(equipo.toString().toUpperCase() + "\n");
+            //System.out.println("\n");
             
             equipo.mostrarCiclistas();
+            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         }
     }
     
@@ -260,7 +256,7 @@ public class Organizacion
         
         //TODO: ORDENAR ciclistasCarrera POR TIEMPO TOTAL COMPARATOR
         for(int i = 0; i < ciclistasCarrera.size(); i++){
-            System.out.println("@@@ Posición(" + (i+1) + "): " + ciclistasCarrera.get(i).getNombre() + " - Tiempo Total: " + Math.round(ciclistasCarrera.get(i).calcularTiempoTotal()*100.0)/100.0 + " @@@");
+            System.out.println("@@@ Posición("+ (i+1) +"): " + ciclistasCarrera.get(i).getNombre() + " - Tiempo Total: " + Math.round(ciclistasCarrera.get(i).calcularTiempoTotal()*100.0)/100.0 + " @@@");
             for (int j = 0; j< etapas.size(); j++){
                 System.out.println("Carrera(" + etapas.get(j).getNombre() + ") - Tiempo: " + Math.round(ciclistasCarrera.get(i).obtenerTiempoEtapa(etapas.get(j)) * 100.0)/100 + " minutos");
             }
@@ -272,9 +268,9 @@ public class Organizacion
         System.out.println("********** CLASIFICACIÓN FINAL DE EQUIPOS **********");
         System.out.println("****************************************************");
         for(int k = 0; k < equipos.size(); k++){
-            System.out.println("@@@ Posición( +" + (k+1) + "+) " + equipos.get(k).getNombre() + " con " + Math.round(equipos.get(k).calcularTiempoTotal()/ etapas.size()*100.0)/100 + " minutos de media @@@");
+            System.out.println("@@@ Posición( " + (k+1) + ") " + equipos.get(k).getNombre() + " con " + Math.round(equipos.get(k).calcularTiempoTotal()/ etapas.size()*100.0)/100 + " minutos de media @@@");
             System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-            System.out.println("%%% "+ equipos.get(k).getNombre().toUpperCase() + " %%% Media Minutos de Ciclistas sin abandonar " + Math.round(equipos.get(k).calcularTiempoTotal()/ etapas.size()*100.0)/100 + " %%%");
+            System.out.println("%%% "+ (equipos.get(k).getNombre().toUpperCase()) + " %%% Media Minutos de Ciclistas sin abandonar " + Math.round(equipos.get(k).calcularTiempoTotal()/ etapas.size()*100.0)/100 + " %%%");
             System.out.println("\n");
             
             equipos.get(k).mostrarCiclistas();
