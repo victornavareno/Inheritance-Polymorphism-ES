@@ -36,15 +36,54 @@ public class Organizacion
      */
     //MÉTODO DE CONTROL DEL CAMPEONATO:        
     public void gestionarCampeonato(){
-        //TODO
+        //ORDENA Y MUESTRA ETAPAS:
+        ordenarEtapas();
+        mostrarEtapas();
+        
+        //MUESTRA EQUIPOS:
+        mostrarEquipos();
+        
+        if(!(ciclistasCarrera.size()<=1)){
+                
+            }
     }
-    
     
     //FUNCIONALIDAD CLASE ORGANIZACIÓN =
-    
-    public void gestionarCarrera(){
-        //TODO
+    public void gestionarCarrera(Etapa etapa){
+        for(Equipo equipo : equipos){     // CARGO LOS CICLISTAS DE CADA EQUIPO EN ciclistasCarrera
+            enviarCiclistasCarrera(equipo);
+        } 
+        
+        
+        for(Ciclista ciclista : ciclistasCarrera){
+            devolverCiclistasCarrera(ciclista);
+        }
     }
+    
+    //CARGA CICLISTAS DE LOS EQUIPOS PARA CARRERA:
+    public void enviarCiclistasCarrera(Equipo equipo){
+        boolean finalCiclistas = false;
+        while(!finalCiclistas){
+            ciclistasCarrera.add(equipo.enviarCiclista());
+            if (ciclistasCarrera.get(0).equals(null)){
+                ciclistasCarrera.remove(0);
+                finalCiclistas = true; // ROMPO WHILE 
+            }
+        }
+    }
+    
+    //DEVOLVER CICLISTAS A LOS EQUIPOS TRAS CARRERA:
+    public void devolverCiclistasCarrera(Ciclista ciclista){
+        for(int i= 0; i< equipos.size(); i++){
+             if(ciclista.getEquipo().equals(equipos.get(i))){
+                equipos.get(i).devolverCiclista(ciclista);
+                ciclistasCarrera.remove(ciclista);
+            }
+        }
+       
+    }
+    
+    
     //CARGA EQUIPOS
     /**
      * Añade un equipo al ArrayList de equipos
