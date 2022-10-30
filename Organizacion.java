@@ -240,7 +240,8 @@ public class Organizacion
             System.out.println("+++++++++++++++++ Clasificación final de la carrera en "+ etapas.get(i).getNombre() +" ++++++++++++++++++");
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             for(int k = 0; k<ciclistasCarrera.size(); k++) { //BUCLE FOR, NECESITO EL INDICE
-                // TODO: ORDENAR ciclistasCarrera POR TIEMPO CON COMPARATOR
+                //ORDENAR ciclistasCarrera POR TIEMPO CON COMPARATOR
+                Collections.sort(this.ciclistasCarrera, new ComparadorTiempoCiclista());
                 System.out.println("@@@ Posición(" + (k+1) + "): "+ ciclistasCarrera.get(k).getNombre() + " - Tiempo: " + Math.round(ciclistasCarrera.get(k).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 +" minutos @@@");
             }
         }
@@ -254,7 +255,8 @@ public class Organizacion
         System.out.println("********** CLASIFICACIÓN FINAL DE CICLISTAS **********");
         System.out.println("****************************************************");
         
-        //TODO: ORDENAR ciclistasCarrera POR TIEMPO TOTAL COMPARATOR
+        //ORDENAR ciclistasCarrera POR TIEMPO TOTAL COMPARATOR
+        Collections.sort(this.ciclistasCarrera, new ComparadorTiempoCiclista());
         for(int i = 0; i < ciclistasCarrera.size(); i++){
             System.out.println("@@@ Posición("+ (i+1) +"): " + ciclistasCarrera.get(i).getNombre() + " - Tiempo Total: " + Math.round(ciclistasCarrera.get(i).calcularTiempoTotal()*100.0)/100.0 + " @@@");
             for (int j = 0; j< etapas.size(); j++){
