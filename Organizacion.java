@@ -17,8 +17,11 @@ public class Organizacion
     //ATRIBUTOS COMPARATOR
     Comparator<Etapa> comparadorEtapa;
     
+    
     /**
-     * Constructor de la clase Organizacion
+     * Constructor parametrizado de la clase Organizacion
+     * 
+     * @param Comparator<Etapa> con la clase comparator que utilizaremos para ordenar el array de etapas
      */
     public Organizacion(Comparator<Etapa> comparadorEtapa)
     {
@@ -30,6 +33,16 @@ public class Organizacion
         this.comparadorEtapa = comparadorEtapa;
     }
     
+        public Organizacion()
+    {
+        etapas = new ArrayList<Etapa>();
+        equipos = new ArrayList<Equipo>();
+        ciclistasCarrera = new ArrayList<Ciclista>();
+        
+        //INIT COMPARATOR:
+    }
+
+
     /**
      * Gestiona todo el campeonato de ciclistas
      * 
@@ -44,8 +57,12 @@ public class Organizacion
         mostrarEquipos();
         
         if(!(ciclistasCarrera.size()<=1)){
-                
+                for(Etapa etapa : etapas){
+                    gestionarCarrera(etapa);
+                    mostrarCarrera();
+                }
             }
+        mostrarFinCampeonato();
     }
     
     //FUNCIONALIDAD CLASE ORGANIZACIÓN =
@@ -54,9 +71,12 @@ public class Organizacion
             enviarCiclistasCarrera(equipo);
         } 
         
+        for(int i = 0; i<ciclistasCarrera.size(); i++){
+            ciclistasCarrera.get(i).hacerCarrera(etapa); // HAGO LA CARRERA CON CADA CICLISTA DEL ARRAY
+        }
         
         for(Ciclista ciclista : ciclistasCarrera){
-            devolverCiclistasCarrera(ciclista);
+            devolverCiclistasCarrera(ciclista); // DEVUELVO CADA CICLISTA A SU EQUIPO
         }
     }
     
