@@ -30,7 +30,10 @@ public class Organizacion
         this.comparadorEtapa = comparadorEtapa;
     }
     
-    
+    /**
+     * Gestiona todo el campeonato de ciclistas
+     * 
+     */
     //MÉTODO DE CONTROL DEL CAMPEONATO:        
     public void gestionarCampeonato(){
         //TODO
@@ -40,10 +43,7 @@ public class Organizacion
     //FUNCIONALIDAD CLASE ORGANIZACIÓN =
     
     public void gestionarCarrera(){
-        ordenarEtapas();
-        mostrarEtapas();      
-        
-        mostrarEquipos();
+        //TODO
     }
     //CARGA EQUIPOS
     /**
@@ -113,37 +113,11 @@ public class Organizacion
         Collections.sort(this.etapas, comparadorEtapa);
     }
     
-    //ENVIAR Y DEVOLVER CICLISTAS PARA CADA CARRERA:
-    /**
-     * Carga los ciclistas disponibles de cada equipo en el ArrayList ciclistasCarrera para disputar esa etapa
-     * 
-     * @param Etapa en la que competirán los ciclistas enviados
-     */
-    public void enviarCiclistasCarrera(Etapa etapa){
-        boolean finCiclistasEquipo = false;
-        for(int i = 0; i< equipos.size(); i++){
-            while (!finCiclistasEquipo) {
-                anadirCiclistaCarrera(equipos.get(i).enviarCiclista());
-                if(ciclistasCarrera.get(0).equals(null)){
-                    ciclistasCarrera.remove(0);
-                    finCiclistasEquipo = true;
-                }
-            }
-        }
-    }
+    //ENVIAR Y DEVOLVER CICLISTAS PARA CADA CARRERA, Y CELEBRAR LA ETAPA:
     
-    /**
-     * Descarga los ciclistas del ArrayList ciclistasCarrera tras disputar esa etapa
-     * 
-     * @param Etapa en la que competirán los ciclistas enviados
-     */
-    public void devolverCiclistasCarrera(Ciclista ciclista){
-        for(int i = 0; i< equipos.size(); i++){
-            equipos.get(i).devolverCiclista(ciclistasCarrera.get(0));
-            ciclistasCarrera.remove(0);
-        }
-    }    
     
+    
+    //SALIDA POR PANTALLA:
     public void mostrarEtapas(){
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
         System.out.println("||||||||||||||||||| ETAPAS DEL CAMPEONATO |||||||||||||||||||");
