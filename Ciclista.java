@@ -20,7 +20,7 @@ public class Ciclista
     private Bicicleta bicicleta;
     
     //Arraylist con los resultados obtenidos por el ciclista en cada etapa
-    static List<Resultado> resultados; //SERÁ INICIALIZADO COMO ARRAYLIST
+    private List<Resultado> resultados; //SERÁ INICIALIZADO COMO ARRAYLIST
 
     /**
      * Constructor de la clase Ciclista
@@ -211,10 +211,12 @@ public class Ciclista
         if (getAbandonado() == true){    // SI HA ABANDONADO RECORREMOS ARRAY HASTA SIZE -1        
             for (int indice = 0; indice < resultados.size(); indice++)
             tiempoTotal = tiempoTotal + resultados.get(indice).getTiempo(); // SUMANDO EL TIEMPO DE CADA POSICIÓN
+            //System.out.println("MAAL");
         }  
         else
-            for (Resultado resultado : resultados){
-                tiempoTotal = tiempoTotal + resultado.getTiempo(); // FOR EACH QUE RECORRE EL VECTOR, SUMANDO TODOS LOS TIEMPOS DE CADA ETAPA
+            for (int i = 0; i<resultados.size(); i++){
+                tiempoTotal = tiempoTotal + resultados.get(i).getTiempo();
+                //System.out.println("MAAL");
         }     
         return tiempoTotal;
     }

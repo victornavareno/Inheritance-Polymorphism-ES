@@ -48,10 +48,12 @@ public class Organizacion
         //MUESTRA EQUIPOS:
         mostrarEquipos();
         
-         // for(Etapa etapa : etapas){
-             // gestionarCarrera(etapa);
-             // mostrarCarrera();
-         // }
+         for(Etapa etapa : etapas){
+             // TODO CARGAR CICLISTAS A CICLISTASCARRERA
+            anadirCiclistaCarrera();
+            mostrarCarrera();
+            devolverCiclistasCarrera();
+         }
          // mostrarFinCampeonato();
 
         //mostrarCarrera();
@@ -100,6 +102,20 @@ public class Organizacion
                 ciclistasCarrera.add(equipo.enviarCiclista());
         }
         Collections.sort(ciclistasCarrera,new ComparadorTiempoCiclista());
+    }
+    
+    /**
+     * Añade un ciclista al ArrayList de ciclistas
+     * 
+     * @param Objeto Ciclista a añadir
+     */
+    public void devolverCiclistasCarrera(){
+        for(int i = 0; i < equipos.size(); i++){
+            if (!ciclistasCarrera.isEmpty()){
+            equipos.get(i).devolverCiclista(ciclistasCarrera.get(0));
+            ciclistasCarrera.remove(0);
+            }
+        }
     }
     
     //MÉTODOS DE ORDENACION DE ARRAYLIST CON COMPARATOR:
@@ -167,12 +183,12 @@ public class Organizacion
                 
                 System.out.println("@@@ ciclista " + (j+1) + " de "+ ciclistasCarrera.size());
                 System.out.println();
-                System.out.println("<ciclista:" + ciclistasCarrera.get(j).getNombre() + "> <energía: " + ciclistasCarrera.get(j).getEnergia() + "> <habilidad: " + ciclistasCarrera.get(j).getHabilidad() + "> <tiempo acumulado sin abandonar: " + ciclistasCarrera.get(j).calcularTiempoTotal() + "> <abandonado:" + ciclistasCarrera.get(j).getAbandonado() + "> " + tiene );
+                System.out.println("<ciclista:" + ciclistasCarrera.get(j).getNombre() + "> <energía: " + Math.round(ciclistasCarrera.get(j).getEnergia()*100.0)/100.0 + "> <habilidad: " + ciclistasCarrera.get(j).getHabilidad() + "> <tiempo acumulado sin abandonar: " + Math.round(ciclistasCarrera.get(j).calcularTiempoTotal()*100.0)/100.0 + "> <abandonado:" + ciclistasCarrera.get(j).getAbandonado() + "> " + tiene );
                 if (tieneBicicleta){
                     System.out.println(ciclistasCarrera.get(j).getBicicleta().toString() + ")> en etapa " + etapas.get(i).getNombre());
-                    System.out.println("+++ Con estas condiciones el ciclista " + ciclistasCarrera.get(j).getNombre() + " con la bicicleta " + ciclistasCarrera.get(j).getBicicleta().getNombre() + " alcanza una velocidadad de " + ciclistasCarrera.get(j).getBicicleta().calcularVelocidad(ciclistasCarrera.get(j).getHabilidad(), etapas.get(i).getDificultad()) + " km/hora +++");
+                    System.out.println("+++ Con estas condiciones el ciclista " + ciclistasCarrera.get(j).getNombre() + " con la bicicleta " + ciclistasCarrera.get(j).getBicicleta().getNombre() + " alcanza una velocidadad de " + Math.round(ciclistasCarrera.get(j).getBicicleta().calcularVelocidad(ciclistasCarrera.get(j).getHabilidad(), etapas.get(i).getDificultad())*100.0)/100.0 + " km/hora +++");
                     ciclistasCarrera.get(j).hacerCarrera(etapas.get(i)); //GUARDO EN EL ARRAY RESULTADOS DEL CICLISTA
-                    System.out.println("+++ " + ciclistasCarrera.get(j).getNombre() +" termina la etapa en " + ciclistasCarrera.get(j).obtenerTiempoEtapa(etapas.get(i)) + " minutos +++");
+                    System.out.println("+++ " + ciclistasCarrera.get(j).getNombre() +" termina la etapa en " + Math.round(ciclistasCarrera.get(j).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 + " minutos +++");
                     
                     //TODO: AÑADIR MENSAJE ABANDONO
                     // FORMATO:
