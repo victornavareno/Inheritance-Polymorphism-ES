@@ -44,7 +44,13 @@ public class Organizacion
         mostrarEtapas();
         
         mostrarEquipos();
+        
         mostrarCarrera();
+        
+        mostrarFinCampeonatoCiclistas();
+        
+        //mostrarFinCampeonatoEquipos();
+        
          // for(Etapa etapa : etapas){
              // // TODO CARGAR CICLISTAS A CICLISTASCARRERA
             // anadirCiclistaCarrera();
@@ -223,7 +229,7 @@ public class Organizacion
     }
     
     
-    public void mostrarFinCampeonato(){
+    public void mostrarFinCampeonatoCiclistas(){
         System.out.println("****************************************************");
         System.out.println("**************** FIN DEL CAMPEONATO ****************");
         System.out.println("****************************************************");
@@ -232,15 +238,20 @@ public class Organizacion
         
         //ORDENAR ciclistasCarrera POR TIEMPO TOTAL COMPARATOR
         Collections.sort(this.ciclistasCarrera, new ComparadorTiempoCiclista());
-        for(int i = 0; i < ciclistasCarrera.size(); i++){
-            System.out.println("@@@ Posición("+ (i+1) +"): " + ciclistasCarrera.get(i).getNombre() + " - Tiempo Total: " + Math.round(ciclistasCarrera.get(i).calcularTiempoTotal()*100.0)/100.0 + " @@@");
-            for (int j = 0; j< etapas.size(); j++){
-                System.out.println("Carrera(" + etapas.get(j).getNombre() + ") - Tiempo: " + Math.round(ciclistasCarrera.get(i).obtenerTiempoEtapa(etapas.get(j)) * 100.0)/100 + " minutos");
-            }
+        for(int i = 0; i<etapas.size(); i++){
+            anadirCiclistaCarrera();
         }
-        System.out.println("\n");
-        
-        //TODO: ORDENAR EQUIPOS POR MEDIA MINUTOS EN ORDEN ASCENDENTE
+        for(int i = 0; i < ciclistasCarrera.size(); i++){
+            System.out.println("@@@ Posición("+ (i+1) +"): " + ciclistasCarrera.get(i).getNombre() + " - Tiempo Total: " + Math.round(ciclistasCarrera.get(i).calcularTiempoTotal()*100.00)/100.00 + " @@@" );
+            for (int j = 0; j< etapas.size(); j++){
+                System.out.println("Carrera(" + etapas.get(j).getNombre() + ") - Tiempo: " + Math.round(ciclistasCarrera.get(i).obtenerTiempoEtapa(etapas.get(j)) * 100.00)/100.00 + " minutos");
+            }
+            System.out.println();
+        }
+    }
+    
+    public void mostrarFinCampeonatoEquipos(){
+               //TODO: ORDENAR EQUIPOS POR MEDIA MINUTOS EN ORDEN ASCENDENTE
         Collections.sort(equipos,Collections.reverseOrder(new ComparadorTiempoEquipo()));
         System.out.println("****************************************************");
         System.out.println("********** CLASIFICACIÓN FINAL DE EQUIPOS **********");
