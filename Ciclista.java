@@ -26,9 +26,8 @@ public class Ciclista
      * Constructor de la clase Ciclista
      * 
      * @param nombre     String con el nombre del ciclista
-     * @param habilidad  double con el nivel de habilidad del ciclista
+     * @param habilidad  Double con el nivel de habilidad del ciclista
      * @param energia    Double con la energia restante del ciclista durante la competición
-     * @param resultados Int con los resultados en cada etapa
      * @param abandonado   Boolean para indicar si el ciclista ha abandonado o no
      * @param equipo     Equipo al que pertenece el ciclista
      * @param bicicleta  Bicicleta asignada al ciclista
@@ -254,8 +253,8 @@ public class Ciclista
      * 
      * @return String con los atributos del ciclista en formato de salida correcto
      */
-    public String toString(){
-        return "<ciclista: " + nombre + "> <energía: " + Math.round(energia*100.00)/100 + "> <habilidad: " + Math.round(habilidad*100.00)/100 + "> <tiempo acumulado sin abandonar: " + Math.round(calcularTiempoTotal()*100.00)/100 + "> <abandonado: " + abandonado +">";
+    public String toString(){               
+        return "<ciclista: " + nombre + "> <energía: " + Math.round(energia*100.0)/100.0 + "> <habilidad: " + Math.round(habilidad*100.0)/100.0 + "> <tiempo acumulado sin abandonar: " + Math.round(calcularTiempoTotal()*100.0)/100.0 + "> <abandonado: " + abandonado +">";
     }
 
     /**

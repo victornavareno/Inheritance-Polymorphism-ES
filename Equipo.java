@@ -185,8 +185,9 @@ public class Equipo
      * 
      */
     public void mostrarCiclistas(){
-        for(int i = 0; i < ciclistas.size(); i++){
-            System.out.println("<ciclista:" + ciclistas.get(i).getNombre() + "> <energía: " + Math.round(ciclistas.get(i).getEnergia()*100.0)/100 +"> <habilidad: "+ Math.round(ciclistas.get(i).getHabilidad()*100.0)/100 +"> <tiempo acumulado sin abandonar: "+ Math.round(ciclistas.get(i).calcularTiempoTotal()*100.0)/100 +"> <abandonado:"+ ciclistas.get(i).getAbandonado() +">");            
+        OrdenarCiclistas();
+        for(Ciclista ciclista : ciclistas){
+            System.out.println(ciclista.toString());            
         }
     }
     //ENVIAR CICLISTAS
@@ -212,16 +213,16 @@ public class Equipo
         } 
         return ciclista;
     }
-
-    /**
-     * Devuelve el numero de ciclistas que hay en el ArrayList del equipo
-     * 
-     * @return Int con el numero de ciclistas restantes en el equipo
-     */
-    public boolean devolverNumeroCiclistas(){
-        return ciclistas.isEmpty();
-    }
     
+    /**
+     * Devuelve el numero total de ciclistas que hay en el equipo
+     * 
+     * @return Int total de ciclistas en el ArrayList
+     */
+    public int obtenerTotalCiclistas(){
+        return ciclistas.size();
+    }
+
     /**
      * Vuelve a insertar un ciclista y su bicicleta en las listas, cuando termina la carrera
      * 
