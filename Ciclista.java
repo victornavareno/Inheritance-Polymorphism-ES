@@ -255,7 +255,7 @@ public class Ciclista
      * @return String con los atributos del ciclista en formato de salida correcto
      */
     public String toString(){
-        return "<ciclista: " + nombre + "> <energía: " + energia + "> <habilidad: " + habilidad + "> <tiempo acumulado sin abandonar: " + calcularTiempoTotal() + "> <abandonado: " + abandonado +">";
+        return "<ciclista: " + nombre + "> <energía: " + Math.round(energia*100.00)/100 + "> <habilidad: " + Math.round(habilidad*100.00)/100 + "> <tiempo acumulado sin abandonar: " + Math.round(calcularTiempoTotal()*100.00)/100 + "> <abandonado: " + abandonado +">";
     }
 
     /**

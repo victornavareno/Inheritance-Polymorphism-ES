@@ -32,16 +32,6 @@ public class Organizacion
         //INIT COMPARATOR:
         this.comparadorEtapa = comparadorEtapa;
     }
-    
-        public Organizacion()
-    {
-        etapas = new ArrayList<Etapa>();
-        equipos = new ArrayList<Equipo>();
-        ciclistasCarrera = new ArrayList<Ciclista>();
-        
-        //INIT COMPARATOR:
-    }
-
 
     /**
      * Gestiona todo el campeonato de ciclistas
@@ -56,18 +46,18 @@ public class Organizacion
         //MUESTRA EQUIPOS:
         mostrarEquipos();
         
-        for(Etapa etapa : etapas){
-            gestionarCarrera(etapa);
-            mostrarCarrera();
-        }
-        mostrarFinCampeonato();
+        // for(Etapa etapa : etapas){
+            // gestionarCarrera(etapa);
+            // mostrarCarrera();
+        // }
+        // mostrarFinCampeonato();
     }
-    
+
     //FUNCIONALIDAD CLASE ORGANIZACIÓN =
     public void gestionarCarrera(Etapa etapa){
         for(int i=0 ; i <equipos.size(); i++){     // CARGO LOS CICLISTAS DE CADA EQUIPO EN ciclistasCarrera
             enviarCiclistasCarrera(equipos.get(i));
-        } 
+        }
         
         for(int j = 0; j<ciclistasCarrera.size(); j++){
             ciclistasCarrera.get(j).hacerCarrera(etapa); // HAGO LA CARRERA CON CADA CICLISTA DEL ARRAY
@@ -81,13 +71,10 @@ public class Organizacion
     //CARGA CICLISTAS DE LOS EQUIPOS PARA CARRERA:
     public void enviarCiclistasCarrera(Equipo equipo){
         boolean finalCiclistas = false;
-        //while(!finalCiclistas){
+        while(!finalCiclistas){
             ciclistasCarrera.add(equipo.enviarCiclista());
-            if (ciclistasCarrera.get(0).equals(null)){
-                ciclistasCarrera.remove(0);
-                finalCiclistas = true; // ROMPO WHILE 
-            }
-        
+            finalCiclistas = equipo.devolverNumeroCiclistas();
+        }
     }
     
     //DEVOLVER CICLISTAS A LOS EQUIPOS TRAS CARRERA:
@@ -224,7 +211,7 @@ public class Organizacion
                     tiene = "sin bicicleta";
                 }
                 
-                System.out.println("@@@ ciclista " + (j+1) + "de "+ ciclistasCarrera.size());
+                System.out.println("@@@ ciclista " + (j+1) + " de "+ ciclistasCarrera.size());
                 System.out.println();
                 System.out.println("<ciclista:" + ciclistasCarrera.get(j).getNombre() + "> <energía: " + ciclistasCarrera.get(j).getEnergia() + "> <habilidad: " + ciclistasCarrera.get(j).getHabilidad() + "> <tiempo acumulado sin abandonar: " + ciclistasCarrera.get(j).calcularTiempoTotal() + "> <abandonado:" + ciclistasCarrera.get(j).getAbandonado() + "> " + tiene );
                 if (tieneBicicleta){

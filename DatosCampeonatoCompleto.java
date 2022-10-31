@@ -28,9 +28,9 @@ public class DatosCampeonatoCompleto
         
 
         //constructor de equipos pide (String nombre, comparador de ciclistas y si orden ascendente o descendente, comparador de bicicletas y si orden ascendente o descendente)
-        Equipo movistarWomen = new Equipo("Movistar Women", new ComparadorPesoBicicleta(), new ComparadorHabilidadCiclista(), true, true); //ciclistas comparados ascendentemente por habilidad (si iguales por nombre), bicicletas comparadas ascendentemente por peso (si iguales por nombre)
-        Equipo dSMWomen = new Equipo("DSM Women", new ComparadorPesoBicicleta(), new ComparadorEnergiaCiclista(), true, true);//ciclistas comparados ascendentemente por energía (si iguales por nombre), bicicletas comparadas ascendentemente por peso (si iguales por nombre))
-        Equipo trekSegafredoWomen = new Equipo("Trek Segafredo Women", new ComparadorPesoBicicleta(), new ComparadorHabilidadCiclista(), false, false);//ciclistas comparados descendentemente por habilidad (si iguales por nombre), bicicletas comparadas descendentemente por peso (si iguales por nombre)););
+        Equipo movistarWomen = new Equipo("Movistar Women", new ComparadorPesoBicicleta(), new ComparadorHabilidadCiclista(), false, false); //ciclistas comparados ascendentemente por habilidad (si iguales por nombre), bicicletas comparadas ascendentemente por peso (si iguales por nombre)
+        Equipo dSMWomen = new Equipo("DSM Women", new ComparadorPesoBicicleta(), new ComparadorEnergiaCiclista(), false, false);//ciclistas comparados ascendentemente por energía (si iguales por nombre), bicicletas comparadas ascendentemente por peso (si iguales por nombre))
+        Equipo trekSegafredoWomen = new Equipo("Trek Segafredo Women", new ComparadorPesoBicicleta(), new ComparadorHabilidadCiclista(), true, true);//ciclistas comparados descendentemente por habilidad (si iguales por nombre), bicicletas comparadas descendentemente por peso (si iguales por nombre)););
         
         organizacion.inscribirEquipo(movistarWomen);
         organizacion.inscribirEquipo(trekSegafredoWomen);

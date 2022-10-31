@@ -212,6 +212,15 @@ public class Equipo
         } 
         return ciclista;
     }
+
+    /**
+     * Devuelve el numero de ciclistas que hay en el ArrayList del equipo
+     * 
+     * @return Int con el numero de ciclistas restantes en el equipo
+     */
+    public boolean devolverNumeroCiclistas(){
+        return ciclistas.isEmpty();
+    }
     
     /**
      * Vuelve a insertar un ciclista y su bicicleta en las listas, cuando termina la carrera
