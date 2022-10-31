@@ -38,14 +38,11 @@ public class Organizacion
     /**
      * Gestiona todo el campeonato de ciclistas
      * 
-     */
-    //MÉTODO DE CONTROL DEL CAMPEONATO:        
+     */    
     public void gestionarCampeonato(){
-        //ORDENA Y MUESTRA ETAPAS:
         ordenarEtapas();
         mostrarEtapas();
         
-        //MUESTRA EQUIPOS:
         mostrarEquipos();
         
          for(Etapa etapa : etapas){
@@ -95,13 +92,12 @@ public class Organizacion
      * @param Objeto Ciclista a añadir
      */
     public void anadirCiclistaCarrera(){
-        Iterator<Equipo> iterator = equipos.iterator(); //DEFINO UN ITERATOR POR EL ARRAYLIST EQUIPOS
-        while(iterator.hasNext()){
-            Equipo equipo = iterator.next();
-            for(int i=0; i<equipo.obtenerTotalCiclistas(); i++)
-                ciclistasCarrera.add(equipo.enviarCiclista());
+        for(int i=0; i < equipos.size(); i++) {
+            int numCiclistas = equipos.get(i).obtenerTotalCiclistas();
+        for(int j=0; j < numCiclistas; j++){
+                ciclistasCarrera.add(equipos.get(i).enviarCiclista());
+            }
         }
-        Collections.sort(ciclistasCarrera,new ComparadorTiempoCiclista());
     }
     
     /**
