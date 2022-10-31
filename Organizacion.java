@@ -146,16 +146,17 @@ public class Organizacion
             System.out.println("******************************** Ciclistas que van a competir en " + etapas.get(i).getNombre() + " *******************************");
             System.out.println("**********************************************************************************************************");
             for(Ciclista ciclista :ciclistasCarrera){
-                System.out.println("<ciclista:"+ciclista.getNombre()+"> <energía: "+ Math.round(ciclista.getEnergia()*100.0) / 100.0 + "> <habilidad: "+ ciclista.getHabilidad() + "> <tiempo acumulado sin abandonar:"+ Math.round(ciclista.calcularTiempoTotal() * 100.0)/100.0 + "> <abandonado:"+ ciclista.getAbandonado() + ">");
+                System.out.println(ciclista.toString()); //MUESTRO LA INFO DE CADA CICLISTA QUE COMPITE EN ESTA ETAPA
             }
             
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             System.out.println("+++++++++++++++++++++++++ Comienza la carrera en " + etapas.get(i).getNombre() + " ++++++++++++++++++++++++++");
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-            //TODO: ORDENAR CICLISTAS CON COMPARATOR
+            //ORDENAR CICLISTAS CON COMPARATOR POR TIEMPO TOTAL, EN ORDEN INVERSO
+            Collections.sort(ciclistasCarrera,Collections.reverseOrder(new ComparadorTiempoCiclista()));
             
             for (int j = 0; j<ciclistasCarrera.size(); j++){
-                boolean tieneBicicleta = ciclistasCarrera.get(j).tieneBicicleta();
+                boolean tieneBicicleta = ciclistasCarrera.get(j).tieneBicicleta(); //COMPRUEBO SI TIENE BICI ASIGNADA
                 String tiene;
                 if(tieneBicicleta){
                     tiene = "con bicicleta";
@@ -170,7 +171,14 @@ public class Organizacion
                 if (tieneBicicleta){
                     System.out.println(ciclistasCarrera.get(j).getBicicleta().toString() + ")> en etapa " + etapas.get(i).getNombre());
                     System.out.println("+++ Con estas condiciones el ciclista " + ciclistasCarrera.get(j).getNombre() + " con la bicicleta " + ciclistasCarrera.get(j).getBicicleta().getNombre() + " alcanza una velocidadad de " + ciclistasCarrera.get(j).getBicicleta().calcularVelocidad(ciclistasCarrera.get(j).getHabilidad(), etapas.get(i).getDificultad()) + " km/hora +++");
+                    ciclistasCarrera.get(j).hacerCarrera(etapas.get(i)); //GUARDO EN EL ARRAY RESULTADOS DEL CICLISTA
                     System.out.println("+++ " + ciclistasCarrera.get(j).getNombre() +" termina la etapa en " + ciclistasCarrera.get(j).obtenerTiempoEtapa(etapas.get(i)) + " minutos +++");
+                    
+                    //TODO: AÑADIR MENSAJE ABANDONO
+                    // FORMATO:
+                    //System.out.println("¡¡¡ El ciclista "+ciclistasCarrera.get(j).getNombre()+" se quedó sin energia a falta de 48.73 minutos para terminar !!!");
+                    //System.out.println("¡¡¡ En el momento de quedarse sin energia llevaba en carrera 180.08 minutos !!!");
+                
                     System.out.println("+++ La energía del ciclista "+ ciclistasCarrera.get(j).getNombre() + " tras la carrera es " + Math.round(ciclistasCarrera.get(j).getEnergia()*100.0)/100.0 + " +++");
                     System.out.println("@@@");
                 }
@@ -180,7 +188,7 @@ public class Organizacion
             System.out.println("+++++++++++++++++ Clasificación final de la carrera en "+ etapas.get(i).getNombre() +" ++++++++++++++++++");
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             for(int k = 0; k<ciclistasCarrera.size(); k++) { //BUCLE FOR, NECESITO EL INDICE
-                //ORDENAR ciclistasCarrera POR TIEMPO CON COMPARATOR
+                //ORDENAR ciclistasCarrera POR TIEMPO CON COMPARATOR, ESTA VEZ EN ORDEN NORMAL
                 Collections.sort(this.ciclistasCarrera, new ComparadorTiempoCiclista());
                 System.out.println("@@@ Posición(" + (k+1) + "): "+ ciclistasCarrera.get(k).getNombre() + " - Tiempo: " + Math.round(ciclistasCarrera.get(k).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 +" minutos @@@");
             }
@@ -219,6 +227,7 @@ public class Organizacion
         System.out.println("\n");
         
         //TODO: ORDENAR EQUIPOS POR MEDIA MINUTOS EN ORDEN ASCENDENTE
+        Collections.sort(equipos,Collections.reverseOrder(new ComparadorTiempoEquipo()));
         System.out.println("****************************************************");
         System.out.println("********** CLASIFICACIÓN FINAL DE EQUIPOS **********");
         System.out.println("****************************************************");
