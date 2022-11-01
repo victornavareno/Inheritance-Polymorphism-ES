@@ -138,7 +138,7 @@ public class Equipo
      * @return ArrayList<Ciclista> con los ciclistas ordenados 
      */
     public void OrdenarCiclistas(){
-        System.out.println("Ordenando ciclistas");  
+        //System.out.println("Ordenando ciclistas");  
         if(this.ordenarOrdenInversoCiclista == true){      
             Collections.sort(this.ciclistas, Collections.reverseOrder(comparadorCiclista)); // ORDENO EN ORDEN INVERSO
         }
@@ -151,7 +151,7 @@ public class Equipo
      * @return ArrayList<Bicicleta> con las bicicletas
      */
     public void OrdenarBicicletas(){
-        System.out.println("Ordenando bicicletas");
+        //System.out.println("Ordenando bicicletas");
         if(this.ordenarOrdenInversoBicicleta == true){      
             Collections.sort(this.bicicletas, Collections.reverseOrder(comparadorBicicleta)); // ORDENO EN ORDEN INVERSO
         }
@@ -169,6 +169,15 @@ public class Equipo
             tiempoTotalEquipo = tiempoTotalEquipo + ciclista.calcularTiempoTotal();
         }   
         return tiempoTotalEquipo;
+    }
+    
+    /**
+     * Calcula la media del tiempo obtenido en todas las etapas por todos los ciclistas del equipo
+     * 
+     * @return double mediaTiempo con la media del tiempo de todos los ciclistas en todas las etapas
+     */
+    public double calcularMediaTiempo(){
+        return calcularTiempoTotal() / obtenerTotalCiclistas();
     }
     
     /**
