@@ -47,6 +47,8 @@ public class Organizacion
         mostrarCarreras();
         
         mostrarFinCampeonatoCiclistas();
+        
+        setCiclistasAbandonados();
         if (!ciclistasAbandonados.isEmpty()){
             mostrarAbandonados();
         }
@@ -103,6 +105,10 @@ public class Organizacion
                 ciclistasCarrera.get(0).getEquipo().devolverCiclista(ciclistasCarrera.get(0));
                 ciclistasCarrera.remove(0);
                 }   
+        while(!ciclistasAbandonados.isEmpty()){
+            ciclistasAbandonados.get(0).getEquipo().devolverCiclista(ciclistasAbandonados.get(0));
+            ciclistasAbandonados.remove(0);
+        }
     }
     
     //MÉTODOS DE ORDENACION DE ARRAYLIST CON COMPARATOR:
@@ -214,6 +220,12 @@ public class Organizacion
             }
             
             devolverCiclistasCarrera();
+        }
+    }
+    
+    public void setCiclistasAbandonados() {
+        for(Equipo equipo: equipos){
+            this.ciclistasAbandonados = equipo.getCiclistasAbandonado();
         }
     }
     
