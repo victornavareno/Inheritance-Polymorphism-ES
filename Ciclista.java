@@ -134,7 +134,7 @@ public class Ciclista
      * @return double con el tiempo obtenido en la ultima etapa
      */
     public double getTiempoEtapa(){
-        return obtenerTiempoEtapa(resultados.get(0).getEtapa());
+        return obtenerTiempoEtapa(resultados.get(resultados.size()-1).getEtapa());
     }
 
     /**
