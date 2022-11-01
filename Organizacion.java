@@ -177,7 +177,7 @@ public class Organizacion
                     System.out.println(ciclistasCarrera.get(j).getBicicleta().toString() + ")> en etapa " + etapas.get(i).getNombre());
                     System.out.println("+++ Con estas condiciones el ciclista " + ciclistasCarrera.get(j).getNombre() + " con la bicicleta " + ciclistasCarrera.get(j).getBicicleta().getNombre() + " alcanza una velocidadad de " + Math.round(ciclistasCarrera.get(j).getBicicleta().calcularVelocidad(ciclistasCarrera.get(j).getHabilidad(), etapas.get(i).getDificultad())*100.0)/100.0 + " km/hora +++");
                     ciclistasCarrera.get(j).hacerCarrera(etapas.get(i)); //GUARDO EN EL ARRAY RESULTADOS DEL CICLISTA
-                    
+
                     if(ciclistasCarrera.get(j).getEnergia()<= 0){
                         System.out.println("¡¡¡ El ciclista " + ciclistasCarrera.get(j).getNombre() + " se quedó sin energia a falta de " + Math.abs(Math.round(ciclistasCarrera.get(j).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0) + " minutos para terminar !!!");
                         System.out.println("¡¡¡ En el momento de quedarse sin energia llevaba en carrera " + Math.round(ciclistasCarrera.get(j).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 +" minutos !!!"); //TODO arreglar tiempo carrera
@@ -198,19 +198,21 @@ public class Organizacion
             System.out.println("+++++++++++++++++ Clasificación final de la carrera en "+ etapas.get(i).getNombre() +" ++++++++++++++++++");
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             
-            //ORDENAR ciclistasCarrera POR TIEMPO CON COMPARATOR, ESTA VEZ EN ORDEN NORMAL
+            for(Ciclista ciclista: ciclistasAbandonados){ // BORRO LOS ABANDONADOS DE LOS CICLISTAS NORMALES
+                if(!ciclistasAbandonados.isEmpty()){
+                    ciclistasCarrera.remove(ciclista);
+                }
+            }
             
             for(int k = 0; k<ciclistasCarrera.size(); k++) { //BUCLE FOR, NECESITO EL INDICE
                 Collections.sort(this.ciclistasCarrera, new ComparadorTiempoCiclista());
-                if (ciclistasCarrera.get(k).getEnergia()<=0){
-                     //TODO: AÑADIR MENSAJE ABANDONO
-                    // FORMATO:
-                    System.out.println("¡¡¡ Ha abandonado " + ciclistasCarrera.get(k).getNombre() +" - Tiempo: " + ciclistasCarrera.get(k).getEnergia() + " - Además ha abandonado para el resto del Campeonato !!!");
-                }
-                else{
                     System.out.println("@@@ Posición(" + (k+1) + "): "+ ciclistasCarrera.get(k).getNombre() + " - Tiempo: " + Math.round(ciclistasCarrera.get(k).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 +" minutos @@@");   
-                }
             }
+            
+            for(Ciclista ciclista : ciclistasAbandonados){
+                System.out.println("¡¡¡ Ha abandonado " + ciclista.getNombre() +" - Tiempo: " + Math.round(ciclista.getEnergia()*100.0)/100.0 + " - Además ha abandonado para el resto del Campeonato !!!");
+            }
+            
             devolverCiclistasCarrera();
         }
     }
