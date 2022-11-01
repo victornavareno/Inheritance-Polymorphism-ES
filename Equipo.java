@@ -151,11 +151,10 @@ public class Equipo
      * @return ArrayList<Ciclista> con los ciclistas abandonados ordenados 
      */
     public void OrdenarCiclistasAbandonado(){
-        //System.out.println("Ordenando ciclistas");  
         if(this.ordenarOrdenInversoCiclista == true){      
             Collections.sort(this.ciclistasAbandonado, Collections.reverseOrder(comparadorCiclista)); // ORDENO EN ORDEN INVERSO
         }
-        else Collections.sort(this.ciclistasAbandonado, comparadorCiclista); // ORDEN NORMAL
+        else Collections.sort(this.ciclistasAbandonado, comparadorCiclista);
     }
     
     /**
@@ -229,8 +228,18 @@ public class Equipo
     public void mostrarCiclistasAbandonados(){
         OrdenarCiclistasAbandonado();
         for(Ciclista ciclista : ciclistasAbandonado){
-            System.out.println("<ciclista: " + ciclista.getNombre() + "> <energía: " + Math.round(ciclista.getEnergia()*100.0)/100.0 + "> <habilidad: " + Math.round(ciclista.getHabilidad()*100.0)/100.0 + "> <tiempo acumulado sin abandonar: " + Math.round((ciclista.calcularTiempoTotal() - ciclista.getEnergia()) *100.0)/100.0 + "> <abandonado: " + ciclista.getAbandonado() +">");            
+            System.out.println("<ciclista: " + ciclista.getNombre() + "> <energía: " + Math.round(ciclista.getEnergia()*100.0)/100.0 + "> <habilidad: " + Math.round(ciclista.getHabilidad()*100.0)/100.0 + "> <tiempo acumulado sin abandonar: " + Math.round(calcularTiempoAbandonado(ciclista) *100.0)/100.0 + "> <abandonado: " + ciclista.getAbandonado() +">");            
         }
+    }
+    
+    /**
+     * Calcula y devuelve el tiempo acumulado sin abandonar de un ciclista que ha abandonado
+     * 
+     * @return double tiempoAcum
+     * uladoAbandonado
+     */
+    public double calcularTiempoAbandonado(Ciclista ciclista){
+        return (ciclista.calcularTiempoTotal() - ciclista.getEnergia());
     }
     
     //ENVIAR CICLISTAS

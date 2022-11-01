@@ -216,6 +216,7 @@ public class Organizacion
     }
     
         public void mostrarAbandonados(){
+        Collections.sort(ciclistasAbandonados, Collections.reverseOrder(new ComparadorTiempoTotalCiclista()));
         System.out.println("****************************************************");
         System.out.println("************** CICLISTAS QUE ABANDONARON **************");
         System.out.println("****************************************************");
