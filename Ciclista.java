@@ -127,6 +127,15 @@ public class Ciclista
     {
         return this.energia;
     }
+    
+    /**
+     * Devuelve el resultado en su última etapa
+     * 
+     * @return double con el tiempo obtenido en la ultima etapa
+     */
+    public double getTiempoEtapa(){
+        return obtenerTiempoEtapa(resultados.get(0).getEtapa());
+    }
 
     /**
      * Devuelve el estado de abandonado del ciclista 1 abandonado 0 no abandonado
@@ -211,12 +220,10 @@ public class Ciclista
         if (getAbandonado() == true){    // SI HA ABANDONADO RECORREMOS ARRAY HASTA SIZE -1        
             for (int indice = 0; indice < resultados.size(); indice++)
             tiempoTotal = tiempoTotal + resultados.get(indice).getTiempo(); // SUMANDO EL TIEMPO DE CADA POSICIÓN
-            //System.out.println("MAAL");
         }  
         else
             for (int i = 0; i<resultados.size(); i++){
                 tiempoTotal = tiempoTotal + resultados.get(i).getTiempo();
-                //System.out.println("MAAL");
         }     
         return tiempoTotal;
     }

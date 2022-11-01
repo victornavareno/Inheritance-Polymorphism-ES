@@ -126,10 +126,11 @@ public class Organizacion
         System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         System.out.println("%%%%%%%% EQUIPOS DEL CAMPEONATO %%%%%%%%");
         System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         
         for(Equipo equipo : equipos){
-            System.out.println(equipo.toString().toUpperCase() + "\n");
+            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            System.out.println("%%% "+ (equipo.getNombre().toUpperCase()) + " %%% Media Minutos de Ciclistas sin abandonar " + Math.round(equipo.calcularMediaTiempo()*100.00)/100.00 + " %%%");
+            System.out.println();
             
             equipo.mostrarCiclistas();
             System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
@@ -145,7 +146,7 @@ public class Organizacion
             System.out.println("********************************************************************************************************");
             System.out.println("******************************** Ciclistas que van a competir en " + etapas.get(i).getNombre() + " *******************************");
             System.out.println("**********************************************************************************************************");
-            Collections.sort(ciclistasCarrera,Collections.reverseOrder(new ComparadorTiempoCiclista()));
+            Collections.sort(ciclistasCarrera,Collections.reverseOrder(new ComparadorTiempoTotalCiclista()));
             for(Ciclista ciclista :ciclistasCarrera){
                 System.out.println(ciclista.toString()); //MUESTRO LA INFO DE CADA CICLISTA QUE COMPITE EN ESTA ETAPA
             }
@@ -187,9 +188,11 @@ public class Organizacion
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             System.out.println("+++++++++++++++++ Clasificación final de la carrera en "+ etapas.get(i).getNombre() +" ++++++++++++++++++");
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            
+            //ORDENAR ciclistasCarrera POR TIEMPO CON COMPARATOR, ESTA VEZ EN ORDEN NORMAL
+            
             for(int k = 0; k<ciclistasCarrera.size(); k++) { //BUCLE FOR, NECESITO EL INDICE
-                //ORDENAR ciclistasCarrera POR TIEMPO CON COMPARATOR, ESTA VEZ EN ORDEN NORMAL
-                Collections.sort(this.ciclistasCarrera, new ComparadorTiempoCiclista());
+                //Collections.sort(this.ciclistasCarrera, new ComparadorTiempoCiclista());
                 System.out.println("@@@ Posición(" + (k+1) + "): "+ ciclistasCarrera.get(k).getNombre() + " - Tiempo: " + Math.round(ciclistasCarrera.get(k).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 +" minutos @@@");
             }
             devolverCiclistasCarrera();
@@ -217,12 +220,13 @@ public class Organizacion
         System.out.println("********** CLASIFICACIÓN FINAL DE CICLISTAS **********");
         System.out.println("****************************************************");
         
-        //ORDENAR ciclistasCarrera POR TIEMPO TOTAL COMPARATOR
-        Collections.sort(this.ciclistasCarrera, new ComparadorTiempoCiclista());
+        
         for(int i = 0; i<etapas.size(); i++){
             anadirCiclistaCarrera();
         }
         
+        //ORDENAR ciclistasCarrera POR TIEMPO TOTAL COMPARATOR
+        Collections.sort(this.ciclistasCarrera, new ComparadorTiempoTotalCiclista());
         for(int i = 0; i < ciclistasCarrera.size(); i++){
             System.out.println("@@@ Posición("+ (i+1) +"): " + ciclistasCarrera.get(i).getNombre() + " - Tiempo Total: " + Math.round(ciclistasCarrera.get(i).calcularTiempoTotal()*100.00)/100.00 + " @@@" );
             for (int j = 0; j< etapas.size(); j++){
@@ -233,23 +237,6 @@ public class Organizacion
         devolverCiclistasCarrera();
     }
     
-    //MALL:
-       // public void mostrarClasificacionEquipos(){
-        // Collections.sort(equipos,new TotalMinutosEquipoComparator());
-        // for(int i = 0;i<equipos.size();i++){
-            // System.out.println("@@@ Posición("+(i-1)+") "+equipos.get(i).getNombre()+" con "+Math.round(equipos.get(i).obtenerMediaResultados()*100.0)/100.0+" mimutos de media @@@"); 
-            // System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-            // System.out.println("%%% "+equipos.get(i).getNombre()+" %%% Media Minutos de Ciclistas sin abandonar "+Math.round(equipos.get(i).obtenerMediaResultados()*100.0)/100.0+" %%%");
-            // System.out.println();
-            // Iterator<Ciclista> it2 = equipos.get(i).obtenerConjuntoCiclistas().iterator();
-            // while(it2.hasNext()){
-                // Ciclista c = it2.next();
-                // System.out.println("<ciclista:"+c.getNombre()+"> <energía: "+Math.round(c.getEnergia()*100.0)/100.0+"> <habilidad: "+c.getHabilidad()+"> <tiempo acumulado sin abandonar: "+Math.round(c.obtenerResultadosTotales()*100.0)/100.0+"> <abandonado: "+c.haAbandonado()+">");
-            // }
-            // System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-        // }
-    // }
-    
     public void mostrarFinCampeonatoEquipos(){
                //TODO: ORDENAR EQUIPOS POR MEDIA MINUTOS EN ORDEN ASCENDENTE
         Collections.sort(equipos, new ComparadorTiempoEquipo());
@@ -257,7 +244,9 @@ public class Organizacion
         System.out.println("********** CLASIFICACIÓN FINAL DE EQUIPOS **********");
         System.out.println("****************************************************");
         for(int k = 0; k < equipos.size(); k++){
-            System.out.println("@@@ Posición( " + (k+1) + ") " + equipos.get(k).getNombre() + " con " + Math.round(equipos.get(k).calcularMediaTiempo()*100.00)/100.00 + " minutos de media @@@" );
+            System.out.println("%%%");
+            System.out.println("@@@ Posición(" + (k+1) + ") " + equipos.get(k).getNombre() + " con " + Math.round(equipos.get(k).calcularMediaTiempo()*100.00)/100.00 + " minutos de media @@@" );
+            System.out.println("%%%");
             System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
             System.out.println("%%% "+ (equipos.get(k).getNombre().toUpperCase()) + " %%% Media Minutos de Ciclistas sin abandonar " + Math.round(equipos.get(k).calcularMediaTiempo()*100.00)/100.00 + " %%%");
             System.out.println();

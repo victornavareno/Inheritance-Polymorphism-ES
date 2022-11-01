@@ -186,7 +186,7 @@ public class Equipo
      * @return String con atributos del equipo
      */
     public String toString(){
-        return "%%% " + nombre +" %%% Media Minutos de Ciclistas sin abandonar 0.0 %%%";
+        return "%%% " + nombre;
     }
     
     /**
