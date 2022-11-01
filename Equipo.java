@@ -146,6 +146,19 @@ public class Equipo
     }
     
     /**
+     * Ordena el ArrayList de ciclistas abandonados segun criterios del comparadorCiclista
+     * 
+     * @return ArrayList<Ciclista> con los ciclistas abandonados ordenados 
+     */
+    public void OrdenarCiclistasAbandonado(){
+        //System.out.println("Ordenando ciclistas");  
+        if(this.ordenarOrdenInversoCiclista == true){      
+            Collections.sort(this.ciclistasAbandonado, Collections.reverseOrder(comparadorCiclista)); // ORDENO EN ORDEN INVERSO
+        }
+        else Collections.sort(this.ciclistasAbandonado, comparadorCiclista); // ORDEN NORMAL
+    }
+    
+    /**
      * Ordena el ArrayList de bicicletas segun criterios del comparadorBicicleta
      * 
      * @return ArrayList<Bicicleta> con las bicicletas
@@ -199,6 +212,27 @@ public class Equipo
             System.out.println(ciclista.toString());            
         }
     }
+
+    /**
+     * Devuelve true si hay ciclistas abandonados en este equipo, false si no hay
+     * 
+     * @return boolean hayAbandonados
+     */
+    public boolean hayAbandonados(){
+        return !ciclistasAbandonado.isEmpty();
+    }
+ 
+    /**
+     * Imprime por pantalla cadenas con los Ciclistas abandonados que forman parte del Equipo
+     * 
+     */
+    public void mostrarCiclistasAbandonados(){
+        OrdenarCiclistasAbandonado();
+        for(Ciclista ciclista : ciclistasAbandonado){
+            System.out.println(ciclista.toString());            
+        }
+    }
+    
     //ENVIAR CICLISTAS
     /**
      * Envia el primer Ciclista de la lista, asignandole la primera bicicleta de la lista de bicicletas. Después borra ambos para dejar prioridad al siguiente
