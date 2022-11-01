@@ -33,7 +33,7 @@ public class Organizacion
         ciclistasAbandonados = new ArrayList<Ciclista>();
         
         //INIT COMPARATOR:
-        comparadorEtapa = comparadorEtapa;
+        this.comparadorEtapa = comparadorEtapa;
         comparadorNombreEquipo = new ComparadorNombreEquipo();
         comparadorTiempoEquipo = new ComparadorTiempoEquipo();
         comparadorTiempoCiclista = new ComparadorTiempoCiclista(); 
@@ -177,7 +177,6 @@ public class Organizacion
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             System.out.println("+++++++++++++++++++++++++ Comienza la carrera en " + etapas.get(i).getNombre() + " ++++++++++++++++++++++++++");
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-            //ORDENAR CICLISTAS CON COMPARATOR POR TIEMPO TOTAL, EN ORDEN INVERSO
             
             
             for (int j = 0; j<ciclistasCarrera.size(); j++){
@@ -214,7 +213,6 @@ public class Organizacion
                     }
                 }
             }
-            
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             System.out.println("+++++++++++++++++ Clasificación final de la carrera en "+ etapas.get(i).getNombre() +" ++++++++++++++++++");
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -273,9 +271,10 @@ public class Organizacion
         System.out.println("********** CLASIFICACIÓN FINAL DE CICLISTAS **********");
         System.out.println("****************************************************");
         
-        
-        for(int i = 0; i<etapas.size(); i++){
+        Iterator<Etapa> itEtapas = etapas.iterator();
+        while(itEtapas.hasNext()){
             anadirCiclistaCarrera();
+            itEtapas.next();
         }
         
         //ORDENAR ciclistasCarrera POR TIEMPO TOTAL COMPARATOR
