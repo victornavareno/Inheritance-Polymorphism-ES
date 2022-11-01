@@ -8,14 +8,12 @@ import org.junit.jupiter.api.Test;
 /**
  * The test class BicicletaTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author  Victor
+ * @version 1
  */
 public class BicicletaTest
 {
     private Bicicleta BicicletaTest1;
-    private Bicicleta BicicletaTest2;
-    private Bicicleta BicicletaTest3;
 
     /**
      * Default constructor for test class BicicletaTest
@@ -33,8 +31,6 @@ public class BicicletaTest
     public void setUp()
     {
         BicicletaTest1 = new Bicicleta("TREK Madone SLR 9 eTap Gen 7", 7.35);
-        BicicletaTest2 = new Bicicleta("SCOTT CONTESSA ADDICT 15", 7.6);
-        BicicletaTest3 = new Bicicleta("CANYON Ultimate CFR eTap", 7.45);
     }
 
     /**
@@ -47,6 +43,17 @@ public class BicicletaTest
     {
     }
 
-
+    @Test
+    public void calcularVelocidadTest()
+    {
+        assertEquals(75.4, BicicletaTest1.calcularVelocidad(5.01, 0.9), 0.5);
+    }
+    
+    @Test
+    public void calcularMinutosEnEtapa()
+    {
+        assertEquals(159, BicicletaTest1.calcularTiempo(200, 75.5), 0.8);
+    }
 }
+
 
