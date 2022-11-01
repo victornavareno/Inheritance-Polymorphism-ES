@@ -4,9 +4,7 @@ import java.util.*;
  * uno de sus Ciclistas gane el campeonato individual de Ciclistas.
  * 
  * @author Víctor
- * @author Andrés
- * @author Elena
- * @version 09.10
+ * @version 1
  */
 public class Equipo
 {
@@ -23,7 +21,9 @@ public class Equipo
     private boolean ordenarOrdenInversoCiclista; 
 
     /**
-     * Constructor de la clase Equipo
+     * Constructor parametrizado de la clase Equipo
+     * 
+     * @param String nombre, Comparator<Bicicleta> comparadorBicicleta, Comparator<Ciclista> comparatorCiclista, boolean ordenarOrdenInvBicicleta, boolean ordenarOrdenInvCiclista
      */
     public Equipo(String nombre, Comparator<Bicicleta> comparadorBicicleta, Comparator<Ciclista> comparatorCiclista, boolean ordenarOrdenInversoBicicleta, boolean ordenarOrdenInversoCiclista)
     {
@@ -81,7 +81,7 @@ public class Equipo
      * 
      * @return String con el nombre del Equipo
      */
-    public synchronized String getNombre() {
+    public String getNombre() {
         return this.nombre;
     }
     
@@ -195,7 +195,7 @@ public class Equipo
     /**
      * Devuelve cadena con las caracteristicas del equipo en el formato indicado
      * 
-     * @return String con atributos del equipo
+     * @return String 
      */
     public String toString(){
         return "%%% " + nombre;
@@ -215,7 +215,7 @@ public class Equipo
     /**
      * Devuelve true si hay ciclistas abandonados en este equipo, false si no hay
      * 
-     * @return boolean hayAbandonados
+     * @return boolean
      */
     public boolean hayAbandonados(){
         return !ciclistasAbandonado.isEmpty();
@@ -235,8 +235,7 @@ public class Equipo
     /**
      * Calcula y devuelve el tiempo acumulado sin abandonar de un ciclista que ha abandonado
      * 
-     * @return double tiempoAcum
-     * uladoAbandonado
+     * @return double tiempoAcumuladoAbandonado
      */
     public double calcularTiempoAbandonado(Ciclista ciclista){
         return (ciclista.calcularTiempoTotal() - ciclista.getEnergia());

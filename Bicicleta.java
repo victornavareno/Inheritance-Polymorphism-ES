@@ -4,9 +4,7 @@
  * que los Ciclistas pueden usar en las Etapas. 
  * 
  * @author Víctor
- * @author Andrés
- * @author Elena
- * @version 14.10
+ * @version 1
  */
 public class Bicicleta
 {

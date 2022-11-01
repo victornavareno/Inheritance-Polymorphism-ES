@@ -1,7 +1,7 @@
 /**
- * Write a description of class Etapa here.
+ * La clase Etapa representa al recorrido donde competirán cada jornada los Ciclistas con sus Bicicletas.
  * 
- * @author Víctor
+ * @author Víctor Navareño
  * @author Andrés
  * @author Elena
  * @version 1

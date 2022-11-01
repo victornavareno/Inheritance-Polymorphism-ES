@@ -2,9 +2,7 @@ import java.util.*;
 /**
  * Representa a la clase Organizacion, capaz de gestionar el campeonato.
  * 
- * @author Víctor
- * @author Andrés  
- * @author Elena
+ * @author Víctor Navareño
  * @version 1
  */
 public class Organizacion
@@ -60,7 +58,7 @@ public class Organizacion
     /**
      * Añade un equipo al ArrayList de equipos
      * 
-     * @param Objeto Equipo a añadir
+     * @param Equipo a añadir
      */
     public void inscribirEquipo(Equipo equipo)
     {
@@ -86,7 +84,7 @@ public class Organizacion
      * 
      * @param Objeto Ciclista a añadir
      */
-    public void anadirCiclistaCarrera(){
+    private void anadirCiclistaCarrera(){
         for(int i=0; i < equipos.size(); i++) {
             int numCiclistas = equipos.get(i).obtenerTotalCiclistas();
         for(int j=0; j < numCiclistas; j++){
@@ -100,7 +98,7 @@ public class Organizacion
      * 
      * @param Objeto Ciclista a añadir
      */
-    public void devolverCiclistasCarrera(){
+    private void devolverCiclistasCarrera(){
         while(!ciclistasCarrera.isEmpty()){
                 ciclistasCarrera.get(0).getEquipo().devolverCiclista(ciclistasCarrera.get(0));
                 ciclistasCarrera.remove(0);
@@ -117,12 +115,15 @@ public class Organizacion
      * 
      * @return ArrayList<Etapa> con las etapas ordenadas 
      */
-    public void ordenarEtapas(){
+    private void ordenarEtapas(){
         Collections.sort(this.etapas, comparadorEtapa);
     }
     
     //SALIDA POR PANTALLA:
-    public void mostrarEtapas(){
+    /**
+     * Muestra los detalles de todas las etapas (Formato especificado en toString etapa)
+     */
+    private void mostrarEtapas(){
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
         System.out.println("||||||||||||||||||| ETAPAS DEL CAMPEONATO |||||||||||||||||||");
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
@@ -132,7 +133,10 @@ public class Organizacion
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" + "\n");
     }
     
-    public void mostrarEquipos(){
+    /**
+     * Muestra un resumen de cada equipo que participará en el campeonato, junto con sus ciclistas
+     */
+    private void mostrarEquipos(){
         System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         System.out.println("%%%%%%%% EQUIPOS DEL CAMPEONATO %%%%%%%%");
         System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
@@ -147,7 +151,10 @@ public class Organizacion
         }
     }
     
-    public void mostrarCarreras(){
+    /**
+     * Muestra todos los detalles de las diferentes carreras que se realizan, nombre de la etapa, ciclistas que participarán, posiciones tras la carrera, abandonados en cada carrera
+     */
+    private void mostrarCarreras(){
         for(int i = 0; i<etapas.size(); i++){
             System.out.println();
             anadirCiclistaCarrera();
@@ -221,19 +228,23 @@ public class Organizacion
             for(Ciclista ciclista : ciclistasAbandonados){
                 System.out.println("¡¡¡ Ha abandonado " + ciclista.getNombre() +" - Tiempo: " + Math.round(ciclista.getEnergia()*100.0)/100.0 + " - Además ha abandonado para el resto del Campeonato !!!");
             }
-            
             devolverCiclistasCarrera();
-            
         }
     }
     
-    public void setCiclistasAbandonados() {
+    /**
+     * Asigna la concatenación de ArrayList de ciclistas abandonados de cada equipo a la lista de ciclistasAbandonados de la organizacion
+     */
+    private void setCiclistasAbandonados() {
         for(Equipo equipo: equipos){
             ciclistasAbandonados.addAll(equipo.getCiclistasAbandonado());
         }
     }
     
-        public void mostrarAbandonados(){
+    /**
+     * Muestra la lista de los ciclistas que han abandonado por falta de energía tras realizar todas las carreras
+     */
+    private void mostrarAbandonados(){
         Collections.sort(ciclistasAbandonados, Collections.reverseOrder(new ComparadorTiempoTotalCiclista()));
         System.out.println("****************************************************");
         System.out.println("************** CICLISTAS QUE ABANDONARON **************");
@@ -247,7 +258,10 @@ public class Organizacion
         }
     }
     
-    public void mostrarFinCampeonatoCiclistas(){
+    /**
+     * Muestra la clasificación final de los ciclistas, detallando todos sus resultados en cada etapa, tras todas las carreras
+     */
+    private void mostrarFinCampeonatoCiclistas(){
         System.out.println("****************************************************");
         System.out.println("**************** FIN DEL CAMPEONATO ****************");
         System.out.println("****************************************************");
@@ -271,7 +285,11 @@ public class Organizacion
         devolverCiclistasCarrera();
     }
     
-    public void mostrarFinCampeonatoEquipos(){
+    /**
+     * Muestra la clasificación final de los equipos, detallando todos sus ciclistas tras todas las carreras
+     * 
+     */
+    private void mostrarFinCampeonatoEquipos(){
                //TODO: ORDENAR EQUIPOS POR MEDIA MINUTOS EN ORDEN ASCENDENTE
         Collections.sort(equipos, new ComparadorTiempoEquipo());
         System.out.println("****************************************************");

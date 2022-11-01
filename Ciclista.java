@@ -3,10 +3,9 @@ import java.util.*;
 /**
  * La clase Ciclista representa a los ciclistas que competirán con sus Bicicletas cada Etapa. La
  * diferencia entre cada Ciclista viene marcada por la diferente habilidad y energía del Ciclista.
+ * 
  * @author Victor
- * @author Andrés
- * @author Elena
- * @version 10.08
+ * @version 1
  */
 public class Ciclista
 {
@@ -267,7 +266,7 @@ public class Ciclista
     }
 
     /**
-     * Comprueba y actualiza el estado del ciclista, si no tiene energia abandona 
+     * Comprueba y actualiza el estado del ciclista, si no tiene energia abandonado pasa a ser true
      * 
      */
     public void actualizarAbandono(){
