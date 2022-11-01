@@ -240,11 +240,8 @@ public class Organizacion
      * Asigna la concatenación de ArrayList de ciclistas abandonados de cada equipo a la lista de ciclistasAbandonados de la organizacion
      */
     private void setCiclistasAbandonados() {
-        Iterator<Equipo> itEquipo = equipos.iterator();
-        Equipo equipo = itEquipo.next();
-        while(itEquipo.hasNext()){
+        for(Equipo equipo: equipos){
             ciclistasAbandonados.addAll(equipo.getCiclistasAbandonado());
-            equipo = itEquipo.next();
         }
     }
     
