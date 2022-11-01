@@ -46,10 +46,11 @@ public class Organizacion
         mostrarEquipos();
         mostrarCarreras();
         
+        mostrarFinCampeonatoCiclistas();
         if (!ciclistasAbandonados.isEmpty()){
             mostrarAbandonados();
         }
-        mostrarFinCampeonatoCiclistas();
+        
         mostrarFinCampeonatoEquipos();
     }
     
@@ -171,7 +172,7 @@ public class Organizacion
                 }
                 
                 System.out.println("@@@ ciclista " + (j+1) + " de "+ ciclistasCarrera.size());
-                System.out.println("<ciclista:" + ciclistasCarrera.get(j).getNombre() + "> <energía: " + Math.round(ciclistasCarrera.get(j).getEnergia()*100.0)/100.0 + "> <habilidad: " + ciclistasCarrera.get(j).getHabilidad() + "> <tiempo acumulado sin abandonar: " + Math.round(ciclistasCarrera.get(j).calcularTiempoTotal()*100.0)/100.0 + "> <abandonado:" + ciclistasCarrera.get(j).getAbandonado() + "> " + tiene );
+                System.out.println("<ciclista:" + ciclistasCarrera.get(j).getNombre() + "> <energía: " + Math.round(ciclistasCarrera.get(j).getEnergia()*100.0)/100.0 + "> <habilidad: " + ciclistasCarrera.get(j).getHabilidad() + "> <tiempo acumulado sin abandonar: " + Math.round(ciclistasCarrera.get(j).calcularTiempoTotal() *100.00)/100.00 + "> <abandonado:" + ciclistasCarrera.get(j).getAbandonado() + "> " + tiene );
                 if (tieneBicicleta){
                     System.out.println(ciclistasCarrera.get(j).getBicicleta().toString() + ")> en etapa " + etapas.get(i).getNombre());
                     System.out.println("+++ Con estas condiciones el ciclista " + ciclistasCarrera.get(j).getNombre() + " con la bicicleta " + ciclistasCarrera.get(j).getBicicleta().getNombre() + " alcanza una velocidadad de " + Math.round(ciclistasCarrera.get(j).getBicicleta().calcularVelocidad(ciclistasCarrera.get(j).getHabilidad(), etapas.get(i).getDificultad())*100.0)/100.0 + " km/hora +++");
@@ -219,9 +220,9 @@ public class Organizacion
         System.out.println("************** CICLISTAS QUE ABANDONARON **************");
         System.out.println("****************************************************");
         for(int i = 0; i<ciclistasAbandonados.size(); i++){
-            System.out.println("--- ciclista Abandonado: "+ ciclistasAbandonados.get(i).getNombre() + " - Puntos Totales Anulados: "+ ciclistasAbandonados.get(i).calcularTiempoTotal()+" ---");
+            System.out.println("--- ciclista Abandonado: "+ ciclistasAbandonados.get(i).getNombre() + " - Puntos Totales Anulados: "+ Math.round((ciclistasAbandonados.get(i).calcularTiempoTotal() - ciclistasAbandonados.get(i).getEnergia()) *100.0)/100.0 +" ---");
             for(int j = 0;j<etapas.size();j++){
-                System.out.println("Carrera("+etapas.get(j).getNombre()+") - Tiempo: "+ ciclistasAbandonados.get(i).obtenerTiempoEtapa(etapas.get(j)) +" minutos");
+                System.out.println("Carrera("+etapas.get(j).getNombre()+") - Tiempo: "+ Math.round(ciclistasAbandonados.get(i).obtenerTiempoEtapa(etapas.get(j))*100.00)/100.00 +" minutos");
             }
             System.out.println();
         }
@@ -258,9 +259,7 @@ public class Organizacion
         System.out.println("********** CLASIFICACIÓN FINAL DE EQUIPOS **********");
         System.out.println("****************************************************");
         for(int k = 0; k < equipos.size(); k++){
-            System.out.println("%%%");
             System.out.println("@@@ Posición(" + (k+1) + ") " + equipos.get(k).getNombre() + " con " + Math.round(equipos.get(k).calcularMediaTiempo()*100.00)/100.00 + " minutos de media @@@" );
-            System.out.println("%%%");
             System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
             System.out.println("%%% "+ (equipos.get(k).getNombre().toUpperCase()) + " %%% Media Minutos de Ciclistas sin abandonar " + Math.round(equipos.get(k).calcularMediaTiempo()*100.00)/100.00 + " %%%");
             System.out.println();
