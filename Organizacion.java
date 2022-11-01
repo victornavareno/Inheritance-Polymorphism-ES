@@ -177,17 +177,22 @@ public class Organizacion
                     System.out.println("+++ Con estas condiciones el ciclista " + ciclistasCarrera.get(j).getNombre() + " con la bicicleta " + ciclistasCarrera.get(j).getBicicleta().getNombre() + " alcanza una velocidadad de " + Math.round(ciclistasCarrera.get(j).getBicicleta().calcularVelocidad(ciclistasCarrera.get(j).getHabilidad(), etapas.get(i).getDificultad())*100.0)/100.0 + " km/hora +++");
                     ciclistasCarrera.get(j).hacerCarrera(etapas.get(i)); //GUARDO EN EL ARRAY RESULTADOS DEL CICLISTA
                     
-                    System.out.println("+++ " + ciclistasCarrera.get(j).getNombre() +" termina la etapa en " + Math.round(ciclistasCarrera.get(j).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 + " minutos +++");
+                    if(ciclistasCarrera.get(j).getEnergia()<= 0){
+                        System.out.println("¡¡¡ El ciclista " + ciclistasCarrera.get(j).getNombre() + " se quedó sin energia a falta de " + Math.abs(Math.round(ciclistasCarrera.get(j).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0) + " minutos para terminar !!!");
+                        System.out.println("¡¡¡ En el momento de quedarse sin energia llevaba en carrera " + Math.round(ciclistasCarrera.get(j).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 +" minutos !!!"); //TODO arreglar tiempo carrera
+                        ciclistasAbandonados.add(ciclistasCarrera.get(j));
+                        System.out.println("+++ La energía del ciclista "+ ciclistasCarrera.get(j).getNombre() + " tras la carrera es " + Math.round(ciclistasCarrera.get(j).getEnergia()*100.0)/100.0 + " +++");
+                        System.out.println("@@@");
+                    }
                     
-                    //TODO: AÑADIR MENSAJE ABANDONO
-                    // FORMATO:
-                    //System.out.println("¡¡¡ El ciclista "+ciclistasCarrera.get(j).getNombre()+" se quedó sin energia a falta de 48.73 minutos para terminar !!!");
-                    //System.out.println("¡¡¡ En el momento de quedarse sin energia llevaba en carrera 180.08 minutos !!!");
-                
+                    else {
+                    System.out.println("+++ " + ciclistasCarrera.get(j).getNombre() +" termina la etapa en " + Math.round(ciclistasCarrera.get(j).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 + " minutos +++");
                     System.out.println("+++ La energía del ciclista "+ ciclistasCarrera.get(j).getNombre() + " tras la carrera es " + Math.round(ciclistasCarrera.get(j).getEnergia()*100.0)/100.0 + " +++");
                     System.out.println("@@@");
+                    }
                 }
             }
+            
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             System.out.println("+++++++++++++++++ Clasificación final de la carrera en "+ etapas.get(i).getNombre() +" ++++++++++++++++++");
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -196,7 +201,14 @@ public class Organizacion
             
             for(int k = 0; k<ciclistasCarrera.size(); k++) { //BUCLE FOR, NECESITO EL INDICE
                 Collections.sort(this.ciclistasCarrera, new ComparadorTiempoCiclista());
-                System.out.println("@@@ Posición(" + (k+1) + "): "+ ciclistasCarrera.get(k).getNombre() + " - Tiempo: " + Math.round(ciclistasCarrera.get(k).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 +" minutos @@@");
+                if (ciclistasCarrera.get(k).getEnergia()<=0){
+                     //TODO: AÑADIR MENSAJE ABANDONO
+                    // FORMATO:
+                    System.out.println("¡¡¡ Ha abandonado " + ciclistasCarrera.get(k).getNombre() +" - Tiempo: " + ciclistasCarrera.get(k).getEnergia() + " - Además ha abandonado para el resto del Campeonato !!!");
+                }
+                else{
+                    System.out.println("@@@ Posición(" + (k+1) + "): "+ ciclistasCarrera.get(k).getNombre() + " - Tiempo: " + Math.round(ciclistasCarrera.get(k).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 +" minutos @@@");   
+                }
             }
             devolverCiclistasCarrera();
         }

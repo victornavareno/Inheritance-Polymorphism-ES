@@ -217,11 +217,11 @@ public class Ciclista
         actualizarAbandono();
         double tiempoTotal = 0;
         
-        if (getAbandonado() == true){    // SI HA ABANDONADO RECORREMOS ARRAY HASTA SIZE -1        
-            for (int indice = 0; indice < resultados.size(); indice++)
-            tiempoTotal = tiempoTotal + resultados.get(indice).getTiempo(); // SUMANDO EL TIEMPO DE CADA POSICIÓN
-        }  
-        else
+        // if (getAbandonado() == true){    // SI HA ABANDONADO RECORREMOS ARRAY HASTA SIZE -1        
+            // for (int indice = 0; indice < resultados.size(); indice++)
+            // tiempoTotal = tiempoTotal + resultados.get(indice).getTiempo(); // SUMANDO EL TIEMPO DE CADA POSICIÓN
+        // }  
+        // else
             for (int i = 0; i<resultados.size(); i++){
                 tiempoTotal = tiempoTotal + resultados.get(i).getTiempo();
         }     
