@@ -23,7 +23,7 @@ public class Resultado
     /**
      * Asigna la etapa
      * 
-     * @param Etapa con la etapa en la que se obtiene un resultado
+     * @param Etapa etapa
      */
     public void setEtapa(Etapa etapa) {
         this.etapa = etapa;
@@ -32,7 +32,7 @@ public class Resultado
       /**
      * Asigna el tiempo
      * 
-     * @param tiempo double con el tiempo conseguido en la etapa
+     * @param double tiempo 
      */
     public void setTiempo(double tiempo) {
         this.tiempo = tiempo;

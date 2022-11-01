@@ -235,7 +235,7 @@ public class Equipo
     /**
      * Calcula y devuelve el tiempo acumulado sin abandonar de un ciclista que ha abandonado
      * 
-     * @return double tiempoAcumuladoAbandonado
+     * @return double 
      */
     public double calcularTiempoAbandonado(Ciclista ciclista){
         return (ciclista.calcularTiempoTotal() - ciclista.getEnergia());
@@ -245,7 +245,7 @@ public class Equipo
     /**
      * Envia el primer Ciclista de la lista, asignandole la primera bicicleta de la lista de bicicletas. Después borra ambos para dejar prioridad al siguiente
      * 
-     * @return Ciclista ciclista con el primer ciclista de la lista, y su bicicleta asignada
+     * @return Ciclista 
      */
     public Ciclista enviarCiclista(){
         OrdenarCiclistas();

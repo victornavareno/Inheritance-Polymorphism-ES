@@ -15,12 +15,15 @@ public class Organizacion
     
     //ATRIBUTOS COMPARATOR
     Comparator<Etapa> comparadorEtapa;
-    
+    Comparator<Equipo> comparadorNombreEquipo;
+    Comparator<Equipo> comparadorTiempoEquipo;
+    Comparator<Ciclista> comparadorTiempoCiclista;
+    Comparator<Ciclista> comparadorTiempoTotalCiclista;
     
     /**
      * Constructor parametrizado de la clase Organizacion
      * 
-     * @param Comparator<Etapa> con la clase comparator que utilizaremos para ordenar el array de etapas
+     * @param Comparator<Etapa> comparatorEtapas
      */
     public Organizacion(Comparator<Etapa> comparadorEtapa)
     {
@@ -30,7 +33,11 @@ public class Organizacion
         ciclistasAbandonados = new ArrayList<Ciclista>();
         
         //INIT COMPARATOR:
-        this.comparadorEtapa = comparadorEtapa;
+        comparadorEtapa = comparadorEtapa;
+        comparadorNombreEquipo = new ComparadorNombreEquipo();
+        comparadorTiempoEquipo = new ComparadorTiempoEquipo();
+        comparadorTiempoCiclista = new ComparadorTiempoCiclista(); 
+        comparadorTiempoTotalCiclista = new ComparadorTiempoTotalCiclista();
     }
 
     /**
@@ -65,14 +72,14 @@ public class Organizacion
         if (equipo != null){
             equipos.add(equipo);
         }
-           Collections.sort(equipos,new ComparadorNombreEquipo());
+           Collections.sort(equipos, comparadorNombreEquipo);
     }
 
     //CARGA ETAPAS
     /**
      * Añade una etapa al ArrayList de etapas
      * 
-     * @param Objeto Etapa a añadir
+     * @param Etapa etapa
      */
     public void anadirEtapa(Etapa etapa){
         etapas.add(etapa);
@@ -80,9 +87,8 @@ public class Organizacion
     
     //CARGA CICLISTAS
     /**
-     * Añade un ciclista al ArrayList de ciclistas
+     * Añade un ciclista al ArrayList de ciclistasCarrera
      * 
-     * @param Objeto Ciclista a añadir
      */
     private void anadirCiclistaCarrera(){
         for(int i=0; i < equipos.size(); i++) {
@@ -94,9 +100,8 @@ public class Organizacion
     }
     
     /**
-     * Añade un ciclista al ArrayList de ciclistas
+     * Vuelca todos los ciclistas que aún no han abandonado en su equipo correspondiente
      * 
-     * @param Objeto Ciclista a añadir
      */
     private void devolverCiclistasCarrera(){
         while(!ciclistasCarrera.isEmpty()){
@@ -113,7 +118,7 @@ public class Organizacion
     /**
      * Ordena el ArrayList de etapas segun criterios del comparadorEtapa
      * 
-     * @return ArrayList<Etapa> con las etapas ordenadas 
+     * @return ArrayList<Etapa> 
      */
     private void ordenarEtapas(){
         Collections.sort(this.etapas, comparadorEtapa);
@@ -164,7 +169,7 @@ public class Organizacion
             System.out.println("********************************************************************************************************");
             System.out.println("******************************** Ciclistas que van a competir en " + etapas.get(i).getNombre() + " *******************************");
             System.out.println("**********************************************************************************************************");
-            Collections.sort(ciclistasCarrera,Collections.reverseOrder(new ComparadorTiempoTotalCiclista()));
+            Collections.sort(ciclistasCarrera, Collections.reverseOrder(comparadorTiempoTotalCiclista));
             for(Ciclista ciclista :ciclistasCarrera){
                 System.out.println(ciclista.toString()); //MUESTRO LA INFO DE CADA CICLISTA QUE COMPITE EN ESTA ETAPA
             }
@@ -221,7 +226,7 @@ public class Organizacion
             }
             
             for(int k = 0; k<ciclistasCarrera.size(); k++) { //BUCLE FOR, NECESITO EL INDICE
-                Collections.sort(this.ciclistasCarrera, new ComparadorTiempoCiclista());
+                Collections.sort(this.ciclistasCarrera, comparadorTiempoCiclista);
                     System.out.println("@@@ Posición(" + (k+1) + "): "+ ciclistasCarrera.get(k).getNombre() + " - Tiempo: " + Math.round(ciclistasCarrera.get(k).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 +" minutos @@@");   
             }
             
@@ -245,7 +250,7 @@ public class Organizacion
      * Muestra la lista de los ciclistas que han abandonado por falta de energía tras realizar todas las carreras
      */
     private void mostrarAbandonados(){
-        Collections.sort(ciclistasAbandonados, Collections.reverseOrder(new ComparadorTiempoTotalCiclista()));
+        Collections.sort(ciclistasAbandonados, Collections.reverseOrder(comparadorTiempoTotalCiclista));
         System.out.println("****************************************************");
         System.out.println("************** CICLISTAS QUE ABANDONARON **************");
         System.out.println("****************************************************");
@@ -274,7 +279,7 @@ public class Organizacion
         }
         
         //ORDENAR ciclistasCarrera POR TIEMPO TOTAL COMPARATOR
-        Collections.sort(this.ciclistasCarrera, new ComparadorTiempoTotalCiclista());
+        Collections.sort(ciclistasCarrera, comparadorTiempoTotalCiclista);
         for(int i = 0; i < ciclistasCarrera.size(); i++){
             System.out.println("@@@ Posición("+ (i+1) +"): " + ciclistasCarrera.get(i).getNombre() + " - Tiempo Total: " + Math.round(ciclistasCarrera.get(i).calcularTiempoTotal()*100.00)/100.00 + " @@@" );
             for (int j = 0; j< etapas.size(); j++){
@@ -291,7 +296,7 @@ public class Organizacion
      */
     private void mostrarFinCampeonatoEquipos(){
                //TODO: ORDENAR EQUIPOS POR MEDIA MINUTOS EN ORDEN ASCENDENTE
-        Collections.sort(equipos, new ComparadorTiempoEquipo());
+        Collections.sort(equipos, comparadorTiempoEquipo);
         System.out.println("****************************************************");
         System.out.println("********** CLASIFICACIÓN FINAL DE EQUIPOS **********");
         System.out.println("****************************************************");
