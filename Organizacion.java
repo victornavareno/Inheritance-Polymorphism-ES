@@ -46,6 +46,9 @@ public class Organizacion
         mostrarEquipos();
         mostrarCarreras();
         
+        if (!ciclistasAbandonados.isEmpty()){
+            mostrarAbandonados();
+        }
         mostrarFinCampeonatoCiclistas();
         mostrarFinCampeonatoEquipos();
     }
@@ -192,7 +195,7 @@ public class Organizacion
             //ORDENAR ciclistasCarrera POR TIEMPO CON COMPARATOR, ESTA VEZ EN ORDEN NORMAL
             
             for(int k = 0; k<ciclistasCarrera.size(); k++) { //BUCLE FOR, NECESITO EL INDICE
-                //Collections.sort(this.ciclistasCarrera, new ComparadorTiempoCiclista());
+                Collections.sort(this.ciclistasCarrera, new ComparadorTiempoCiclista());
                 System.out.println("@@@ Posición(" + (k+1) + "): "+ ciclistasCarrera.get(k).getNombre() + " - Tiempo: " + Math.round(ciclistasCarrera.get(k).obtenerTiempoEtapa(etapas.get(i))*100.0)/100.0 +" minutos @@@");
             }
             devolverCiclistasCarrera();
@@ -204,9 +207,9 @@ public class Organizacion
         System.out.println("************** CICLISTAS QUE ABANDONARON **************");
         System.out.println("****************************************************");
         for(int i = 0; i<ciclistasAbandonados.size(); i++){
-            System.out.println("--- ciclista Abandonado: "+ ciclistasAbandonados.get(i).getNombre() + " - Puntos Totales Anulados: "+ciclistasAbandonados.get(i).calcularTiempoTotal()+" ---");
+            System.out.println("--- ciclista Abandonado: "+ ciclistasAbandonados.get(i).getNombre() + " - Puntos Totales Anulados: "+ ciclistasAbandonados.get(i).calcularTiempoTotal()+" ---");
             for(int j = 0;j<etapas.size();j++){
-                System.out.println("Carrera("+etapas.get(j).getNombre()+") - Tiempo: "+ciclistasAbandonados.get(i).obtenerTiempoEtapa(etapas.get(j))+" minutos");
+                System.out.println("Carrera("+etapas.get(j).getNombre()+") - Tiempo: "+ ciclistasAbandonados.get(i).obtenerTiempoEtapa(etapas.get(j)) +" minutos");
             }
             System.out.println();
         }
