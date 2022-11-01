@@ -132,6 +132,7 @@ public class Organizacion
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
         System.out.println("||||||||||||||||||| ETAPAS DEL CAMPEONATO |||||||||||||||||||");
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+        
         for(Etapa etapa : etapas){
             System.out.println(etapa.toString());
         }
@@ -145,7 +146,7 @@ public class Organizacion
         System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         System.out.println("%%%%%%%% EQUIPOS DEL CAMPEONATO %%%%%%%%");
         System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-        
+
         for(Equipo equipo : equipos){
             System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
             System.out.println("%%% "+ (equipo.getNombre().toUpperCase()) + " %%% Media Minutos de Ciclistas sin abandonar " + Math.round(equipo.calcularMediaTiempo()*100.00)/100.00 + " %%%");
@@ -239,8 +240,11 @@ public class Organizacion
      * Asigna la concatenación de ArrayList de ciclistas abandonados de cada equipo a la lista de ciclistasAbandonados de la organizacion
      */
     private void setCiclistasAbandonados() {
-        for(Equipo equipo: equipos){
+        Iterator<Equipo> itEquipo = equipos.iterator();
+        Equipo equipo = itEquipo.next();
+        while(itEquipo.hasNext()){
             ciclistasAbandonados.addAll(equipo.getCiclistasAbandonado());
+            equipo = itEquipo.next();
         }
     }
     
@@ -294,7 +298,6 @@ public class Organizacion
      * 
      */
     private void mostrarFinCampeonatoEquipos(){
-               //TODO: ORDENAR EQUIPOS POR MEDIA MINUTOS EN ORDEN ASCENDENTE
         Collections.sort(equipos, comparadorTiempoEquipo);
         System.out.println("****************************************************");
         System.out.println("********** CLASIFICACIÓN FINAL DE EQUIPOS **********");
