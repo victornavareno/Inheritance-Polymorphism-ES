@@ -264,6 +264,43 @@ public class Ciclista
     public String toString(){               
         return "<ciclista: " + nombre + "> <energía: " + Math.round(energia*100.0)/100.0 + "> <habilidad: " + Math.round(habilidad*100.0)/100.0 + "> <tiempo acumulado sin abandonar: " + Math.round(calcularTiempoTotal()*100.0)/100.0 + "> <abandonado: " + abandonado +">";
     }
+    
+    /**
+     * Comprueba que el objeto pasado es igual que el nativo
+     * @return boolean 
+     */
+    public boolean equals(Ciclista ciclista){
+    if(this == ciclista) {
+    return true; //Ambos referencian al mismo objeto
+    }
+    if(!(ciclista instanceof Ciclista)) {
+    
+    return false; //Tienen diferentes tipos
+    
+    }
+    Ciclista other = (Ciclista) ciclista;
+    // ... compara cada campo significativo de
+    // this y other:
+    // return true si todos los valores iguales
+    // return false si algún valor distinto
+    if(!(other.getNombre() == ciclista.getNombre())){
+        return false;
+    }
+    if(!(other.getEnergia() == ciclista.getEnergia())){
+        return false;
+    }
+        if(!(other.getEquipo() == ciclista.getEquipo())){
+        return false;
+    }
+        if(!(other.getHabilidad() == ciclista.getHabilidad())){
+        return false;
+    }
+    if(!(other.getAbandonado() == ciclista.getAbandonado())){
+        return false;
+    }
+    
+    return true;
+    }
 
     /**
      * Comprueba y actualiza el estado del ciclista, si no tiene energia abandonado pasa a ser true
