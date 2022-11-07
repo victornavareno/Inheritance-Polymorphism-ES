@@ -66,6 +66,33 @@ public class Bicicleta
     }
     
     /**
+     * Comprueba que el objeto pasado es igual que el nativo
+     * @return boolean 
+     */
+    public boolean equals(Bicicleta bicicleta){
+    if(this == bicicleta) {
+    return true; //Ambos referencian al mismo objeto
+    }
+    if(!(bicicleta instanceof Bicicleta)) {
+    
+    return false; //Tienen diferentes tipos
+    
+    }
+    Bicicleta other = (Bicicleta) bicicleta;
+    // ... compara cada campo significativo de
+    // this y other:
+    // return true si todos los valores iguales
+    // return false si algún valor distinto
+    if(!(other.getNombre() == bicicleta.getNombre())){
+        return false;
+    }
+    if(!(other.getPeso() == bicicleta.getPeso())){
+        return false;
+    }
+    return true;
+    }
+    
+    /**
      *  calcular y proporcionar su velocidad cuando es usada por un Ciclista 
      *  en particular en una Etapa en concreto
      *  
