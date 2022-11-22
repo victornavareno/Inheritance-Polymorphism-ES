@@ -1,23 +1,30 @@
-
 /**
- * Clase Enum Distancia las Etapas pueden tener una dificultad SENCILLA (0.9), 
- * NORMAL (1.0) o COMPLEJA (1.1)
+ * Clase Enum Distancia las Etapas pueden tener una distancia CORTA(150), INTERMEDIA(200)
+ * o LARGA(225)
  * 
  * @author Victor
  * @version 1
  */
 public enum Distancia
 {
-    SENCILLA("SENCILLA", 0.9),
-    NORMAL("NORMAL", 1.0),
-    COMPLEJA("COMPLEJA", 1.1);
+    SENCILLA("CORTA", 150),
+    NORMAL("INTERMEDIA", 200),
+    COMPLEJA("LARGA", 225);
     
-    private final String nombre;
-    private final double valor;
+    private String nombre;
+    private double valor;
     
-    void Distancia(String nombre, double valor){
+    private Distancia(String nombre, double valor){
         this.nombre = nombre;
         this.valor = valor;
     }
     
+
+    public String getNombre(){
+        return this.nombre;
+    }
+    
+    public double getValor(){
+        return this.valor;
+    }
 }

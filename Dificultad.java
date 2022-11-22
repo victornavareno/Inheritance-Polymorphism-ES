@@ -1,4 +1,3 @@
-
 /**
  * Clase Enum Dificultad las Etapas pueden tener una dificultad SENCILLA (0.9), 
  * NORMAL (1.0) o COMPLEJA (1.1)
@@ -8,8 +7,23 @@
  */
 public enum Dificultad
 {
-    SENCILLA(0.9), NORMAL(1.0), COMPLEJA(1.1)
-    //CONSTRUCTOR
+    SENCILLA("SENCILLA", 0.9),
+    NORMAL("NORMAL", 1.0),
+    COMPLEJA("COMPLEJA", 1.1);
     
-    //METODOS
+    private String nombre;
+    private double valor;
+    
+    private Dificultad(String nombre, double valor){
+        this.nombre = nombre;
+        this.valor = valor;
+    }
+    
+    public String getNombre(){
+        return this.nombre;
+    }
+    
+    public double getValor(){
+        return this.valor;
+    }
 }
