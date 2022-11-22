@@ -8,15 +8,18 @@
  */
 public class BicicletaPrototipo extends Bicicleta
 {
-    private double tiempoNecesario;
-    
     /**
      * Constructor de objetos tipo BicicletaRapida
      */
-    public BicicletaPrototipo(String nombre, double peso, double tiempoNecesario)
+    public BicicletaPrototipo(String nombre, double peso, double destrezaCiclista)
     {
         super(nombre, peso);
-        this.tiempoNecesario = tiempoNecesar;
     }
     
+    @Override
+    public double calcularTiempo(int distanciaEtapa, double velocidad){
+        double tiempo = super.calcularTiempo(distanciaEtapa, velocidad);
+        
+        return tiempo;
+    }
 }

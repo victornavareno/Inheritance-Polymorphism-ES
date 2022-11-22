@@ -337,6 +337,15 @@ public class Ciclista
         else{
             resultados.add(new Resultado(this.energia, etapa)); // SE HA QUEDADO SIN ENERGIA, INSERTAMOS EL TIEMPO NEGATIVO EN EL ARRAY RESULTADOS
         }
-    }   
+    }
+    
+    /**
+     * Calcula la destreza del ciclista
+     * @return destreza 
+     */
+    public double calcularDestreza(){
+        double destreza = 0;
+        return destreza;
+    }
 }
 
