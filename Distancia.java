@@ -7,14 +7,14 @@
  */
 public enum Distancia
 {
-    SENCILLA("CORTA", 150),
-    NORMAL("INTERMEDIA", 200),
-    COMPLEJA("LARGA", 225);
+    CORTA("CORTA", 150),
+    INTERMEDIA("INTERMEDIA", 200),
+    LARGA("LARGA", 225);
     
     private String nombre;
-    private double valor;
+    private int valor;
     
-    private Distancia(String nombre, double valor){
+    private Distancia(String nombre, int valor){
         this.nombre = nombre;
         this.valor = valor;
     }
@@ -24,7 +24,7 @@ public enum Distancia
         return this.nombre;
     }
     
-    public double getValor(){
+    public int getValor(){
         return this.valor;
     }
 }
