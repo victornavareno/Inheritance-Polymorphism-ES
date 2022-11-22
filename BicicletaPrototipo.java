@@ -1,33 +1,22 @@
 
 /**
- * Write a description of class BicicletaPrototipo here.
+ * BicicletaPrototipo tiene las mismas características que las Bicicletas normales, con algunas
+ * funcionalidades extra
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Victor
+ * @version 1
  */
 public class BicicletaPrototipo extends Bicicleta
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+    private double tiempoNecesario;
+    
     /**
-     * Constructor for objects of class BicicletaPrototipo
+     * Constructor de objetos tipo BicicletaRapida
      */
-    public BicicletaPrototipo()
+    public BicicletaPrototipo(String nombre, double peso, double tiempoNecesario)
     {
-        // initialise instance variables
-        x = 0;
+        super(nombre, peso);
+        this.tiempoNecesario = tiempoNecesar;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+    
 }

@@ -1,7 +1,6 @@
-
 /**
- * Tienen las mismas características que las Bicicletas normales.
- *  Además, se caracterizan por tener un campo que indica la velocidad extra.
+ * Tienen las mismas características que las Bicicletas normales, pero
+ *  además, se caracterizan por tener un campo que indica la velocidad extra.
  * 
  * @author Victor
  * @version 1
