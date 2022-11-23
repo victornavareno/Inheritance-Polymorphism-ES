@@ -14,7 +14,7 @@ public class CiclistaNovato extends Ciclista
      * @param energia    Double con la energia restante del ciclista durante la competición
      * @param equipo     Equipo al que pertenece el ciclista
      */
-    public CiclistaNovato(String nombre, double habilidad, double energia, Equipo equipo)
+    public CiclistaNovato(String nombre, Habilidad habilidad, double energia, Equipo equipo)
     {
         super(nombre, habilidad, energia, equipo); //llamada al constructor de la superclase Ciclista
     }

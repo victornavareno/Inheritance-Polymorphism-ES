@@ -11,7 +11,7 @@ public class BicicletaPrototipo extends Bicicleta
     /**
      * Constructor de objetos tipo BicicletaRapida
      */
-    public BicicletaPrototipo(String nombre, double peso, double destrezaCiclista)
+    public BicicletaPrototipo(String nombre, Peso peso, double destrezaCiclista)
     {
         super(nombre, peso);
     }

@@ -10,7 +10,7 @@ import java.util.*;
 public class Ciclista
 {
     private String nombre;
-    private double habilidad;
+    private Habilidad habilidad;
     private double energia;
     private boolean abandonado;
 
@@ -25,13 +25,13 @@ public class Ciclista
      * Constructor de la clase Ciclista
      * 
      * @param nombre     String con el nombre del ciclista
-     * @param habilidad  Double con el nivel de habilidad del ciclista
+     * @param habilidad  Enum Habilidad con el nivel de habilidad del ciclista
      * @param energia    Double con la energia restante del ciclista durante la competición
      * @param abandonado   Boolean para indicar si el ciclista ha abandonado o no
      * @param equipo     Equipo al que pertenece el ciclista
      * @param bicicleta  Bicicleta asignada al ciclista
      */
-    public Ciclista(String nombre, double habilidad, double energia, Equipo equipo)
+    public Ciclista(String nombre, Habilidad habilidad, double energia, Equipo equipo)
     {
         this.nombre = nombre;
         this.habilidad = habilidad;
@@ -56,7 +56,7 @@ public class Ciclista
      * 
      * @param Double valor de la habilidad del ciclista
      */
-    public void setHabilidad(double habilidad) {
+    public void setHabilidad(Habilidad habilidad) {
         this.habilidad = habilidad;
     }
 
@@ -114,7 +114,7 @@ public class Ciclista
      */
     public double getHabilidad()
     {
-        return this.habilidad;
+        return this.habilidad.getValor();
     }
 
     /**
@@ -262,7 +262,7 @@ public class Ciclista
      * @return String con los atributos del ciclista en formato de salida correcto
      */
     public String toString(){               
-        return "<ciclista: " + nombre + "> <energía: " + Math.round(energia*100.0)/100.0 + "> <habilidad: " + Math.round(habilidad*100.0)/100.0 + "> <tiempo acumulado sin abandonar: " + Math.round(calcularTiempoTotal()*100.0)/100.0 + "> <abandonado: " + abandonado +">";
+        return "<ciclista: " + nombre + "> <energía: " + Math.round(energia*100.0)/100.0 + "> <habilidad: " + Math.round(this.habilidad.getValor()*100.0)/100.0 + "> <tiempo acumulado sin abandonar: " + Math.round(calcularTiempoTotal()*100.0)/100.0 + "> <abandonado: " + abandonado +">";
     }
 
     /**
@@ -314,7 +314,7 @@ public class Ciclista
      * 
      */
     public void actualizarEnergia(Etapa etapa){
-        energia = energia - bicicleta.calcularTiempo(etapa.getDistancia(),bicicleta.calcularVelocidad(this.habilidad, etapa.getDificultad()));
+        energia = energia - bicicleta.calcularTiempo(etapa.getDistancia(),bicicleta.calcularVelocidad(this.habilidad.getValor(), etapa.getDificultad()));
         setEnergia(energia);
     }
 
@@ -325,7 +325,7 @@ public class Ciclista
      * @param Etapa en la que participa
      */
     public void hacerCarrera(Etapa etapa){
-        double velocidadBicicleta = bicicleta.calcularVelocidad(this.habilidad, etapa.getDificultad()); // CALCULO LA VELOCIDAD QUE ALCANZARÁ EL CICLISTA PARA ESTA ETAPA CON LA BICICLETA
+        double velocidadBicicleta = bicicleta.calcularVelocidad(this.habilidad.getValor(), etapa.getDificultad()); // CALCULO LA VELOCIDAD QUE ALCANZARÁ EL CICLISTA PARA ESTA ETAPA CON LA BICICLETA
         double tiempoCarrera = bicicleta.calcularTiempo(etapa.getDistancia(), velocidadBicicleta); // CALCULO EL TIEMPO QUE TARDARÁ EL CICLISTA CON LA BICICLETA PARA ESA ETAPA
 
         actualizarEnergia(etapa); //CON EL TIEMPO DE LA ETAPA, CALCULO Y ACTUALIZO LA ENERGIA DEL CICLISTA

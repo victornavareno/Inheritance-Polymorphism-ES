@@ -10,12 +10,12 @@ public class Bicicleta
 {
     // definicion de campos de la clase Bicicleta
     private String nombre;
-    private double peso;
+    private Peso peso;
 
     /**
      *  Constructor parametrizado de Bicicleta
      */
-    public Bicicleta(String nombre, double peso)
+    public Bicicleta(String nombre, Peso peso)
     {
         this. nombre = nombre;
         this.peso = peso;
@@ -34,7 +34,7 @@ public class Bicicleta
      * Asigna el peso de la bicicleta
      * @param double pesoBici
      */
-    void setPeso(double peso){
+    void setPeso(Peso peso){
         this.peso = peso;
     }
 
@@ -52,7 +52,7 @@ public class Bicicleta
      * @return double peso
      */
     double getPeso(){
-        return this.peso;
+        return this.peso.getValor();
     }
 
 
@@ -99,7 +99,7 @@ public class Bicicleta
      */
     public double calcularVelocidad(double habilidadCiclista, double dificultadEtapa)
     {
-            double velocidad = (habilidadCiclista * 100) / (peso * dificultadEtapa);
+            double velocidad = (habilidadCiclista * 100) / (peso.getValor() * dificultadEtapa);
         return velocidad;
     }
 

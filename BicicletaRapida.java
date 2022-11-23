@@ -12,7 +12,7 @@ public class BicicletaRapida extends Bicicleta
     /**
      * Constructor de objetos tipo BicicletaRapida
      */
-    public BicicletaRapida(String nombre, double peso, double velocidadExtra)
+    public BicicletaRapida(String nombre, Peso peso, double velocidadExtra)
     {
         super(nombre, peso);
         this.velocidadExtra = velocidadExtra;

@@ -11,11 +11,11 @@ public class CiclistaEstrella extends Ciclista
     /**
      * Constructor de objetos tipo CiclistaEstrella
      * @param nombre     String con el nombre del ciclista
-     * @param habilidad  Double con el nivel de habilidad del ciclista
+     * @param habilidad  Enum Habilidad con el nivel de habilidad del ciclista
      * @param energia    Double con la energia restante del ciclista durante la competición
      * @param equipo     Equipo al que pertenece el ciclista
      */
-    public CiclistaEstrella(String nombre, double habilidad, double energia, Equipo equipo)
+    public CiclistaEstrella(String nombre, Habilidad habilidad, double energia, Equipo equipo)
     {
         super(nombre, habilidad, energia, equipo); //llamada al constructor de la superclase Ciclista
         this.popularidad = 6; // Popularidad por defecto al empezar el campeonato es 6
