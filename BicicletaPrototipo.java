@@ -8,14 +8,12 @@
  */
 public class BicicletaPrototipo extends Bicicleta
 {
-    private double destrezaCiclista;
     /**
      * Constructor de objetos tipo BicicletaRapida
      */
-    public BicicletaPrototipo(String nombre, Peso peso, double destrezaCiclista)
+    public BicicletaPrototipo(String nombre, Peso peso)
     {
         super(nombre, peso);
-        this.destrezaCiclista = destrezaCiclista;
     }
     
     @Override

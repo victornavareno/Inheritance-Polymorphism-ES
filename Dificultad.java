@@ -1,15 +1,15 @@
 /**
- * Clase Enum Dificultad las Etapas pueden tener una dificultad SENCILLA (0.9), 
- * NORMAL (1.0) o COMPLEJA (1.1)
+ * Clase Enum Dificultad las Etapas pueden tener una dificultad Sencilla (0.9), 
+ * Normal (1.0) o Compleja (1.1)
  * 
  * @author Victor
  * @version 1
  */
 public enum Dificultad
 {
-    SENCILLA("SENCILLA", 0.9),
-    NORMAL("NORMAL", 1.0),
-    COMPLEJA("COMPLEJA", 1.1);
+    SENCILLA("Sencilla", 0.9),
+    NORMAL("Normal", 1.0),
+    COMPLEJA("Compleja", 1.1);
     
     private String nombre;
     private double valor;

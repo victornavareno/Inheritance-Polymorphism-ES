@@ -72,7 +72,7 @@ public class Etapa
      * Devuelve la distancia
      * @return Int con la distancia recorrida en la etapa
      */
-    public int getDistancia () {
+    public double getDistancia () {
         return distancia.getValor();
     }
 
@@ -81,6 +81,6 @@ public class Etapa
      * @return String que muestra las caracteristicas de la etapa
      */
     public String toString(){
-        return "<etapa: " + nombre + "> <dificultad:" + dificultad.getNombre() + "> <distancia: " + distancia.getValor() + ")>";
+        return "<etapa: " + nombre + "> <dificultad:" + dificultad.getNombre() + " (valor:" + dificultad.getValor() + ")> <distancia: " + distancia.getNombre() +  " (valor:" + distancia.getValor() + ")>";
     }
 }

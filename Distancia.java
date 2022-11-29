@@ -1,20 +1,20 @@
 /**
- * Clase Enum Distancia las Etapas pueden tener una distancia CORTA(150), INTERMEDIA(200)
- * o LARGA(225)
+ * Clase Enum Distancia las Etapas pueden tener una distancia Corta(150), Intermedia(200)
+ * o Larga(225)
  * 
  * @author Victor
  * @version 1
  */
 public enum Distancia
 {
-    CORTA("CORTA", 150),
-    INTERMEDIA("INTERMEDIA", 200),
-    LARGA("LARGA", 225);
+    CORTA("Corta", 150),
+    INTERMEDIA("Intermedia", 200),
+    LARGA("Larga", 225);
     
     private String nombre;
-    private int valor;
+    private double valor;
     
-    private Distancia(String nombre, int valor){
+    private Distancia(String nombre, double valor){
         this.nombre = nombre;
         this.valor = valor;
     }
@@ -24,7 +24,7 @@ public enum Distancia
         return this.nombre;
     }
     
-    public int getValor(){
+    public double getValor(){
         return this.valor;
     }
 }
