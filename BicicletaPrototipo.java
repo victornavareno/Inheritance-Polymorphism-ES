@@ -20,7 +20,7 @@ public class BicicletaPrototipo extends Bicicleta
     
     @Override
     public double calcularTiempo(Ciclista ciclista, Etapa etapa){
-        double tiempo = super.calcularTiempo(ciclista, etapa);
+        double tiempo = etapa.getDistancia() / super.calcularVelocidad(ciclista, etapa) * ciclista.calcularDestreza();
         
         return tiempo;
     }
