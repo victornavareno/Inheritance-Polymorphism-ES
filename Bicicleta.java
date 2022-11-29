@@ -94,25 +94,25 @@ public class Bicicleta
      *  calcular y proporcionar su velocidad cuando es usada por un Ciclista 
      *  en particular en una Etapa en concreto
      *  
-     * @param  double habilidadCiclista, double dificultadEtapa
+     * @param  Ciclista ciclista, Etapa etapa
      * @return    double velocidad
      */
-    public double calcularVelocidad(double habilidadCiclista, double dificultadEtapa)
+    public double calcularVelocidad(Ciclista ciclista, Etapa etapa)
     {
-            double velocidad = (habilidadCiclista * 100) / (peso.getValor() * dificultadEtapa);
+        double velocidad = (ciclista.getHabilidad() * 100) / (peso.getValor() * etapa.getDificultad());
         return velocidad;
     }
 
     /**
      *  calcular y proporcionar el tiempo necesario (medido en minutos) para terminar
      *  la Etapa cuando es usada por un Ciclista en particular en una Etapa concreta
-
-     * @param  int distanciaEtapa double velocidad
+     
+     * @param  Ciclista ciclista, Etapa etapa 
      * @return    double tiempo
      */
-    public double calcularTiempo(int distanciaEtapa, double velocidad)
+    public double calcularTiempo(Ciclista ciclista, Etapa etapa)
     {
-        double tiempo = (distanciaEtapa / velocidad) * 60;
+        double tiempo = (etapa.getDistancia() / calcularVelocidad(ciclista, etapa)) * 60;
         return tiempo;
     }
 

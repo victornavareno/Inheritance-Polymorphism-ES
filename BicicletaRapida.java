@@ -23,8 +23,8 @@ public class BicicletaRapida extends Bicicleta
     }
     
     @Override
-    public double calcularVelocidad(double habilidadCiclista, double dificultadEtapa){
-        double velocidad = super.calcularVelocidad(habilidadCiclista, dificultadEtapa);
+    public double calcularVelocidad(Ciclista ciclista, Etapa etapa){
+        double velocidad = super.calcularVelocidad(ciclista, etapa);
         velocidad = velocidad + velocidadExtra;
         return velocidad;
     }

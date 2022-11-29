@@ -15,8 +15,8 @@ public class Etapa
     /**
      * Constructor de clase Etapa
      * @param nombre String es el nombre de la etama
-     * @param dificultad Enum Dificultad mide la dureza del recorrido
-     * @param distancia Enum Distancia son los kilometros a realizar en el recorrido de la Etapa
+     * @param dificultad Dificultad mide la dureza del recorrido
+     * @param distancia Distancia son los kilometros a realizar en el recorrido de la Etapa
      */
     public Etapa(String nombre, Dificultad dificultad, Distancia distancia)
     {

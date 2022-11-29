@@ -11,7 +11,7 @@ public class DatosCampeonatoCompleto
     }
     
      private void initData(Organizacion organizacion)
-    {
+     {
         // //constructor de etapas pide ( String nombre, double dificultad, double distancia)
         // Etapa etapa1 = new Etapa("sencilla larga", 0.9, 200);
         // Etapa etapa2 = new Etapa("compleja corta", 1.1, 150);
