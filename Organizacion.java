@@ -150,8 +150,8 @@ public class Organizacion
      * Muestra todos los detalles de las diferentes carreras que se realizan, nombre de la etapa, ciclistas que participarán, posiciones tras la carrera, abandonados en cada carrera
      */
     private void mostrarCarreras(){
+        int numCarrera = 1; // Indicará el índice de la carrera que estamos realizando
         for(Etapa etapa : etapas){
-            int numCarrera = 1;
             System.out.println();
             anadirCiclistaCarrera();
             System.out.println("********************************************************************************************************");
