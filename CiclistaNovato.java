@@ -31,4 +31,9 @@ public class CiclistaNovato extends Ciclista
         destreza = ((super.getHabilidad() + 2) / 120 ) * 10;
         return destreza;
     }
+    
+    @Override
+    public String toString(){
+        return "<CiclistaNovato:" + this.getNombre() + super.toString();
+    }
 }

@@ -7,10 +7,10 @@
  */
 public enum Habilidad
 {
-    LENTA ("LENTA", 90.0), 
-    NORMAL ("NORMAL", 100.0), 
-    BUENA ("BUENA", 110.0),
-    CLASEMUNDIAL ("CLASEMUNDIAL", 120.0);
+    LENTA ("Lenta", 4.0), 
+    NORMAL ("Normal", 6.0), 
+    BUENA ("Buena", 8.0),
+    CLASEMUNDIAL ("Clasemundial", 10.0); // REVISAR EL VALOR DE LA HABILIDAD
     
     private String nombre;
     private double valor;

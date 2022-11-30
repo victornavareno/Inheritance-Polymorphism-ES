@@ -31,4 +31,9 @@ public class CiclistaExperimentado extends Ciclista
         destreza = ((super.getHabilidad() + 4) / 130 ) * 10;
         return destreza;
     }
+    
+    @Override
+    public String toString(){
+        return "<CiclistaExperimentado:" + this.getNombre() + super.toString();
+    }
 }

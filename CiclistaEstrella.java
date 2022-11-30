@@ -56,4 +56,9 @@ public class CiclistaEstrella extends Ciclista
         }
         setPopularidad(popularidad);
     }
+    
+    @Override
+    public String toString(){
+        return "<CiclistaEstrella:" + this.getNombre() + super.toString() + " <popularidad: "+ getPopularidad() +">";
+    }
 }
