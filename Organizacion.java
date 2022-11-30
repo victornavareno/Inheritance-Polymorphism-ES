@@ -155,7 +155,7 @@ public class Organizacion
             System.out.println();
             anadirCiclistaCarrera();
             System.out.println("********************************************************************************************************");
-            System.out.println("*** CARRERA<"+ (numCarrera) + "> EN <etapa:"+ etapa.getNombre() + "> <dificultad: " + etapa.getDificultad() + "> <distancia: " + etapa.getDistancia()+")> ***");   
+            System.out.println("*** CARRERA<"+ (numCarrera) + "> EN " + etapa.toString() + " ***");   
             System.out.println("********************************************************************************************************");
             System.out.println("********************************************************************************************************");
             System.out.println("******************************** Ciclistas que van a competir en " + etapa.getNombre() + " *******************************");
@@ -181,7 +181,7 @@ public class Organizacion
                 }
 
                 System.out.println("@@@ ciclista " + (j+1) + " de "+ ciclistasCarrera.size());
-                System.out.println("<ciclista:" + ciclistasCarrera.get(j).getNombre() + "> <energía: " + Math.round(ciclistasCarrera.get(j).getEnergia()*100.0)/100.0 + "> <habilidad: " + ciclistasCarrera.get(j).getHabilidad() + "> <tiempo acumulado sin abandonar: " + Math.round(ciclistasCarrera.get(j).calcularTiempoTotal() *100.00)/100.00 + "> <abandonado:" + ciclistasCarrera.get(j).getAbandonado() + "> " + tiene );
+                System.out.println("<ciclista:" + ciclistasCarrera.get(j).getNombre() + "> <energía: " + Math.round(ciclistasCarrera.get(j).getEnergia()*100.00)/100.00 + "> <habilidad: " + ciclistasCarrera.get(j).getHabilidad() + "> <tiempo acumulado sin abandonar: " + Math.round(ciclistasCarrera.get(j).calcularTiempoTotal() *100.00)/100.00 + "> <abandonado:" + ciclistasCarrera.get(j).getAbandonado() + "> " + tiene );
                 if (tieneBicicleta){
                     double tiempoHastaAbandono; // PARA ALMACENAR LA ENERGIA DE LA CARRERA ANTERIOR, QUE COINCIDIRÁ CON EL TIEMPO QUE INVIERTE EN QUEDARSE SIN ENERGIA EN LA SIGUIENTE
                     tiempoHastaAbandono = ciclistasCarrera.get(j).getEnergia();
@@ -193,13 +193,13 @@ public class Organizacion
                         System.out.println("¡¡¡ El ciclista " + ciclistasCarrera.get(j).getNombre() + " se quedó sin energia a falta de " + Math.abs(Math.round(ciclistasCarrera.get(j).obtenerTiempoEtapa(etapa)*100.0)/100.0) + " minutos para terminar !!!");
                         System.out.println("¡¡¡ En el momento de quedarse sin energia llevaba en carrera " + Math.round(tiempoHastaAbandono *100.0)/100.0 +" minutos !!!"); //TODO arreglar tiempo carrera
                         ciclistasAbandonados.add(ciclistasCarrera.get(j));
-                        System.out.println("+++ La energía del ciclista "+ ciclistasCarrera.get(j).getNombre() + " tras la carrera es " + Math.round(ciclistasCarrera.get(j).getEnergia()*100.0)/100.0 + " +++");
+                        System.out.println("+++ La energía del ciclista "+ ciclistasCarrera.get(j).getNombre() + " tras la carrera es " + Math.round(ciclistasCarrera.get(j).getEnergia()*100)/100.00 + " +++");
                         System.out.println("@@@");
                     }
 
                     else {
-                        System.out.println("+++ " + ciclistasCarrera.get(j).getNombre() +" termina la etapa en " + Math.round(ciclistasCarrera.get(j).obtenerTiempoEtapa(etapa)*100.0)/100.0 + " minutos +++");
-                        System.out.println("+++ La energía del ciclista "+ ciclistasCarrera.get(j).getNombre() + " tras la carrera es " + Math.round(ciclistasCarrera.get(j).getEnergia()*100.0)/100.0 + " +++");
+                        System.out.println("+++ " + ciclistasCarrera.get(j).getNombre() +" termina la etapa en " + Math.round(ciclistasCarrera.get(j).obtenerTiempoEtapa(etapa)*100.00)/100.00 + " minutos +++");
+                        System.out.println("+++ La energía del ciclista "+ ciclistasCarrera.get(j).getNombre() + " tras la carrera es " + Math.round(ciclistasCarrera.get(j).getEnergia()*100.00)/100.00 + " +++");
                         System.out.println("@@@");
                     }
                 }
@@ -216,11 +216,11 @@ public class Organizacion
 
             for(int k = 0; k<ciclistasCarrera.size(); k++) { //BUCLE FOR, NECESITO EL INDICE
                 Collections.sort(this.ciclistasCarrera, comparadorTiempoCiclista);
-                System.out.println("@@@ Posición(" + (k+1) + "): "+ ciclistasCarrera.get(k).getNombre() + " - Tiempo: " + Math.round(ciclistasCarrera.get(k).obtenerTiempoEtapa(etapa)*100.0)/100.0 +" minutos @@@");   
+                System.out.println("@@@ Posición(" + (k+1) + "): "+ ciclistasCarrera.get(k).getNombre() + " - Tiempo: " + Math.round(ciclistasCarrera.get(k).obtenerTiempoEtapa(etapa)*100.00)/100.00 +" minutos @@@");   
             }
 
             for(Ciclista ciclista : ciclistasAbandonados){
-                System.out.println("¡¡¡ Ha abandonado " + ciclista.getNombre() +" - Tiempo: " + Math.round(ciclista.getEnergia()*100.0)/100.0 + " - Además ha abandonado para el resto del Campeonato !!!");
+                System.out.println("¡¡¡ Ha abandonado " + ciclista.getNombre() +" - Tiempo: " + Math.round(ciclista.getEnergia()*100.00)/100.00 + " - Además ha abandonado para el resto del Campeonato !!!");
             }
             devolverCiclistasCarrera();
             numCarrera++; //actualizo el indice de la carrera siguiente
