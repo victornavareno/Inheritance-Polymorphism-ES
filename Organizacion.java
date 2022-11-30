@@ -240,14 +240,16 @@ public class Organizacion
      * Muestra la lista de los ciclistas que han abandonado por falta de energía tras realizar todas las carreras
      */
     private void mostrarAbandonados(){
-        Collections.sort(ciclistasAbandonados, Collections.reverseOrder(comparadorTiempoTotalCiclista));
+        Collections.sort(ciclistasAbandonados, comparadorTiempoTotalCiclista); //Collections.S(comparadorTiempoTotalCiclista));
         System.out.println("****************************************************");
         System.out.println("************** CICLISTAS QUE ABANDONARON **************");
         System.out.println("****************************************************");
         for(int i = 0; i<ciclistasAbandonados.size(); i++){
             System.out.println("--- ciclista Abandonado: "+ ciclistasAbandonados.get(i).getNombre() + " - Puntos Totales Anulados: "+ Math.round((ciclistasAbandonados.get(i).calcularTiempoTotal() - ciclistasAbandonados.get(i).getEnergia()) *100.0)/100.0 +" ---");
             for(Etapa etapa : etapas){
-                System.out.println("Carrera(" + etapa.getNombre()+") - Tiempo: "+ Math.round(ciclistasAbandonados.get(i).obtenerTiempoEtapa(etapa)*100.00)/100.00 +" minutos");
+                if(ciclistasAbandonados.get(i).obtenerTiempoEtapa(etapa) != 0 ){
+                    System.out.println("Carrera(" + etapa.getNombre()+") - Tiempo: "+ Math.round(ciclistasAbandonados.get(i).obtenerTiempoEtapa(etapa)*100.00)/100.00 +" minutos");
+                }
             }
             System.out.println();
         }
