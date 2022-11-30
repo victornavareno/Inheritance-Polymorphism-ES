@@ -262,7 +262,7 @@ public class Ciclista
      * @return String con los atributos del ciclista en formato de salida correcto
      */
     public String toString(){               
-        return "> <energía: " + Math.round(energia*100.0)/100.0 + "> <habilidad: " + habilidad.getNombre() +" (valor:" + habilidad.getValor() + ")> <tiempo acumulado sin abandonar: " + Math.round(calcularTiempoTotal()*100.0)/100.0 + "> <abandonado: " + abandonado +">";
+        return "> <energía: " + Math.round(energia*100d)/100d + "> <habilidad: " + habilidad.getNombre() +" (valor:" + habilidad.getValor() + ")> <tiempo acumulado sin abandonar: " + Math.round(calcularTiempoTotal()*100d)/100d + "> <abandonado: " + abandonado +">";
     }
 
     /**
