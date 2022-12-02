@@ -298,6 +298,18 @@ public class Ciclista
         }
         return true;
     }
+    
+    /**
+    * Técnica de generación de hashcode, según se indica en el libro:
+    * Effective Java by Joshua Bloch.
+    */
+    @Override
+    public int hashCode()
+    {
+        int result = 7; // definimos numero primo
+        result = 3 * result + getNombre().hashCode();
+        return result;
+    }
 
     /**
      * Comprueba y actualiza el estado del ciclista, si no tiene energia abandonado pasa a ser true

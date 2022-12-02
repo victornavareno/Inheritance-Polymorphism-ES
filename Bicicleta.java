@@ -66,6 +66,32 @@ public class Bicicleta
     }
 
     /**
+     *  calcular y proporcionar su velocidad cuando es usada por un Ciclista 
+     *  en particular en una Etapa en concreto
+     *  
+     * @param  Ciclista ciclista, Etapa etapa
+     * @return    double velocidad
+     */
+    public double calcularVelocidad(Ciclista ciclista, Etapa etapa)
+    {
+        double velocidad = (ciclista.getHabilidad() * 100) / (peso.getValor() * etapa.getDificultad());
+        return velocidad;
+    }
+
+    /**
+     *  calcular y proporcionar el tiempo necesario (medido en minutos) para terminar
+     *  la Etapa cuando es usada por un Ciclista en particular en una Etapa concreta
+     
+     * @param  Ciclista ciclista, Etapa etapa 
+     * @return    double tiempo
+     */
+    public double calcularTiempo(Ciclista ciclista, Etapa etapa)
+    {
+        double tiempo = (etapa.getDistancia() / calcularVelocidad(ciclista, etapa)) * 60;
+        return tiempo;
+    }
+
+    /**
      * Comprueba que la bicicleta pasada es igual que el nativo comparando sus campos, return false si algún valor distinto
      * 
      * @param Object
@@ -93,32 +119,16 @@ public class Bicicleta
         }
         return true;
     }
-
+    
     /**
-     *  calcular y proporcionar su velocidad cuando es usada por un Ciclista 
-     *  en particular en una Etapa en concreto
-     *  
-     * @param  Ciclista ciclista, Etapa etapa
-     * @return    double velocidad
-     */
-    public double calcularVelocidad(Ciclista ciclista, Etapa etapa)
+    * Técnica de generación de hashcode, según se indica en el libro:
+    * Effective Java by Joshua Bloch.
+    */
+    @Override
+    public int hashCode()
     {
-        double velocidad = (ciclista.getHabilidad() * 100) / (peso.getValor() * etapa.getDificultad());
-        return velocidad;
+        int result = 7; // definimos numero primo
+        result = 3 * result + getNombre().hashCode();
+        return result;
     }
-
-    /**
-     *  calcular y proporcionar el tiempo necesario (medido en minutos) para terminar
-     *  la Etapa cuando es usada por un Ciclista en particular en una Etapa concreta
-     
-     * @param  Ciclista ciclista, Etapa etapa 
-     * @return    double tiempo
-     */
-    public double calcularTiempo(Ciclista ciclista, Etapa etapa)
-    {
-        double tiempo = (etapa.getDistancia() / calcularVelocidad(ciclista, etapa)) * 60;
-        return tiempo;
-    }
-
-
 }
