@@ -267,6 +267,8 @@ public class Ciclista
 
     /**
      * Comprueba que el ciclista pasado es igual que el nativo comparando sus campos, return false si algún valor distinto
+     * 
+     * @param Object obj
      * @return boolean 
      */
     public boolean equals(Object obj){        
@@ -277,6 +279,7 @@ public class Ciclista
             return false; //Tienen diferentes tipos
         }
         Ciclista other = (Ciclista) obj;
+        
         // ... compara cada campo significativo de
         // this y other:
         // return true si todos los valores iguales

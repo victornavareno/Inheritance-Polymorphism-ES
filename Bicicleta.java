@@ -67,8 +67,11 @@ public class Bicicleta
 
     /**
      * Comprueba que la bicicleta pasada es igual que el nativo comparando sus campos, return false si algún valor distinto
+     * 
+     * @param Object
      * @return boolean 
      */
+    @Override
     public boolean equals(Object obj){        
         if(this == obj) {
             return true; //Ambos referencian al mismo objeto
@@ -77,7 +80,8 @@ public class Bicicleta
             return false; //Tienen diferentes tipos
         }
         Bicicleta other = (Bicicleta) obj;
-        // ... compara cada campo significativo de
+        
+        // comparo cada campo significativo de
         // this y other:
         // return true si todos los valores iguales
         // return false si algún valor distinto

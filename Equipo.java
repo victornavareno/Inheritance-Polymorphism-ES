@@ -290,5 +290,31 @@ public class Equipo
             this.ciclistasAbandonado.add(ciclista); //LO AÑADO A LA LISTA DE ABANDONADOS SI ABANDONA
         }
     }
+    
+    /**
+     * Comprueba que la bicicleta pasada es igual que el nativo comparando sus campos, return false si algún valor distinto
+     * 
+     * @param Object 
+     * @return boolean 
+     */
+    @Override
+    public boolean equals(Object obj){        
+        if(this == obj) {
+            return true; //Ambos referencian al mismo objeto
+        }
+        if(!(obj instanceof Bicicleta)) {
+            return false; //Tienen diferentes tipos
+        }
+        Equipo other = (Equipo) obj;
+        
+        // comparo cada campo significativo de
+        // this y other:
+        // return true si todos los valores iguales
+        // return false si algún valor distinto
+        if (getNombre() != other.getNombre()){
+            return false;
+        }
+        return true;
+    }
 }
 

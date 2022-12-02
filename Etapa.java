@@ -83,4 +83,35 @@ public class Etapa
     public String toString(){
         return "<etapa: " + nombre + "> <dificultad:" + dificultad.getNombre() + " (valor:" + dificultad.getValor() + ")> <distancia: " + distancia.getNombre() +  " (valor:" + distancia.getValor() + ")>";
     }
+    
+    /**
+     * Comprueba que la etapa pasada por parámetros es igual que el nativo comparando sus campos, return false si algún valor distinto
+     * @param Object obj
+     * @return boolean 
+     */
+    @Override
+    public boolean equals(Object obj){        
+        if(this == obj) {
+            return true; //Ambos referencian al mismo objeto
+        }
+        if(!(obj instanceof Bicicleta)) {
+            return false; //Tienen diferentes tipos
+        }
+        Etapa other = (Etapa) obj;
+        
+        // comparo cada campo significativo de
+        // this y other:
+        // return true si todos los valores iguales
+        // return false si algún valor distinto
+        if (getNombre() != other.getNombre()){
+            return false;
+        }
+        if (getDificultad() != other.getDificultad()){
+            return false;
+        }
+        if (getDistancia() != other.getDistancia()){
+            return false;
+        }
+        return true;
+    }
 }
