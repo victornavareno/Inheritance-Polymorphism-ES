@@ -7,7 +7,6 @@
  */
 public class CiclistaEstrella extends Ciclista
 {
-    private int popularidad;
     /**
      * Constructor de objetos tipo CiclistaEstrella
      * @param nombre     String con el nombre del ciclista
@@ -18,17 +17,9 @@ public class CiclistaEstrella extends Ciclista
     public CiclistaEstrella(String nombre, Habilidad habilidad, double energia, Equipo equipo)
     {
         super(nombre, habilidad, energia, equipo); //llamada al constructor de la superclase Ciclista
-        this.popularidad = 6; // Popularidad por defecto al empezar el campeonato es 6
+        setPopularidad(6); // Popularidad por defecto al empezar el campeonato es 6 al ser un ciclista estrella
     }
     
-    public void setPopularidad(int popularidad){
-        this.popularidad = popularidad;
-    }
-    
-    public int getPopularidad(){
-        return this.popularidad;
-    }
-
     /**
      * Método que calcula la destreza de un CiclistaEstrella
      * 
@@ -49,10 +40,10 @@ public class CiclistaEstrella extends Ciclista
     public void SerPopular(){
         int popularidad = 0;
         if(super.getTiempoEtapa() < 160){
-            popularidad = this.popularidad + 4;
+            popularidad = getPopularidad() + 4;
         }
         else {
-            popularidad = this.popularidad - 1;
+            popularidad = this.getPopularidad() - 1;
         }
         setPopularidad(popularidad);
     }

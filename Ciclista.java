@@ -13,7 +13,8 @@ public class Ciclista
     private Habilidad habilidad;
     private double energia;
     private boolean abandonado;
-
+    private int popularidad;
+    
     private Etapa etapa;
     private Equipo equipo;
     private Bicicleta bicicleta;
@@ -163,6 +164,15 @@ public class Ciclista
     {
         return this.bicicleta;
     }
+    
+    public void setPopularidad(int popularidad){
+        this.popularidad = popularidad;
+    }
+    
+    public int getPopularidad(){
+        return this.popularidad;
+    }
+
 
     //MÉTODOS CONTROL DEL ARRAYLIST de Resultados:
     /**
