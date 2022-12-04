@@ -7,7 +7,7 @@ import java.util.*;
  * @author Victor
  * @version 1
  */
-public class Ciclista
+abstract class Ciclista
 {
     private String nombre;
     private Habilidad habilidad;
@@ -367,9 +367,7 @@ public class Ciclista
      * Calcula la destreza del ciclista
      * @return destreza 
      */
-    public double calcularDestreza(){
-        double destreza = 0;
-        return destreza;
-    }
+    abstract double calcularDestreza();
+    
 }
 

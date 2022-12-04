@@ -39,7 +39,7 @@ public class CiclistaEstrella extends Ciclista
      */
     public void SerPopular(){
         int popularidad = 0;
-        if(super.getTiempoEtapa() < 160){
+        if(super.getTiempoEtapa() < 160.00){
             popularidad = getPopularidad() + 4;
         }
         else {
