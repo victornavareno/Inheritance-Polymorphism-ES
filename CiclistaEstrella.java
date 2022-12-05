@@ -5,7 +5,7 @@
  * @author Victor 
  * @version 1
  */
-public class CiclistaEstrella extends Ciclista
+public class CiclistaEstrella extends Ciclista implements Popular
 {
     /**
      * Constructor de objetos tipo CiclistaEstrella
@@ -17,7 +17,7 @@ public class CiclistaEstrella extends Ciclista
     public CiclistaEstrella(String nombre, Habilidad habilidad, double energia, Equipo equipo)
     {
         super(nombre, habilidad, energia, equipo); //llamada al constructor de la superclase Ciclista
-        setPopularidad(6); // Popularidad por defecto al empezar el campeonato es 6 al ser un ciclista estrella
+        setPopularidad(6);// Popularidad por defecto al empezar el campeonato es 6 al ser un ciclista estrella
     }
     
     /**
@@ -51,5 +51,9 @@ public class CiclistaEstrella extends Ciclista
     @Override
     public String toString(){
         return "<CiclistaEstrella:" + this.getNombre() + super.toString() + " <popularidad: "+ getPopularidad() +">";
+    }
+    
+    public void serPopular(int y){
+        y= 3;
     }
 }
