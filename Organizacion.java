@@ -202,7 +202,7 @@ public class Organizacion
                         System.out.println("+++ La energía del ciclista "+ ciclistasCarrera.get(j).getNombre() + " tras la carrera es " + Math.round(ciclistasCarrera.get(j).getEnergia()*100d)/100d + " +++");
                         System.out.println("@@@");
                         System.out.println("@@@");
-                        System.out.println("+++ La popularidad del ciclista " + ciclistasCarrera.get(j).getNombre() +" ha aumentado  y ahora su nivel de popularidad es de: "+ ciclistasCarrera.get(j).getPopularidad()+ "unidades" );
+                        System.out.println("+++ La popularidad del ciclista " + ciclistasCarrera.get(j).getNombre() +" ha aumentado  y ahora su nivel de popularidad es de: "+ ciclistasCarrera.get(j).getPopularidad()+ " unidades" );
                         System.out.println("@@@");
                     }
                 }
