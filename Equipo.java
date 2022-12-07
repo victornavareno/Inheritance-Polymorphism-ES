@@ -228,7 +228,7 @@ public class Equipo
     public void mostrarCiclistasAbandonados(){
         OrdenarCiclistasAbandonado();
         for(Ciclista ciclista : ciclistasAbandonado){
-            System.out.println("<ciclista: " + ciclista.getNombre() + "> <energía: " + Math.round(ciclista.getEnergia()*100d)/100d + "> <habilidad: " + Math.round(ciclista.getHabilidad()*100d)/100d + "> <tiempo acumulado sin abandonar: " + Math.round(calcularTiempoAbandonado(ciclista) *100d)/100d + "> <abandonado: " + ciclista.getAbandonado() +">");            
+            System.out.println(ciclista.toString());          
         }
     }
 

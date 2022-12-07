@@ -54,6 +54,10 @@ public class Bicicleta
     double getPeso(){
         return this.peso.getValor();
     }
+    
+    public String getTipoPeso(){
+        return peso.getNombre();
+    }
 
 
     //OTROS METODOS DE LA CLASE Bicicleta:
@@ -62,7 +66,7 @@ public class Bicicleta
      * @return devuelve las características de una Bicicleta
      */    
     public String toString (){
-        return "<Bicicleta: " + nombre + "> <peso: "+ peso.getNombre() +  "(valor: " + peso.getValor() + ")>";
+        return "<Bicicleta>: <peso: "+ peso.getNombre() +  "(valor: " + getPeso() + ")>";
     }
 
     /**

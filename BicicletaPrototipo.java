@@ -22,4 +22,9 @@ public class BicicletaPrototipo extends Bicicleta
         
         return tiempo;
     }
+    
+    @Override
+    public String toString(){
+        return "<BicicletaPrototipo>: <peso: "+ getTipoPeso() +  "(valor: " + getPeso() + ")>";
+    }
 }

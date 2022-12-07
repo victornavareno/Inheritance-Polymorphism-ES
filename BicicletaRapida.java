@@ -18,8 +18,12 @@ public class BicicletaRapida extends Bicicleta
         this.velocidadExtra = velocidadExtra;
     }
     
-    void setVelocidadExtra(double velocidadExtra){
+    public void setVelocidadExtra(double velocidadExtra){
         this.velocidadExtra = velocidadExtra;
+    }
+    
+    public double getVelocidadExtra(){
+        return this.velocidadExtra;
     }
     
     @Override
@@ -27,5 +31,10 @@ public class BicicletaRapida extends Bicicleta
         double velocidad = super.calcularVelocidad(ciclista, etapa);
         velocidad = velocidad + velocidadExtra;
         return velocidad;
+    }
+    
+    @Override
+    public String toString(){
+        return "<BicicletaRapida>: <peso: "+ getTipoPeso() + "(valor: " + getPeso() + ")> "+ "<velocidad extra: "+ getVelocidadExtra() + ">";
     }
 }

@@ -38,7 +38,8 @@ public class CiclistaEstrella extends Ciclista implements Popular
      * Método que calcula y actualiza la popularidad de un ciclista tras una carrera
      * 
      */
-    public void SerPopular(){
+    @Override
+    public void serPopular(){
         int popularidad = 0;
         if(super.getTiempoEtapa() < 160.00){
             popularidad = getPopularidad() + 4;
@@ -51,10 +52,24 @@ public class CiclistaEstrella extends Ciclista implements Popular
     
     @Override
     public String toString(){
-        return "<CiclistaEstrella:" + this.getNombre() + super.toString() + " <popularidad: "+ getPopularidad() +">";
+        return "<CiclistaEstrella: " + this.getNombre() + super.toString() + " <popularidad: "+ getPopularidad() +">";
     }
     
-    public void serPopular(int y){
-        y= 3;
+    @Override 
+    public void hacerCarrera(Etapa etapa){
+            super.hacerCarrera(etapa);
+            int popularidadAntes = getPopularidad(); // guardo la popularidad antes de actualizarla, para más tarde comprobar si ha aumentado o disminuido
+            
+            serPopular(); // al tratarse de un ciclistaEstrella, actualizo su popularidad
+            if(popularidadAntes < getPopularidad()){ // ha aumentado
+                System.out.println("@@@");
+                System.out.println("+++ La popularidad del ciclista " + getNombre() +" ha aumentado  y ahora su nivel de popularidad es de: "+ getPopularidad()+ " unidades" );
+                System.out.println("@@@");
+            }
+            else{
+                System.out.println("@@@");
+                System.out.println("--- La popularidad del ciclista " + getNombre() +" ha disminuido  y ahora su nivel de popularidad es de: "+ getPopularidad()+ " unidades" );
+                System.out.println("@@@");
+            }
     }
 }
