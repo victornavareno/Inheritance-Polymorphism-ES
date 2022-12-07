@@ -1,3 +1,4 @@
+
 import java.util.*;
 /**
  * Representa a la clase Organizacion, capaz de gestionar el campeonato.

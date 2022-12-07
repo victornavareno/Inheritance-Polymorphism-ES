@@ -62,7 +62,7 @@ public class Bicicleta
      * @return devuelve las características de una Bicicleta
      */    
     public String toString (){
-        return "<bicicleta: " + nombre + "> <peso: "+ peso.getNombre() +  "(valor: " + peso.getValor() + ")>";
+        return "<Bicicleta: " + nombre + "> <peso: "+ peso.getNombre() +  "(valor: " + peso.getValor() + ")>";
     }
 
     /**
