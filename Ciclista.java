@@ -227,11 +227,6 @@ abstract class Ciclista
         actualizarAbandono();
         double tiempoTotal = 0;
 
-        // if (getAbandonado() == true){    // SI HA ABANDONADO RECORREMOS ARRAY HASTA SIZE -1        
-        // for (int indice = 0; indice < resultados.size(); indice++)
-        // tiempoTotal = tiempoTotal + resultados.get(indice).getTiempo(); // SUMANDO EL TIEMPO DE CADA POSICIÓN
-        // }  
-        // else
         for (int i = 0; i<resultados.size(); i++){
             tiempoTotal = tiempoTotal + resultados.get(i).getTiempo();
         }     
@@ -362,6 +357,7 @@ abstract class Ciclista
         else{
             resultados.add(new Resultado(this.energia, etapa)); // SE HA QUEDADO SIN ENERGIA, INSERTAMOS EL TIEMPO NEGATIVO EN EL ARRAY RESULTADOS
         }
+        
         
         //nuevo:
         double tiempoHastaAbandono; // PARA ALMACENAR LA ENERGIA DE LA CARRERA ANTERIOR, QUE COINCIDIRÁ CON EL TIEMPO QUE INVIERTE EN QUEDARSE SIN ENERGIA EN LA SIGUIENTE

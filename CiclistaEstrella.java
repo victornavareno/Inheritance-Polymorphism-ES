@@ -41,7 +41,7 @@ public class CiclistaEstrella extends Ciclista implements Popular
     @Override
     public void serPopular(){
         int popularidad = 0;
-        if(super.getTiempoEtapa() < 160.00){
+        if((getTiempoEtapa() < 160.00) && (getEnergia() > 0)){
             popularidad = getPopularidad() + 4;
         }
         else {
