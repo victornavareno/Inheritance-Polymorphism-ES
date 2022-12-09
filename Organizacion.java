@@ -1,4 +1,3 @@
-
 import java.util.*;
 /**
  * Representa a la clase Organizacion, capaz de gestionar el campeonato.
@@ -13,6 +12,7 @@ public class Organizacion
     private List<Equipo> equipos;
     private List<Ciclista> ciclistasCarrera;
     private List<Ciclista> ciclistasAbandonados;
+
 
     //ATRIBUTOS COMPARATOR
     Comparator<Etapa> comparadorEtapa;
