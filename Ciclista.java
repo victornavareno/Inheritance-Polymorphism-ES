@@ -1,5 +1,3 @@
-
-
 import java.util.*;
 
 /**
@@ -21,8 +19,8 @@ abstract class Ciclista
     private Equipo equipo;
     private Bicicleta bicicleta;
 
-    //Arraylist con los resultados obtenidos por el ciclista en cada etapa
-    private List<Resultado> resultados; //SERÁ INICIALIZADO COMO ARRAYLIST
+    //HashMap con los resultados obtenidos por el ciclista en cada etapa
+    private Map<Etapa, Double> resultado1; // Declaro el mapa resultados, donde su clave será una etapa y su contenido el double tiempo obtenido en esa etapa
 
     /**
      * Constructor de la clase Ciclista
@@ -41,7 +39,7 @@ abstract class Ciclista
         this.energia = energia;
 
         this.equipo = equipo;        
-        resultados = new ArrayList<Resultado>();
+        resultado1 = new HashMap<>();
     }
 
     //MÉTODOS MODIFICADORES (set)
@@ -136,7 +134,11 @@ abstract class Ciclista
      * @return double con el tiempo obtenido en la ultima etapa
      */
     public double getTiempoEtapa(){
-        return obtenerTiempoEtapa(resultados.get(resultados.size()-1).getEtapa());
+        double tiempoUltimaEtapa = 0;
+        for (double tiempo : resultado1.values()){
+            tiempoUltimaEtapa = tiempo;
+        }    
+        return tiempoUltimaEtapa;
     }
 
     /**
@@ -176,7 +178,7 @@ abstract class Ciclista
     }
 
 
-    //MÉTODOS CONTROL DEL ARRAYLIST de Resultados:
+    //MÉTODOS CONTROL DEL HASMAP de Resultados:
     /**
      * Encuentra y devuelve el resultado obtenido en una etapa en concreto
      * @param Etapa la etapa de la cual queremos conocer el tiempo resultado
@@ -184,16 +186,9 @@ abstract class Ciclista
      */
     public double obtenerTiempoEtapa(Etapa etapa){
         double tiempoEtapa = 0;
-        int indice = 0;
-        boolean etapaEncontrada = false; // bandera búsqueda en el ArrayList
-
-        while((indice < resultados.size()) && (!etapaEncontrada)){
-            if(resultados.get(indice).getEtapa().equals(etapa)){ //USAMOS EL EQUALS PARA COMPARAR OBJETOS
-                tiempoEtapa = resultados.get(indice).getTiempo();
-                etapaEncontrada = true;
-            }
-            else indice++;
-        }
+        if(resultado1.containsKey(etapa)){
+            tiempoEtapa = resultado1.get(etapa);
+        }//else exception
         return tiempoEtapa;
     }
 
@@ -202,7 +197,7 @@ abstract class Ciclista
      * @return Int total de etapas
      */
     public int obtenerTotalEtapas(){
-        return this.resultados.size();
+        return this.resultado1.size();
     }
 
     /**
@@ -212,10 +207,10 @@ abstract class Ciclista
     public int obtenerTotalEtapasTerminadas(){
         int totalEtapasTerminadas = 0;
         if(getAbandonado() == true){
-            totalEtapasTerminadas = resultados.size() - 1;
+            totalEtapasTerminadas = resultado1.size() - 1;
         }
         else {
-            totalEtapasTerminadas = resultados.size();
+            totalEtapasTerminadas = resultado1.size();
         }
         return totalEtapasTerminadas;
     }
@@ -228,8 +223,8 @@ abstract class Ciclista
         actualizarAbandono();
         double tiempoTotal = 0;
 
-        for (int i = 0; i<resultados.size(); i++){
-            tiempoTotal = tiempoTotal + resultados.get(i).getTiempo();
+        for (double tiempo : resultado1.values()){
+            tiempoTotal = tiempoTotal + tiempo;
         }     
         return tiempoTotal;
     }
@@ -240,7 +235,7 @@ abstract class Ciclista
      */
     public Etapa obtenerEtapaAbandonado(){
         if(getAbandonado() == true){
-            return this.resultados.get(resultados.size()).getEtapa();
+            return null;
         }
         else return null;
     }
@@ -353,10 +348,10 @@ abstract class Ciclista
         actualizarAbandono();
 
         if (!this.abandonado){ // NO HA ABANDONADO
-            resultados.add(new Resultado(tiempoCarrera, etapa)); // AÑADO UN NUEVO RESULTADO AL ARRAY
+            resultado1.put(etapa, tiempoCarrera); // AÑADO UN NUEVO RESULTADO AL HASHMAP
         }
         else{
-            resultados.add(new Resultado(this.energia, etapa)); // SE HA QUEDADO SIN ENERGIA, INSERTAMOS EL TIEMPO NEGATIVO EN EL ARRAY RESULTADOS
+            resultado1.put(etapa, this.energia); // SE HA QUEDADO SIN ENERGIA, INSERTAMOS EL TIEMPO NEGATIVO EN EL ARRAY RESULTADOS
         }
         
         

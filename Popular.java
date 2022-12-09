@@ -14,5 +14,5 @@ public interface Popular
      * @param  y    a sample parameter for a method
      * @return        the result produced by sampleMethod 
      */
-    void serPopular();
+    void serPopular(Etapa etapa);
 }

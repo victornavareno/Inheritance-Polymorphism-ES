@@ -40,9 +40,9 @@ public class CiclistaEstrella extends Ciclista implements Popular
      * 
      */
     @Override
-    public void serPopular(){
+    public void serPopular(Etapa etapa){
         int popularidad = 0;
-        if((getTiempoEtapa() < 160.00) && (getEnergia() > 0)){
+        if((obtenerTiempoEtapa(etapa) < 160.00) && (getEnergia() > 0)){
             popularidad = getPopularidad() + 4;
         }
         else {
@@ -61,7 +61,7 @@ public class CiclistaEstrella extends Ciclista implements Popular
             super.hacerCarrera(etapa);
             int popularidadAntes = getPopularidad(); // guardo la popularidad antes de actualizarla, para más tarde comprobar si ha aumentado o disminuido
             
-            serPopular(); // al tratarse de un ciclistaEstrella, actualizo su popularidad
+            serPopular(etapa); // al tratarse de un ciclistaEstrella, actualizo su popularidad
             if(popularidadAntes < getPopularidad()){ // ha aumentado
                 System.out.println("@@@");
                 System.out.println("+++ La popularidad del ciclista " + getNombre() +" ha aumentado  y ahora su nivel de popularidad es de: "+ getPopularidad()+ " unidades" );

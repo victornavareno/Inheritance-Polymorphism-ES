@@ -317,4 +317,3 @@ public class Equipo
         return true;
     }
 }
-
