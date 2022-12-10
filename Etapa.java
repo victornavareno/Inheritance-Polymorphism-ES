@@ -80,6 +80,7 @@ public class Etapa
      * Muestra las caracteristicas de etapa
      * @return String que muestra las caracteristicas de la etapa
      */
+    @Override
     public String toString(){
         return "<etapa: " + nombre + "> <dificultad:" + dificultad.getNombre() + " (valor:" + dificultad.getValor() + ")> <distancia: " + distancia.getNombre() +  " (valor:" + distancia.getValor() + ")>";
     }

@@ -263,6 +263,7 @@ abstract class Ciclista
      * 
      * @return String con los atributos del ciclista en formato de salida correcto
      */
+    @Override
     public String toString(){               
         return "> <energía: " + Math.round(energia*100d)/100d + "> <habilidad: " + habilidad.getNombre() +" (valor:" + habilidad.getValor() + ")> <tiempo acumulado sin abandonar: " + Math.round(calcularTiempoTotal()*100d)/100d + "> <abandonado: " + abandonado +">";
     }
@@ -308,7 +309,7 @@ abstract class Ciclista
     @Override
     public int hashCode()
     {
-        int result = 7; // definimos numero primo
+        int result = 17; // definimos numero primo
         result = 3 * result + getNombre().hashCode();
         return result;
     }
@@ -380,5 +381,4 @@ abstract class Ciclista
      * @return destreza 
      */
     abstract double calcularDestreza();
-    
 }

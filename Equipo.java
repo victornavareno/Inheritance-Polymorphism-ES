@@ -197,8 +197,21 @@ public class Equipo
      * 
      * @return String 
      */
+    @Override
     public String toString(){
         return "%%% " + nombre;
+    }
+    
+    /**
+    * Técnica de generación de hashcode, según se indica en el libro:
+    * Effective Java by Joshua Bloch.
+    */
+    @Override
+    public int hashCode()
+    {
+        int result = 11; // definimos numero primo
+        result = 3 * result + getNombre().hashCode();
+        return result;
     }
 
     /**
