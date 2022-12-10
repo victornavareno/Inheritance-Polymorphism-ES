@@ -77,20 +77,22 @@ public class CiclistaEstrella extends Ciclista implements Popular
     }
     
     @Override 
-    public void hacerCarrera(Etapa etapa){
-            super.hacerCarrera(etapa);
+    public String hacerCarrera(Etapa etapa){
+            String resumenCarrera = "";
+            resumenCarrera = resumenCarrera + super.hacerCarrera(etapa) + '\n';
             int popularidadAntes = getPopularidad(); // guardo la popularidad antes de actualizarla, para más tarde comprobar si ha aumentado o disminuido
             
             serPopular(etapa); // al tratarse de un ciclistaEstrella, actualizo su popularidad
             if(popularidadAntes < getPopularidad()){ // ha aumentado
-                System.out.println("@@@");
-                System.out.println("+++ La popularidad del ciclista " + getNombre() +" ha aumentado  y ahora su nivel de popularidad es de: "+ getPopularidad()+ " unidades" );
-                System.out.println("@@@");
+                resumenCarrera = resumenCarrera +"@@@"+ '\n';
+                resumenCarrera = resumenCarrera +"+++ La popularidad del ciclista " + getNombre() +" ha aumentado  y ahora su nivel de popularidad es de: "+ getPopularidad()+ " unidades" + '\n';
+                resumenCarrera = resumenCarrera +"@@@" + '\n';
             }
             else{
-                System.out.println("@@@");
-                System.out.println("--- La popularidad del ciclista " + getNombre() +" ha disminuido  y ahora su nivel de popularidad es de: "+ getPopularidad()+ " unidades" );
-                System.out.println("@@@");
+                resumenCarrera = resumenCarrera +"@@@"+ '\n';
+                resumenCarrera = resumenCarrera +"--- La popularidad del ciclista " + getNombre() +" ha disminuido  y ahora su nivel de popularidad es de: "+ getPopularidad()+ " unidades" + '\n';
+                resumenCarrera = resumenCarrera +"@@@" + '\n';
             }
+            return resumenCarrera;
     }
 }

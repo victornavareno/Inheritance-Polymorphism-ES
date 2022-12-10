@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 /**
  * Representa los Equipos que competirán tanto por ganar la clasificación por Equipos como que
  * uno de sus Ciclistas gane el campeonato individual de Ciclistas.
@@ -19,6 +20,10 @@ public class Equipo
     Comparator<Ciclista> comparadorCiclista;
     private boolean ordenarOrdenInversoBicicleta;
     private boolean ordenarOrdenInversoCiclista; 
+    
+    //Inicializo el filewriter
+    FileWriter writer;
+    
 
     /**
      * Constructor parametrizado de la clase Equipo
@@ -218,11 +223,13 @@ public class Equipo
      * Imprime por pantalla cadenas con los Ciclistas que forman parte del Equipo
      * 
      */
-    public void mostrarCiclistas(){
+    public String mostrarCiclistas(){
         OrdenarCiclistas();
+        String listaCiclistas = "";
         for(Ciclista ciclista : ciclistas){
-            System.out.println(ciclista.toString());            
+            listaCiclistas = listaCiclistas + ciclista.toString() + '\n';
         }
+        return listaCiclistas;
     }
 
     /**
@@ -238,11 +245,13 @@ public class Equipo
      * Imprime por pantalla cadenas con los Ciclistas abandonados que forman parte del Equipo
      * 
      */
-    public void mostrarCiclistasAbandonados(){
+    public String mostrarCiclistasAbandonados(){
         OrdenarCiclistasAbandonado();
+        String listaCiclistas = "";
         for(Ciclista ciclista : ciclistasAbandonado){
-            System.out.println(ciclista.toString());          
+            listaCiclistas = listaCiclistas + ciclista.toString() + '\n';
         }
+        return listaCiclistas;
     }
 
     /**

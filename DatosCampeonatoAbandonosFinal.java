@@ -1,12 +1,8 @@
+
 public class DatosCampeonatoAbandonosFinal
 {
-    
     public DatosCampeonatoAbandonosFinal(Organizacion organizacion)
     {
-        System.out.println("*********************************************************************************************************");
-        System.out.println("*****************ESTA SIMULACIÓN CONCLUYE NORMALMENTE COMPLETANDOSE TODAS LAS CARRERAS PERO CON ABANDONOS*******************");
-        System.out.println("*********************************************************************************************************\n");
-        
         initData(organizacion);
     }
     

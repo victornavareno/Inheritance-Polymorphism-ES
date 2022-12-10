@@ -331,10 +331,11 @@ abstract class Ciclista
      * 
      * @param Etapa en la que participa
      */
-    public void hacerCarrera(Etapa etapa){
+    public String hacerCarrera(Etapa etapa){
         double velocidadBicicleta = bicicleta.calcularVelocidad(this, etapa); // CALCULO LA VELOCIDAD QUE ALCANZARÁ EL CICLISTA PARA ESTA ETAPA CON LA BICICLETA
         double tiempoCarrera = bicicleta.calcularTiempo(this, etapa); // CALCULO EL TIEMPO QUE TARDARÁ EL CICLISTA CON LA BICICLETA PARA ESA ETAPA
-
+        String resumenCarrera = "";
+        
         actualizarEnergia(etapa); //CON EL TIEMPO DE LA ETAPA, CALCULO Y ACTUALIZO LA ENERGIA DEL CICLISTA
         actualizarAbandono();
 
@@ -349,21 +350,21 @@ abstract class Ciclista
         //nuevo:
         double tiempoHastaAbandono; // PARA ALMACENAR LA ENERGIA DE LA CARRERA ANTERIOR, QUE COINCIDIRÁ CON EL TIEMPO QUE INVIERTE EN QUEDARSE SIN ENERGIA EN LA SIGUIENTE
         tiempoHastaAbandono = getEnergia();
-        System.out.println(getBicicleta().toString() + " en etapa " + etapa.getNombre());
-        System.out.println("+++ Con estas condiciones el ciclista " + getNombre() + " con la bicicleta " + getBicicleta().getNombre() + " alcanza una velocidad de " + Math.round(getBicicleta().calcularVelocidad(this, etapa)*100d)/100d + " km/hora +++");
+        resumenCarrera = resumenCarrera + (getBicicleta().toString() + " en etapa " + etapa.getNombre()) + '\n';
+        resumenCarrera = resumenCarrera + "+++ Con estas condiciones el ciclista " + getNombre() + " con la bicicleta " + getBicicleta().getNombre() + " alcanza una velocidad de " + Math.round(getBicicleta().calcularVelocidad(this, etapa)*100d)/100d + " km/hora +++" + '\n';
 
         if(getEnergia()<= 0){
-            System.out.println("¡¡¡ El ciclista " + getNombre() + " se quedó sin energia a falta de " + Math.abs(Math.round(obtenerTiempoEtapa(etapa)*100d)/100d) + " minutos para terminar !!!");
-            System.out.println("¡¡¡ En el momento de quedarse sin energia llevaba en carrera " + Math.round(tiempoHastaAbandono *100d)/100d +" minutos !!!"); 
-            System.out.println("+++ La energía del ciclista "+ getNombre() + " tras la carrera es " + Math.round(getEnergia()*100d)/100d + " +++");
-            
+            resumenCarrera = resumenCarrera + "¡¡¡ El ciclista " + getNombre() + " se quedó sin energia a falta de " + Math.abs(Math.round(obtenerTiempoEtapa(etapa)*100d)/100d) + " minutos para terminar !!!" + '\n';
+            resumenCarrera = resumenCarrera + "¡¡¡ En el momento de quedarse sin energia llevaba en carrera " + Math.round(tiempoHastaAbandono *100d)/100d +" minutos !!!" + '\n'; 
+            resumenCarrera = resumenCarrera + "+++ La energía del ciclista "+ getNombre() + " tras la carrera es " + Math.round(getEnergia()*100d)/100d + " +++" + '\n';
         }
 
         else {
-            System.out.println("+++ " + getNombre() +" termina la etapa en " + Math.round(obtenerTiempoEtapa(etapa)*100d)/100d + " minutos +++");
-            System.out.println("+++ La energía del ciclista "+ getNombre() + " tras la carrera es " + Math.round(getEnergia()*100d)/100d + " +++");
-            System.out.println("@@@");
+            resumenCarrera = resumenCarrera + "+++ " + getNombre() +" termina la etapa en " + Math.round(obtenerTiempoEtapa(etapa)*100d)/100d + " minutos +++" + '\n';
+            resumenCarrera = resumenCarrera + "+++ La energía del ciclista "+ getNombre() + " tras la carrera es " + Math.round(getEnergia()*100d)/100d + " +++" + '\n';
+            resumenCarrera = resumenCarrera + "@@@";
         }
+        return resumenCarrera;
     }
     
     /**

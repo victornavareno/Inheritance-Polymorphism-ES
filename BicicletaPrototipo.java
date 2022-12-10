@@ -25,6 +25,6 @@ public class BicicletaPrototipo extends Bicicleta
     
     @Override
     public String toString(){
-        return "<BicicletaPrototipo>: <peso: "+ getTipoPeso() +  "(valor: " + getPeso() + ")>";
+        return "<BicicletaPrototipo: " + getNombre() + "> <peso: "+ getTipoPeso() +  "(valor: " + getPeso() + ")>";
     }
 }

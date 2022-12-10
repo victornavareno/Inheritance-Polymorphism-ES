@@ -35,6 +35,6 @@ public class BicicletaRapida extends Bicicleta
     
     @Override
     public String toString(){
-        return "<BicicletaRapida>: <peso: "+ getTipoPeso() + "(valor: " + getPeso() + ")> "+ "<velocidad extra: "+ getVelocidadExtra() + ">";
+        return "<BicicletaRapida: " + getNombre() + "> <peso: "+ getTipoPeso() + "(valor: " + getPeso() + ")> "+ "<velocidad extra: "+ getVelocidadExtra() + ">";
     }
 }

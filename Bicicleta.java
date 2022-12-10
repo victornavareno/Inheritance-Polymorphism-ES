@@ -67,7 +67,7 @@ public class Bicicleta
      */ 
     @Override
     public String toString (){
-        return "<Bicicleta>: <peso: "+ peso.getNombre() +  "(valor: " + getPeso() + ")>";
+        return "<Bicicleta: " + this.getNombre() +  "> <peso: "+ peso.getNombre() +  "(valor: " + getPeso() + ")>";
     }
 
     /**
