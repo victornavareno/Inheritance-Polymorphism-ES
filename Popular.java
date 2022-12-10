@@ -1,6 +1,6 @@
 
 /**
- * Write a description of interface popularidad here.
+ * Interfaz que define los métodos necesarios para implementar un sistema de popularidad en la clase que la implemente
  * 
  * @author Victor
  * @version 1
@@ -9,10 +9,9 @@
 public interface Popular
 {
     /**
-     * An example of a method header - replace this comment with your own
+     * Calcula y actualiza la popularidad para cada etapa del campeonato en el que se implementa
      * 
-     * @param  y    a sample parameter for a method
-     * @return        the result produced by sampleMethod 
+     * @param  Etapa con la etapa en la que el participante ha competido 
      */
     void serPopular(Etapa etapa);
 }

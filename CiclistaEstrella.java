@@ -9,6 +9,8 @@
  */
 public class CiclistaEstrella extends Ciclista implements Popular
 {
+    private int popularidad; // defino el cmapo popularidad único a esta clase
+    
     /**
      * Constructor de objetos tipo CiclistaEstrella
      * @param nombre     String con el nombre del ciclista
@@ -20,6 +22,24 @@ public class CiclistaEstrella extends Ciclista implements Popular
     {
         super(nombre, habilidad, energia, equipo); //llamada al constructor de la superclase Ciclista
         setPopularidad(6);// Popularidad por defecto al empezar el campeonato es 6 al ser un ciclista estrella
+    }
+    
+    /**
+     * Asigna el valor del campo popularidad
+     * 
+     * @param int popularidad
+     */
+    private void setPopularidad(int popularidad){
+        this.popularidad = popularidad;
+    }
+    
+   /**
+     * Devuelve la popularidad
+     * 
+     * @return int popularidad
+     */
+    private int getPopularidad(){
+        return this.popularidad;
     }
     
     /**

@@ -26,7 +26,7 @@ public class Bicicleta
      * Asigna el nombre de la bicicleta
      * @param String nombreBici 
      */
-    protected void setNombre(String nombre){
+    public void setNombre(String nombre){
         this.nombre = nombre;
     }
 
@@ -34,7 +34,7 @@ public class Bicicleta
      * Asigna el peso de la bicicleta
      * @param double pesoBici
      */
-    protected void setPeso(Peso peso){
+    public void setPeso(Peso peso){
         this.peso = peso;
     }
 
@@ -43,7 +43,7 @@ public class Bicicleta
      * Devuelve el nombre de la Bicicleta
      * @return String con el nombre de la bicicleta
      */
-    String getNombre(){
+    public String getNombre(){
         return this.nombre;
     }
 
@@ -51,7 +51,7 @@ public class Bicicleta
      * Devuelve el peso de la Bicicleta
      * @return double peso
      */
-    double getPeso(){
+    public double getPeso(){
         return this.peso.getValor();
     }
     

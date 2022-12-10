@@ -137,7 +137,7 @@ public class Equipo
      * 
      * @return ArrayList<Ciclista> con los ciclistas ordenados 
      */
-    public void OrdenarCiclistas(){
+    private void OrdenarCiclistas(){
         //System.out.println("Ordenando ciclistas");  
         if(this.ordenarOrdenInversoCiclista == true){      
             Collections.sort(this.ciclistas, Collections.reverseOrder(comparadorCiclista)); // ORDENO EN ORDEN INVERSO
@@ -150,7 +150,7 @@ public class Equipo
      * 
      * @return ArrayList<Ciclista> con los ciclistas abandonados ordenados 
      */
-    public void OrdenarCiclistasAbandonado(){
+    private void OrdenarCiclistasAbandonado(){
         if(this.ordenarOrdenInversoCiclista == true){      
             Collections.sort(this.ciclistasAbandonado, Collections.reverseOrder(comparadorCiclista)); // ORDENO EN ORDEN INVERSO
         }
@@ -162,7 +162,7 @@ public class Equipo
      * 
      * @return ArrayList<Bicicleta> con las bicicletas
      */
-    public void OrdenarBicicletas(){
+    private void OrdenarBicicletas(){
         //System.out.println("Ordenando bicicletas");
         if(this.ordenarOrdenInversoBicicleta == true){      
             Collections.sort(this.bicicletas, Collections.reverseOrder(comparadorBicicleta)); // ORDENO EN ORDEN INVERSO
@@ -250,7 +250,7 @@ public class Equipo
      * 
      * @return double 
      */
-    public double calcularTiempoAbandonado(Ciclista ciclista){
+    private double calcularTiempoAbandonado(Ciclista ciclista){
         return (ciclista.calcularTiempoTotal() - ciclista.getEnergia());
     }
 

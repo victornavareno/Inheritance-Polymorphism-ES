@@ -13,7 +13,6 @@ abstract class Ciclista
     private Habilidad habilidad;
     private double energia;
     private boolean abandonado;
-    private int popularidad;
     
     private Etapa etapa;
     private Equipo equipo;
@@ -133,7 +132,7 @@ abstract class Ciclista
      * 
      * @return double con el tiempo obtenido en la ultima etapa
      */
-    public double getTiempoEtapa(){
+    protected double getTiempoEtapa(){
         double tiempoUltimaEtapa = 0;
         for (double tiempo : resultado1.values()){
             tiempoUltimaEtapa = tiempo;
@@ -169,15 +168,6 @@ abstract class Ciclista
         return this.bicicleta;
     }
     
-    public void setPopularidad(int popularidad){
-        this.popularidad = popularidad;
-    }
-    
-    public int getPopularidad(){
-        return this.popularidad;
-    }
-
-
     //MÉTODOS CONTROL DEL HASMAP de Resultados:
     /**
      * Encuentra y devuelve el resultado obtenido en una etapa en concreto
@@ -196,7 +186,7 @@ abstract class Ciclista
      * Devuelve el numero de etapas en las que ha participado el ciclista, incluye la etapa en la que abandona
      * @return Int total de etapas
      */
-    public int obtenerTotalEtapas(){
+    private int obtenerTotalEtapas(){
         return this.resultado1.size();
     }
 
@@ -204,7 +194,7 @@ abstract class Ciclista
      * Devuelve el numero de etapas que ha terminado el ciclista, no incluye la etapa en la que abandona
      * @return Int total de etapas completadas
      */
-    public int obtenerTotalEtapasTerminadas(){
+    protected int obtenerTotalEtapasTerminadas(){
         int totalEtapasTerminadas = 0;
         if(getAbandonado() == true){
             totalEtapasTerminadas = resultado1.size() - 1;
@@ -219,7 +209,7 @@ abstract class Ciclista
      * Calcula el tiempo total empleado por un ciclista en todas sus etapas completadas
      * @return double tiempo obtenido en todas las etapas que completa
      */
-    public double calcularTiempoTotal(){
+    protected double calcularTiempoTotal(){
         actualizarAbandono();
         double tiempoTotal = 0;
 
@@ -233,7 +223,7 @@ abstract class Ciclista
      * Devuelve la etapa final del ciclista, en la que abandona
      * @return Etapa etapa en la que el ciclista abandona
      */
-    public Etapa obtenerEtapaAbandonado(){
+    protected Etapa obtenerEtapaAbandonado(){
         if(getAbandonado() == true){
             return null;
         }
@@ -318,7 +308,7 @@ abstract class Ciclista
      * Comprueba y actualiza el estado del ciclista, si no tiene energia abandonado pasa a ser true
      * 
      */
-    public void actualizarAbandono(){
+    protected void actualizarAbandono(){
         if(this.energia > 0){
             setAbandonado(false);
         }
@@ -331,7 +321,7 @@ abstract class Ciclista
      * Calcula y actualiza la energía del ciclista
      * 
      */
-    public void actualizarEnergia(Etapa etapa){
+    protected void actualizarEnergia(Etapa etapa){
         energia = energia - bicicleta.calcularTiempo(this, etapa);
         setEnergia(energia);
     }
