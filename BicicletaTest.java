@@ -13,19 +13,14 @@ import org.junit.jupiter.api.Test;
  */
 public class BicicletaTest
 {
-    //ETAPAS EJEMPLO:
-    Etapa SencillaLarga = new Etapa("sencilla larga", Dificultad.SENCILLA, Distancia.LARGA);
-    Etapa etapa1 = new Etapa("sencilla intermedia", Dificultad.SENCILLA, Distancia.INTERMEDIA);
+    private Etapa SencillaLarga;
+    private Etapa etapa1;
     
-    //BICICLETAS EJEMPLO:
-    Bicicleta BicicletaNormal = new Bicicleta("SCOTT CONTESSA ADDICT RC 15", Peso.PESADA);
+    private Bicicleta BicicletaNormal;
+    private Equipo DSMWomen;
     
-    //EQUIPOS EJEMPLO:
-    Equipo DSMWomen = new Equipo("DSM Women", new ComparadorPesoBicicleta(), new ComparadorEnergiaCiclista(), false, false);
-    
-    //CICLISTAS EJEMPLO
-    CiclistaNovato CiclistaNovato = new CiclistaNovato("WIEBES",  Habilidad.NORMAL, 1190, DSMWomen);
-    CiclistaExperimentado CiclistaExperimentado = new CiclistaExperimentado("LABOUS", Habilidad.BUENA, 1150, DSMWomen);
+    private Ciclista CiclistaNovato;
+    private Ciclista CiclistaExperimentado;
     
     /**
      * Default constructor for test class BicicletaTest
@@ -42,6 +37,21 @@ public class BicicletaTest
     @BeforeEach
     public void setUp()
     {
+    //modelo fixture para objetos en módulos de prueba=
+    //ETAPAS EJEMPLO:
+    SencillaLarga = new Etapa("sencilla larga", Dificultad.SENCILLA, Distancia.LARGA);
+    etapa1 = new Etapa("sencilla intermedia", Dificultad.SENCILLA, Distancia.INTERMEDIA);
+    
+    //BICICLETAS EJEMPLO:
+    BicicletaNormal = new Bicicleta("SCOTT CONTESSA ADDICT RC 15", Peso.PESADA);
+    
+    //EQUIPOS EJEMPLO:
+    DSMWomen = new Equipo("DSM Women", new ComparadorPesoBicicleta(), new ComparadorEnergiaCiclista(), false, false);
+    
+    //CICLISTAS EJEMPLO
+    CiclistaNovato = new CiclistaNovato("WIEBES",  Habilidad.NORMAL, 1190, DSMWomen);
+    CiclistaExperimentado = new CiclistaExperimentado("LABOUS", Habilidad.BUENA, 1150, DSMWomen);
+    
     }
 
     /**
@@ -63,7 +73,6 @@ public class BicicletaTest
     @Test
     public void calcularMinutosEnEtapa()
     {
- 
         assertEquals(105.98, BicicletaNormal.calcularTiempo(CiclistaExperimentado, etapa1), 0.6);
     }
 }

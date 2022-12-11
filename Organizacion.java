@@ -61,14 +61,13 @@ public class Organizacion
     public void gestionarCampeonato(){
         try{
         writer.write("*********************************************************************************************************" + '\n');
-        writer.write("*****************ESTA SIMULACIÓN CONCLUYE NORMALMENTE COMPLETANDOSE TODAS LAS CARRERAS PERO CON ABANDONOS*******************" + '\n');
+        writer.write("*****************ESTA SIMULACIÓN CONCLUYE NORMALMENTE COMPLETANDOSE TODAS LAS CARRERAS*******************" + '\n');
         writer.write("*********************************************************************************************************"+ '\n');
         writer.write('\n');
         
         }catch(IOException ex){
             System.out.println("Error al mostrar la cabecera del campeonato completo de abandonos"); 
         }
-
         
         mostrarEtapas();
 
@@ -218,7 +217,7 @@ public class Organizacion
                 writer.write('\n');
                 anadirCiclistaCarrera();
                 writer.write("********************************************************************************************************" + '\n');
-                writer.write("*** CARRERA<"+ (numCarrera) + "> EN " + etapa.toString() + " ***");   
+                writer.write("*** CARRERA<"+ (numCarrera) + "> EN " + etapa.toString() + " ***" + '\n');   
                 writer.write("********************************************************************************************************"+ '\n');
                 writer.write("********************************************************************************************************"+ '\n');
                 writer.write("******************************** Ciclistas que van a competir en " + etapa.getNombre() + " *******************************"+ '\n');
@@ -229,7 +228,7 @@ public class Organizacion
             }
                 
             }catch(IOException ex1){
-                System.out.println("Error al mostrar la cabecera de la carrera");
+                System.out.println("Error al mostrar la cabecera de la carrera"); // lanzo excepción si no funciona correctamente
             }
             
             //escribo el desarrollo de la carrera 

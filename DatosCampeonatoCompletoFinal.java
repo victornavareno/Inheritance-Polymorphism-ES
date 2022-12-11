@@ -3,10 +3,6 @@ public class DatosCampeonatoCompletoFinal
     
     public DatosCampeonatoCompletoFinal(Organizacion organizacion)
     {
-        System.out.println("*********************************************************************************************************");
-        System.out.println("*****************ESTA SIMULACIÓN CONCLUYE NORMALMENTE COMPLETÁNDOSE TODAS LAS CARRERAS*******************");
-        System.out.println("*********************************************************************************************************\n");
-        
         initData(organizacion);
     }
     
