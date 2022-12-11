@@ -23,7 +23,7 @@ public class CiclistaExperimentado extends Ciclista
     /**
      * Método que calcula la destreza de un ciclista experimentado
      * 
-     * @return     destreza
+     * @return     destreza que posee el ciclistaExperimentado en estas condiciones
      */
     @Override
     public double calcularDestreza()

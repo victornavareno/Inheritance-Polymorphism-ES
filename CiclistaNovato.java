@@ -23,7 +23,7 @@ public class CiclistaNovato extends Ciclista
     /**
      * Método que calcula la destreza de un CiclistaNovato
      * 
-     * @return     destreza
+     * @return     destreza que posee el ciclistaNovato en estas condiciones
      */
     @Override
     public double calcularDestreza()

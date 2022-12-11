@@ -133,12 +133,29 @@ public class Organizacion
      * 
      */
     private void anadirCiclistaCarrera(){
-        for(int i=0; i < equipos.size(); i++) {
-            int numCiclistas = equipos.get(i).obtenerTotalCiclistas();
+        for(Equipo equipo: equipos) {
+            int numCiclistas = equipo.obtenerTotalCiclistas();
             for(int j=0; j < numCiclistas; j++){
-                ciclistasCarrera.add(equipos.get(i).enviarCiclista());
+                ciclistasCarrera.add(equipo.enviarCiclista());
             }
         }
+    }
+    
+    /**
+     *  Comprueba si todos los ciclistasCarrera han abandonado
+     *  
+     *  @return boolean
+     */
+    public boolean comprobarTodosCiclistasAbandonado(){
+        boolean hanAbandonado = true;
+        if(!ciclistasCarrera.isEmpty()){
+            for(Ciclista ciclista : ciclistasCarrera){
+            if(ciclista.getAbandonado() == false){
+                hanAbandonado = false;
+              }
+            }
+        }
+        return hanAbandonado;
     }
 
     /**

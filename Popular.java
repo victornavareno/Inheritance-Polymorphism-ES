@@ -1,6 +1,6 @@
 
 /**
- * Interfaz que define los métodos necesarios para implementar un sistema de popularidad en la clase que la implemente
+ * Interfaz que define los métodos necesarios para implementar un sistema de popularidad 
  * 
  * @author Victor
  * @version 1

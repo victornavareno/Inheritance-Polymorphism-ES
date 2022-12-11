@@ -14,7 +14,7 @@ public class Etapa
 
     /**
      * Constructor de clase Etapa
-     * @param nombre String es el nombre de la etama
+     * @param nombre String es el nombre de la etapa
      * @param dificultad Dificultad mide la dureza del recorrido
      * @param distancia Distancia son los kilometros a realizar en el recorrido de la Etapa
      */
@@ -87,8 +87,8 @@ public class Etapa
     
     /**
      * Comprueba que la etapa pasada por parámetros es igual que el nativo comparando sus campos, return false si algún valor distinto
-     * @param Object obj
-     * @return boolean 
+     * @param Object obj con el objeto a comparar
+     * @return boolean si el objeto pasado es igual al utilizado
      */
     @Override
     public boolean equals(Object obj){        

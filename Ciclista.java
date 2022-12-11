@@ -30,6 +30,7 @@ abstract class Ciclista
      * @param abandonado   Boolean para indicar si el ciclista ha abandonado o no
      * @param equipo     Equipo al que pertenece el ciclista
      * @param bicicleta  Bicicleta asignada al ciclista
+     * @param resultados HashMap que contendrá los resultados del ciclista. Clave = Etapa , Valor = Tiempo obtenido en esa Etapa
      */
     public Ciclista(String nombre, Habilidad habilidad, double energia, Equipo equipo)
     {
@@ -320,6 +321,7 @@ abstract class Ciclista
     /**
      * Calcula y actualiza la energía del ciclista
      * 
+     * @param Etapa en la que compite el ciclista
      */
     protected void actualizarEnergia(Etapa etapa){
         energia = energia - bicicleta.calcularTiempo(this, etapa);
@@ -327,9 +329,10 @@ abstract class Ciclista
     }
 
     /**
-     * Calcula y actualiza los resultados (tiempo) de un ciclista en una etapa en concreto utilizando su bicicleta (participar en una carrera)
+     * Calcula y actualiza los resultados (tiempo) de un ciclista en una etapa en concreto utilizando su bicicleta (participar en una carrera), devolviendo un String resumen
      * 
      * @param Etapa en la que participa
+     * @return String con una descripcion de lo que ocurre durante la carrera
      */
     public String hacerCarrera(Etapa etapa){
         double velocidadBicicleta = bicicleta.calcularVelocidad(this, etapa); // CALCULO LA VELOCIDAD QUE ALCANZARÁ EL CICLISTA PARA ESTA ETAPA CON LA BICICLETA
@@ -369,7 +372,7 @@ abstract class Ciclista
     
     /**
      * Calcula la destreza del ciclista
-     * @return destreza 
+     * @return Double destreza 
      */
     abstract double calcularDestreza();
 }

@@ -27,7 +27,7 @@ public class CiclistaEstrella extends Ciclista implements Popular
     /**
      * Asigna el valor del campo popularidad
      * 
-     * @param int popularidad
+     * @param int popularidad con el valor que queremos actualizar
      */
     private void setPopularidad(int popularidad){
         this.popularidad = popularidad;
@@ -36,7 +36,7 @@ public class CiclistaEstrella extends Ciclista implements Popular
    /**
      * Devuelve la popularidad
      * 
-     * @return int popularidad
+     * @return int popularidad del ciclista en el momento actual
      */
     private int getPopularidad(){
         return this.popularidad;
@@ -45,7 +45,7 @@ public class CiclistaEstrella extends Ciclista implements Popular
     /**
      * Método que calcula la destreza de un CiclistaEstrella
      * 
-     * @return     destreza
+     * @return     destreza del ciclistaEstrella con sus condiciones actuales
      */
     @Override
     public double calcularDestreza()
@@ -58,6 +58,7 @@ public class CiclistaEstrella extends Ciclista implements Popular
     /**
      * Método que calcula y actualiza la popularidad de un ciclista tras una carrera
      * 
+     * @param Etapa etapa en la que el ciclista ha participado y que afectará a su popularidad
      */
     @Override
     public void serPopular(Etapa etapa){
@@ -76,6 +77,12 @@ public class CiclistaEstrella extends Ciclista implements Popular
         return "<CiclistaEstrella: " + this.getNombre() + super.toString() + " <popularidad: "+ getPopularidad() +">";
     }
     
+    /**
+     * Hereda de la superclase Ciclista, pero añadiendo la funcionalidad SerPopular 
+     * 
+     * @param Etapa en la que compite el ciclista
+     * @return String con el resumen de lo que ocurre en esa etapa, añadiendo el desarrollo de la popularidad del ciclista durante la misma
+     */
     @Override 
     public String hacerCarrera(Etapa etapa){
             String resumenCarrera = "";

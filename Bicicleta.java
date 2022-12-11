@@ -14,6 +14,8 @@ public class Bicicleta
 
     /**
      *  Constructor parametrizado de Bicicleta
+     *  @param String nombre de la bicicleta
+     *  @param Peso enum con las especificaciones del peso de la bici
      */
     public Bicicleta(String nombre, Peso peso)
     {
@@ -24,7 +26,7 @@ public class Bicicleta
     //MÉTODOS MODIFICADORES (set)
     /**
      * Asigna el nombre de la bicicleta
-     * @param String nombreBici 
+     * @param String nombre con el nombre de la bicicleta
      */
     public void setNombre(String nombre){
         this.nombre = nombre;
@@ -32,7 +34,7 @@ public class Bicicleta
 
     /**
      * Asigna el peso de la bicicleta
-     * @param double pesoBici
+     * @param Peso con el peso que queremos asignar
      */
     public void setPeso(Peso peso){
         this.peso = peso;
@@ -49,12 +51,16 @@ public class Bicicleta
 
     /**
      * Devuelve el peso de la Bicicleta
-     * @return double peso
+     * @return Peso con el peso de la bicicleta
      */
     public double getPeso(){
         return this.peso.getValor();
     }
     
+    /**
+     * Devuelve el nombre del tipo de peso de la bicicleta
+     * @return 
+     */
     public String getTipoPeso(){
         return peso.getNombre();
     }
@@ -99,8 +105,8 @@ public class Bicicleta
     /**
      * Comprueba que la bicicleta pasada es igual que el nativo comparando sus campos, return false si algún valor distinto
      * 
-     * @param Object
-     * @return boolean 
+     * @param Object con el objeto a comparar // en este caso tipo Bicicleta
+     * @return boolean si ambos objetos son iguales en contenido
      */
     @Override
     public boolean equals(Object obj){        

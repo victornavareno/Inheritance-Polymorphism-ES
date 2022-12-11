@@ -200,7 +200,7 @@ public class Equipo
     /**
      * Devuelve cadena con las caracteristicas del equipo en el formato indicado
      * 
-     * @return String 
+     * @return String con la cabecera del equipo
      */
     @Override
     public String toString(){
