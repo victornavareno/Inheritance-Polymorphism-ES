@@ -41,6 +41,10 @@ public class Equipo
         this.comparadorCiclista = comparatorCiclista;
         this.ordenarOrdenInversoBicicleta = ordenarOrdenInversoBicicleta;
         this.ordenarOrdenInversoCiclista = ordenarOrdenInversoCiclista;
+        
+        if(this.nombre.length() == 0 || nombre == null ) { // controlo que el nombre tenga un valor no vacio ""
+            throw new IllegalStateException("El nombre no debe estar inicializado a una cadena vacia o a nulo.");
+        }
     }
 
     //MÉTODOS MODIFICADORES (set)

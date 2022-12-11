@@ -19,8 +19,22 @@ public class Bicicleta
      */
     public Bicicleta(String nombre, Peso peso)
     {
-        this. nombre = nombre;
+        this.nombre = nombre;
         this.peso = peso;
+        
+        if(nombre == null){
+        throw new IllegalArgumentException(
+            "El nombre de la bicicleta no puede ser nulo.");
+        }
+        
+        if(peso == null){
+        throw new IllegalArgumentException(
+           "El peso de la bicicleta no puede ser nulo.");
+        }
+            
+        if(this.nombre.length() == 0 ) { // controlo que el nombre tenga un valor no vacio ""
+            throw new IllegalStateException("El nombre no debe estar inicializado a una cadena vacia.");
+        }
     }
 
     //MÉTODOS MODIFICADORES (set)

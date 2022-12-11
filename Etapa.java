@@ -1,9 +1,7 @@
 /**
  * La clase Etapa representa al recorrido donde competirán cada jornada los Ciclistas con sus Bicicletas.
  * 
- * @author Víctor Navareño
- * @author Andrés
- * @author Elena
+ * @author Víctor
  * @version 1
  */
 public class Etapa
@@ -23,6 +21,15 @@ public class Etapa
         this.nombre= nombre;
         this.dificultad = dificultad;
         this.distancia = distancia;
+
+        if(nombre == null){
+        throw new IllegalArgumentException(
+            "El nombre de la etapa no puede ser nulo.");
+        }
+        
+        if(this.nombre.length() == 0 ) { // controlo que el nombre tenga un valor no vacio ""
+            throw new IllegalStateException("El nombre no debe estar inicializado a una cadena vacia.");
+        }
     }
 
     //MÉTODOS MODIFICADORES (set)

@@ -20,7 +20,7 @@ abstract class Ciclista
 
     //HashMap con los resultados obtenidos por el ciclista en cada etapa
     private Map<Etapa, Double> resultados; // Declaro el mapa resultados, donde su clave será una etapa y su contenido el double tiempo obtenido en esa etapa
-
+    
     /**
      * Constructor de la clase Ciclista
      * 
@@ -40,6 +40,25 @@ abstract class Ciclista
 
         this.equipo = equipo;        
         resultados = new HashMap<>();
+        
+        
+        if(nombre == null || nombre.length() == 0){
+        throw new IllegalArgumentException(
+            "El nombre del ciclista no puede ser nulo o estar inicializado a cadena vacia.");
+        }
+        
+        if(habilidad == null){
+        throw new IllegalArgumentException(
+            "La habilidad del ciclista no puede ser nulo.");
+        }
+        
+        if(this.energia <= 0 ) { // controlo que la energia no sea inicializada a 0
+            throw new IllegalStateException("La energia no puede empezar siendo 0 o negativa.");
+        }
+        
+        if(this.abandonado == true ) { // controlo que el ciclista no sea inicializado a abandonado 
+            throw new IllegalStateException("El ciclista no puede empezar la carrera si su estado  es abandonado.");
+        }
     }
 
     //MÉTODOS MODIFICADORES (set)
@@ -94,6 +113,12 @@ abstract class Ciclista
      * @param Bicicleta bicleta asignada al ciclista
      */
     public void setBicicleta(Bicicleta bicicleta) {
+        
+        if(bicicleta == null){
+        throw new IllegalArgumentException(
+            "La bicicleta del ciclista no puede ser null.");
+        }
+        
         if(bicicleta != null){
             this.bicicleta = bicicleta;
         }
@@ -178,6 +203,12 @@ abstract class Ciclista
      * @return double tiempo obtenido en la etapa
      */
     public double obtenerTiempoEtapa(Etapa etapa){
+        
+        if(etapa == null){
+        throw new IllegalArgumentException(
+            "La etapa no puede ser null.");
+        }
+        
         double tiempoEtapa = 0;
         if(resultados.containsKey(etapa)){
             tiempoEtapa = resultados.get(etapa);

@@ -17,6 +17,10 @@ public class BicicletaRapida extends Bicicleta
     {
         super(nombre, peso);
         this.velocidadExtra = velocidadExtra;
+        
+        if(this.velocidadExtra <= 0 ) { // controlo que la velocidad extra no sea inicializada a  < 0
+            throw new IllegalStateException("La velocidad no puede empezar siendo 0 o negativa.");
+        }
     }
     
     /**

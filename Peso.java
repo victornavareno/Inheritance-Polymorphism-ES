@@ -17,6 +17,11 @@ public enum Peso
     private Peso(String nombre, double valor){
         this.nombre = nombre;
         this.valor = valor;
+        
+        if(nombre == null || nombre.length() == 0 ){
+        throw new IllegalArgumentException(
+            "El nombre no puede ser nulo o tener longitud vacia.");
+        }
     }
     
 

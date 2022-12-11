@@ -49,7 +49,7 @@ public class Organizacion
             try{
             writer  = new FileWriter("Salida.txt"); 
             }
-            catch(IOException ex){
+            catch(IOException ex){ // el fichero debe poder incializarse correctamente
             System.out.println("Error al abrir el fichero"); 
         }
     }
