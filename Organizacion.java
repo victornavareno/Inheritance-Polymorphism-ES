@@ -45,7 +45,7 @@ public class Organizacion
             comparadorTiempoTotalCiclista = new ComparadorTiempoTotalCiclista();
             
             
-        // inicializo el fichero de salida
+        // inicializo el fichero de salida donde se resumirá el campeonato
             try{
             writer  = new FileWriter("Salida.txt"); 
             }
@@ -144,7 +144,7 @@ public class Organizacion
     /**
      *  Comprueba si todos los ciclistasCarrera han abandonado
      *  
-     *  @return boolean
+     *  @return boolean false si todos los ciclistas del ArrayList de participantes han abandonado
      */
     public boolean comprobarTodosCiclistasAbandonado(){
         boolean hanAbandonado = true;
