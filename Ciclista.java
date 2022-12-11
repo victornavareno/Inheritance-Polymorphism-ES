@@ -19,7 +19,7 @@ abstract class Ciclista
     private Bicicleta bicicleta;
 
     //HashMap con los resultados obtenidos por el ciclista en cada etapa
-    private Map<Etapa, Double> resultado1; // Declaro el mapa resultados, donde su clave será una etapa y su contenido el double tiempo obtenido en esa etapa
+    private Map<Etapa, Double> resultados; // Declaro el mapa resultados, donde su clave será una etapa y su contenido el double tiempo obtenido en esa etapa
 
     /**
      * Constructor de la clase Ciclista
@@ -38,7 +38,7 @@ abstract class Ciclista
         this.energia = energia;
 
         this.equipo = equipo;        
-        resultado1 = new HashMap<>();
+        resultados = new HashMap<>();
     }
 
     //MÉTODOS MODIFICADORES (set)
@@ -134,7 +134,7 @@ abstract class Ciclista
      */
     protected double getTiempoEtapa(){
         double tiempoUltimaEtapa = 0;
-        for (double tiempo : resultado1.values()){
+        for (double tiempo : resultados.values()){
             tiempoUltimaEtapa = tiempo;
         }    
         return tiempoUltimaEtapa;
@@ -176,8 +176,8 @@ abstract class Ciclista
      */
     public double obtenerTiempoEtapa(Etapa etapa){
         double tiempoEtapa = 0;
-        if(resultado1.containsKey(etapa)){
-            tiempoEtapa = resultado1.get(etapa);
+        if(resultados.containsKey(etapa)){
+            tiempoEtapa = resultados.get(etapa);
         }//else exception
         return tiempoEtapa;
     }
@@ -187,7 +187,7 @@ abstract class Ciclista
      * @return Int total de etapas
      */
     private int obtenerTotalEtapas(){
-        return this.resultado1.size();
+        return this.resultados.size();
     }
 
     /**
@@ -197,10 +197,10 @@ abstract class Ciclista
     protected int obtenerTotalEtapasTerminadas(){
         int totalEtapasTerminadas = 0;
         if(getAbandonado() == true){
-            totalEtapasTerminadas = resultado1.size() - 1;
+            totalEtapasTerminadas = resultados.size() - 1;
         }
         else {
-            totalEtapasTerminadas = resultado1.size();
+            totalEtapasTerminadas = resultados.size();
         }
         return totalEtapasTerminadas;
     }
@@ -213,7 +213,7 @@ abstract class Ciclista
         actualizarAbandono();
         double tiempoTotal = 0;
 
-        for (double tiempo : resultado1.values()){
+        for (double tiempo : resultados.values()){
             tiempoTotal = tiempoTotal + tiempo;
         }     
         return tiempoTotal;
@@ -340,10 +340,10 @@ abstract class Ciclista
         actualizarAbandono();
 
         if (!this.abandonado){ // NO HA ABANDONADO
-            resultado1.put(etapa, tiempoCarrera); // AÑADO UN NUEVO RESULTADO AL HASHMAP
+            resultados.put(etapa, tiempoCarrera); // AÑADO UN NUEVO RESULTADO AL HASHMAP
         }
         else{
-            resultado1.put(etapa, this.energia); // SE HA QUEDADO SIN ENERGIA, INSERTAMOS EL TIEMPO NEGATIVO EN EL ARRAY RESULTADOS
+            resultados.put(etapa, this.energia); // SE HA QUEDADO SIN ENERGIA, INSERTAMOS EL TIEMPO NEGATIVO EN EL ARRAY RESULTADOS
         }
         
         

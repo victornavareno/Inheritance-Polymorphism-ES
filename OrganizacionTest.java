@@ -6,12 +6,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * The test class CiclistaNovatoTest.
+ * The test class OrganizacionTest.
  *
  * @author  (your name)
  * @version (a version number or a date)
  */
-public class CiclistaNovatoTest
+public class OrganizacionTest
 {
     private Etapa etapa1;
     private Etapa etapa2;
@@ -20,13 +20,16 @@ public class CiclistaNovatoTest
     private Bicicleta bicicleta2;
 
     private Equipo DSMWomen;
+    private Equipo MovistarWomen;
     
     private Ciclista ciclista1;
     private Ciclista ciclista2;
+    
+    private Organizacion organizacion;
     /**
-     * Default constructor for test class CiclistaNovatoTest
+     * Default constructor for test class OrganizacionTest
      */
-    public CiclistaNovatoTest()
+    public OrganizacionTest()
     {
     }
 
@@ -38,7 +41,7 @@ public class CiclistaNovatoTest
     @BeforeEach
     public void setUp()
     {
-        //modelo fixture para objetos en módulos de prueba=
+            //modelo fixture para objetos en módulos de prueba=
     //ETAPAS EJEMPLO:
     etapa1 = new Etapa("sencilla intermedia", Dificultad.SENCILLA, Distancia.INTERMEDIA);
     etapa2 = new Etapa("sencilla larga", Dificultad.SENCILLA, Distancia.LARGA);
@@ -50,10 +53,15 @@ public class CiclistaNovatoTest
     
     //EQUIPOS EJEMPLO:
     DSMWomen = new Equipo("DSM Women", new ComparadorPesoBicicleta(), new ComparadorEnergiaCiclista(), false, false);
+    MovistarWomen = new Equipo("Movistar Women", new ComparadorPesoBicicleta(), new ComparadorEnergiaCiclista(), false, false);
+    
     
     //CICLISTAS EJEMPLO
     ciclista1 = new CiclistaNovato("WIEBES",  Habilidad.NORMAL, 1190, DSMWomen);
     ciclista2 = new CiclistaExperimentado("LABOUS", Habilidad.BUENA, 1150, DSMWomen);
+    
+    //NUEVA ORGANIZACION
+    organizacion = new Organizacion(new ComparadorDificultadEtapa());
     }
 
     /**
@@ -67,24 +75,10 @@ public class CiclistaNovatoTest
     }
     
     @Test
-    public void hacerCarrera(){
-        ciclista1.setBicicleta(bicicleta1);
-        ciclista1.hacerCarrera(etapa1);
-        assertEquals(141,  ciclista1.getTiempoEtapa(), 0.5);
-    }
-    
-    @Test
-    public void getTotalMinutosEnCarrerasTerminadas(){
-        ciclista1.setBicicleta(bicicleta1);
-        ciclista1.hacerCarrera(etapa1);
-        ciclista1.setBicicleta(bicicleta2);
-        ciclista1.hacerCarrera(etapa2);
-        assertEquals(290, ciclista1.calcularTiempoTotal(),0.8);
-    }
-    
-    @Test
-    public void getDestreza(){
-        ciclista1.setBicicleta(bicicleta1);
-        assertEquals(0.6,  ciclista1.calcularDestreza(), 0.5);
+    public void inscribirEquipo(){
+        organizacion.inscribirEquipo(DSMWomen);
+        organizacion.inscribirEquipo(MovistarWomen);
+        
+        assertEquals(2, organizacion.calcularNumeroEquiposInscritos());
     }
 }

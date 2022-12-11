@@ -105,6 +105,17 @@ public class Organizacion
         }
         Collections.sort(equipos, comparadorNombreEquipo);
     }
+    
+    /**
+     * Devuelve el numero de equipos inscritos al campeonato
+     * 
+     * @return int numeroEquipos
+     */
+    public int calcularNumeroEquiposInscritos()
+    {
+        int numEquipos = equipos.size();
+        return numEquipos;
+    }
 
     //CARGA ETAPAS
     /**

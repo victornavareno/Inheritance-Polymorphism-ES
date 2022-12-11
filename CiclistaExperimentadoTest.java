@@ -6,12 +6,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * The test class CiclistaNovatoTest.
+ * The test class CiclistaExperimentadoTest.
  *
  * @author  (your name)
  * @version (a version number or a date)
  */
-public class CiclistaNovatoTest
+public class CiclistaExperimentadoTest
 {
     private Etapa etapa1;
     private Etapa etapa2;
@@ -24,9 +24,9 @@ public class CiclistaNovatoTest
     private Ciclista ciclista1;
     private Ciclista ciclista2;
     /**
-     * Default constructor for test class CiclistaNovatoTest
+     * Default constructor for test class CiclistaExperimentadoTest
      */
-    public CiclistaNovatoTest()
+    public CiclistaExperimentadoTest()
     {
     }
 
@@ -38,7 +38,7 @@ public class CiclistaNovatoTest
     @BeforeEach
     public void setUp()
     {
-        //modelo fixture para objetos en módulos de prueba=
+            //modelo fixture para objetos en módulos de prueba=
     //ETAPAS EJEMPLO:
     etapa1 = new Etapa("sencilla intermedia", Dificultad.SENCILLA, Distancia.INTERMEDIA);
     etapa2 = new Etapa("sencilla larga", Dificultad.SENCILLA, Distancia.LARGA);
@@ -67,24 +67,16 @@ public class CiclistaNovatoTest
     }
     
     @Test
-    public void hacerCarrera(){
-        ciclista1.setBicicleta(bicicleta1);
-        ciclista1.hacerCarrera(etapa1);
-        assertEquals(141,  ciclista1.getTiempoEtapa(), 0.5);
-    }
-    
-    @Test
-    public void getTotalMinutosEnCarrerasTerminadas(){
-        ciclista1.setBicicleta(bicicleta1);
-        ciclista1.hacerCarrera(etapa1);
-        ciclista1.setBicicleta(bicicleta2);
-        ciclista1.hacerCarrera(etapa2);
-        assertEquals(290, ciclista1.calcularTiempoTotal(),0.8);
-    }
-    
-    @Test
     public void getDestreza(){
+        ciclista2.setBicicleta(bicicleta1);
+        assertEquals(0.9,  ciclista2.calcularDestreza(), 0.2);
+    }
+    
+    @Test 
+    public void getResultadoEtapa(){
         ciclista1.setBicicleta(bicicleta1);
-        assertEquals(0.6,  ciclista1.calcularDestreza(), 0.5);
+        ciclista1.setEquipo(DSMWomen);
+        ciclista1.hacerCarrera(etapa1);
+        assertEquals(141,  ciclista1.obtenerTiempoEtapa(etapa1), 0.5);
     }
 }
