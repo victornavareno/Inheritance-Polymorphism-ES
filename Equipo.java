@@ -272,10 +272,10 @@ public class Equipo
     public Ciclista enviarCiclista(){
         OrdenarCiclistas();
         OrdenarBicicletas();
-
+        
         Ciclista ciclista;
         Bicicleta bicicleta;
-        if (this.ciclistas.isEmpty()){ // COMPRUEBO QUE EL ARRAY ESTÉ VACIO
+        if (this.ciclistas.isEmpty() || this.bicicletas.isEmpty()){ // COMPRUEBO QUE EL ARRAY DE CICLISTAS O BICICLETAS ESTÉ VACIO
             ciclista = null;
         }
         else{
@@ -302,15 +302,20 @@ public class Equipo
      * @param Ciclista ciclista que ha terminado la carrera
      */
     public void devolverCiclista(Ciclista ciclista){
-        this.bicicletas.add(ciclista.getBicicleta());
+        if(ciclista.getBicicleta()!= null){
+            this.bicicletas.add(ciclista.getBicicleta());
+        }
         ciclista.actualizarAbandono();
-
-        if(ciclista.getAbandonado() == false){
-            this.ciclistas.add(ciclista); //LO AÑADO A LA LISTA DE CICLISTAS SI AÚN TIENE ENERGIA
+        
+        if(ciclista != null){ // compruebo que el ciclista no sea nulo antes de añadirlo
+            if(ciclista.getAbandonado() == false){
+                this.ciclistas.add(ciclista); //LO AÑADO A LA LISTA DE CICLISTAS SI AÚN TIENE ENERGIA
+            }
+            else {
+                this.ciclistasAbandonado.add(ciclista); //LO AÑADO A LA LISTA DE ABANDONADOS SI ABANDONA
+            }
         }
-        else {
-            this.ciclistasAbandonado.add(ciclista); //LO AÑADO A LA LISTA DE ABANDONADOS SI ABANDONA
-        }
+       
     }
     
     /**

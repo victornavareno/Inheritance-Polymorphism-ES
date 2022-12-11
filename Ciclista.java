@@ -94,7 +94,9 @@ abstract class Ciclista
      * @param Bicicleta bicleta asignada al ciclista
      */
     public void setBicicleta(Bicicleta bicicleta) {
-        this.bicicleta = bicicleta;
+        if(bicicleta != null){
+            this.bicicleta = bicicleta;
+        }
     }
 
     //MÉTODOS DE ACCESO (get)
