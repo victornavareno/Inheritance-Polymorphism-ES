@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------
-El proyecto consiste en simular como una Organización de competiciones ciclistas gestiona
+El proyecto consiste en simular cómo una Organización de competiciones ciclistas gestiona
 una carrera compuesta por una serie de Etapas. En estas carreras participan distintas Equipos
 compuestos por Ciclistas y las Bicicletas que los Equipos les asignan para competir. El objetivo
 de los Ciclistas será acabar cada Etapa con el menor tiempo posible y así tratar de ganar el
